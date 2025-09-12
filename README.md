@@ -1,4 +1,4 @@
-# 🧹 Chahuadev Emoji Cleaner
+ 🧹 Chahuadev Emoji Cleaner
 
 **เครื่องมือลบอิโมจิสำหรับโปรเจ็กต์ JavaScript, TypeScript และ HTML**
 
@@ -86,17 +86,46 @@ npx @chahuadev/emoji-cleaner ./components/Header.jsx --dry-run
 npx @chahuadev/emoji-cleaner . --backup --verbose
 ```
 
-## ⚙️ ตัวเลือกคำสั่ง
+## ⚙️ ตัวเลือกคำสั่งทั้งหมด
 
-| ตัวเลือก | คำอธิบาย | ตัวอย่าง |
+| ตัวเลือก | คำอธิบาย | ตัวอย่างการใช้งาน |
 |---------|----------|---------|
-| `--dry-run, -d` | ดูผลลัพธ์โดยไม่แก้ไขไฟล์จริง | `--dry-run` |
-| `--verbose, -v` | แสดงรายละเอียดขณะประมวลผล | `--verbose` |
-| `--backup, -b` | สร้างไฟล์สำรองก่อนแก้ไข | `--backup` |
-| `--extensions, -e` | ระบุประเภทไฟล์ | `-e js,ts,html` |
-| `--exclude, -x` | ข้ามโฟลเดอร์ | `-x node_modules,dist` |
-| `--help, -h` | แสดงคำแนะนำ | `--help` |
-| `--version` | แสดงเวอร์ชัน | `--version` |
+| `--dry-run, -d` | ดูผลลัพธ์โดยไม่แก้ไขไฟล์จริง | `npx @chahuadev/emoji-cleaner . --dry-run` |
+| `--verbose, -v` | แสดงรายละเอียดขณะประมวลผล | `npx @chahuadev/emoji-cleaner . --verbose` |
+| `--backup, -b` | สร้างไฟล์สำรองก่อนแก้ไข | `npx @chahuadev/emoji-cleaner . --backup` |
+| `--extensions, -e` | ระบุประเภทไฟล์ที่ต้องการ | `npx @chahuadev/emoji-cleaner . -e js,ts,html` |
+| `--exclude, -x` | ข้ามโฟลเดอร์ที่ไม่ต้องการ | `npx @chahuadev/emoji-cleaner . -x node_modules,dist` |
+| `--help, -h` | แสดงคำแนะนำการใช้งาน | `npx @chahuadev/emoji-cleaner --help` |
+| `--version` | แสดงเวอร์ชันของเครื่องมือ | `npx @chahuadev/emoji-cleaner --version` |
+
+### 🎯 คำสั่งขั้นสูง
+
+**รวมหลายตัวเลือก:**
+```bash
+# ตรวจสอบเฉพาะไฟล์ JS/TS พร้อมรายละเอียด
+npx @chahuadev/emoji-cleaner ./src --dry-run --verbose --extensions js,ts
+
+# ลบอิโมจิ + สำรอง + ข้ามโฟลเดอร์ + แสดงรายละเอียด
+npx @chahuadev/emoji-cleaner . --backup --verbose --exclude dist,build,temp
+
+# ประมวลผลหลายเป้าหมาย
+npx @chahuadev/emoji-cleaner ./src ./components ./utils --dry-run --verbose
+```
+
+**คำสั่งเฉพาะประเภทไฟล์:**
+```bash
+# เฉพาะไฟล์ JavaScript
+npx @chahuadev/emoji-cleaner . --extensions js --dry-run
+
+# เฉพาะไฟล์ TypeScript
+npx @chahuadev/emoji-cleaner . --extensions ts,tsx --dry-run
+
+# เฉพาะไฟล์ React (JSX)
+npx @chahuadev/emoji-cleaner . --extensions jsx,tsx --dry-run
+
+# เฉพาะไฟล์ HTML
+npx @chahuadev/emoji-cleaner . --extensions html --dry-run
+```
 
 ## 📁 ไฟล์ที่รองรับ
 
@@ -106,27 +135,54 @@ npx @chahuadev/emoji-cleaner . --backup --verbose
 
 ## 💡 ตัวอย่างการใช้งานจริง
 
-### ในโปรเจ็กต์ React
-
+### 🔥 สำหรับโปรเจ็กต์ React
 ```bash
-# ตรวจสอบก่อน
-npx @chahuadev/emoji-cleaner src --dry-run
+# ตรวจสอบ React project ทั้งหมด
+npx @chahuadev/emoji-cleaner ./src --extensions jsx,tsx --dry-run --verbose
 
-# ลบอิโมจิในโฟลเดอร์ src
-npx @chahuadev/emoji-cleaner src --backup --verbose
+# ลบอิโมจิใน React components
+npx @chahuadev/emoji-cleaner ./src/components --backup --verbose
 
-# ลบเฉพาะ component
-npx @chahuadev/emoji-cleaner src/components --dry-run
+# ลบอิโมจิใน pages และ components
+npx @chahuadev/emoji-cleaner ./src/pages ./src/components --backup
 ```
 
-### ในโปรเจ็กต์ Node.js
-
+### ⚡ สำหรับโปรเจ็กต์ Node.js
 ```bash
-# ทั้งโปรเจ็กต์ (ข้าม node_modules อัตโนมัติ)
-npx @chahuadev/emoji-cleaner . --backup
+# ตรวจสอบ Node.js project (ข้าม node_modules อัตโนมัติ)
+npx @chahuadev/emoji-cleaner . --exclude dist,build --dry-run --verbose
 
-# เฉพาะโฟลเดอร์สำคัญ
-npx @chahuadev/emoji-cleaner src routes controllers --verbose
+# ลบอิโมจิใน server files
+npx @chahuadev/emoji-cleaner ./routes ./controllers ./middleware --backup
+
+# ลบอิโมจิทั้งโปรเจ็กต์ยกเว้นโฟลเดอร์ build
+npx @chahuadev/emoji-cleaner . --backup --exclude node_modules,dist,build,coverage
+```
+
+### 🎯 สำหรับโปรเจ็กต์ TypeScript
+```bash
+# ตรวจสอบเฉพาะไฟล์ TypeScript
+npx @chahuadev/emoji-cleaner . --extensions ts,tsx --dry-run
+
+# ลบอิโมจิในไฟล์ TypeScript พร้อมสำรอง
+npx @chahuadev/emoji-cleaner ./src --extensions ts,tsx --backup --verbose
+```
+
+### 🌐 สำหรับไฟล์ HTML
+```bash
+# ตรวจสอบเฉพาะไฟล์ HTML
+npx @chahuadev/emoji-cleaner . --extensions html --dry-run
+
+# ลบอิโมจิในไฟล์ HTML ในโฟลเดอร์ public
+npx @chahuadev/emoji-cleaner ./public --extensions html --backup
+```
+
+### 📦 สำหรับการ Deploy
+```bash
+# ขั้นตอนก่อน build production
+npx @chahuadev/emoji-cleaner . --dry-run --verbose  # ตรวจสอบก่อน
+npx @chahuadev/emoji-cleaner . --backup            # ลบอิโมจิ
+npm run build                                      # build production
 ```
 
 ### เพิ่มใน package.json scripts
@@ -704,6 +760,49 @@ buildProject();
 - **Code review**: เตรียมโค้ดสำหรับการรีวิว
 - **Production builds**: ลบอิโมจิก่อน deploy
 - **Code migration**: ทำความสะอาดโปรเจ็กต์เก่า
+
+## ⚠️ คำเตือนสำคัญ
+
+- 🔍 **ใช้ `--dry-run` ก่อนเสมอ** เพื่อดูผลลัพธ์
+- 💾 **ใช้ `--backup` สำหรับไฟล์สำคัญ**
+- ✅ **ทดสอบโค้ดหลังลบอิโมจิ** เพื่อให้แน่ใจว่าทำงานปกติ
+- 📋 **ตรวจสอบ Git status** ก่อน commit
+- 🚫 **อิโมจิใน string literals จะถูกลบด้วย** โปรดระวัง
+
+## 📈 ประสิทธิภาพ
+
+- ⚡ **เร็ว**: ประมวลผล 1000+ ไฟล์ใน < 1 วินาที  
+- 💾 **ประหยัด**: ลดขนาดไฟล์ 1-5%
+- 🛡️ **ปลอดภัย**: ไม่ทำลายโครงสร้างโค้ด
+- 🌍 **รองรับ Unicode**: ลบอิโมจิทุกประเภท
+
+## 🔧 การแก้ไขปัญหา
+
+### ปัญหาที่พบบ่อย
+
+**1. ไฟล์ไม่ถูกประมวลผล**
+```bash
+# ตรวจสอบประเภทไฟล์ที่รองรับ
+npx @chahuadev/emoji-cleaner . --dry-run --verbose
+
+# ระบุ extension เอง
+npx @chahuadev/emoji-cleaner . --extensions js,ts,jsx,tsx,html --dry-run
+```
+
+**2. ข้อผิดพลาดเรื่อง permission**
+```bash
+# ใช้ backup เพื่อความปลอดภัย
+npx @chahuadev/emoji-cleaner . --backup --verbose
+```
+
+**3. ต้องการกู้คืนไฟล์**
+```bash
+# ใช้ Git
+git restore .
+
+# หรือใช้ backup folder ที่สร้างไว้
+cp -r emoji-backup-YYYY-MM-DD-HH-MM-SS/* ./
+```
 
 ## 🤝 การสนับสนุน
 
