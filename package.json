@@ -47,10 +47,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chahuadev/emoji-cleaner.git"
+    "url": "git+https://github.com/chahuadev/chahuadev-emoji-cleaner-tool"
   },
   "bugs": {
-    "url": "https://github.com/chahuadev/emoji-cleaner/issues"
+    "url": "https://github.com/chahuadev/chahuadev-emoji-cleaner-tool/issues"
   },
-  "homepage": "https://github.com/chahuadev/emoji-cleaner#readme"
+  "homepage": "https://github.com/chahuadev/chahuadev-emoji-cleaner-tool#readme"
 }
