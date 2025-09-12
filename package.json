@@ -1,6 +1,6 @@
 {
   "name": "@chahuadev/emoji-cleaner",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Universal emoji cleaner tool for JavaScript, TypeScript, and HTML projects - Command line utility and npm package",
   "main": "src/index.js",
   "bin": {
