@@ -1,53 +1,272 @@
-# 🧹 Universal Emoji Cleaner
+# 🧹 Chahuadev Emoji Cleaner
 
-**เครื่องมือลบอิโมจิสากลสำหรับโปรเจ็กต์ JavaScript, TypeScript และ HTML**
+**เครื่องมือลบอิโมจิสำหรับโปรเจ็กต์ JavaScript, TypeScript และ HTML**
 
 [![npm version](https://badge.fury.io/js/%40chahuadev%2Femoji-cleaner.svg)](https://badge.fury.io/js/%40chahuadev%2Femoji-cleaner)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-เครื่องมือที่ช่วยทำความสะอาดอิโมจิในโค้ดอย่างรวดเร็วและปลอดภัย เหมาะสำหรับการเตรียมโค้ดเพื่อขึ้น production หรือการทำ code review
-
 ## 🎯 ทำไมต้องใช้?
 
-- **🚀 เพิ่มความเป็นมืออาชีพ**: โค้ดที่ไม่มีอิโมจิดูเป็นมืออาชีพมากกว่า
-- **📦 ลดขนาดไฟล์**: ประหยัดเนื้อที่และ bandwidth
-- **🔍 ผ่าน Code Review**: หลายบริษัทไม่อนุญาตให้ใช้อิโมจิในโค้ด
-- **⚡ รองรับหลายภาษา**: JS, TS, JSX, TSX, HTML
-- **🛡️ ปลอดภัย**: มี dry-run mode และ backup
+เมื่อคุณพัฒนาโปรเจ็กต์และใช้อิโมจิในโค้ดระหว่างพัฒนา แต่ต้องการทำความสะอาดก่อนขึ้น production หรือส่งให้ลูกค้า
 
-## ✨ คุณสมบัติ
+**ตัวอย่างปัญหา:**
+```javascript
+console.log("Hello World! �"); // ❌ มีอิโมจิ
+// TODO: Fix this bug � ⚠️  // ❌ Comment มีอิโมจิ
+```
 
-- 🎯 **สแกนและลบอิโมจิอัตโนมัติ** จากไฟล์ JS, TS, JSX, TSX, HTML
-- 🔍 **Dry-run mode** ดูตัวอย่างก่อนลบจริง
-- 💾 **สำรองไฟล์อัตโนมัติ** ป้องกันการสูญหาย
-- 🌍 **ใช้งานได้ทุกที่** ไม่ต้องอยู่ในโปรเจ็กต์เดียวกัน
+**หลังใช้ Emoji Cleaner:**
+```javascript
+console.log("Hello World! "); // ✅ สะอาด
+// TODO: Fix this bug  // ✅ Comment สะอาด
+```
+
+## ✨ คุณสมบัติหลัก
+
+- 🎯 **ลบอิโมจิอัตโนมัติ** จากไฟล์ .js, .ts, .jsx, .tsx, .html
+- 🔍 **Dry-run mode** ดูผลลัพธ์ก่อนลบจริง (ปลอดภัย)
+- 💾 **สำรองไฟล์** ป้องกันการสูญหาย
 - ⚡ **ประมวลผลเร็ว** รองรับโฟลเดอร์ขนาดใหญ่
-- 🛡️ **ข้ามโฟลเดอร์ระบบ** (node_modules, .git, dist, build)
-- 📚 **ใช้เป็น Library** สำหรับโปรเจ็กต์ Node.js
-- 🗨️ **ลบคอมเมนต์อิโมจิ** คอมเมนต์ที่มีแต่อิโมจิ
+- 🛡️ **ข้ามโฟลเดอร์ระบบ** (node_modules, .git, dist, build) อัตโนมัติ
+- 📚 **ใช้เป็น Library** สำหรับ Node.js
 
 ## 📦 การติดตั้ง
 
-### ใช้งานครั้งเดียว (แนะนำ)
+### วิธีที่ 1: ใช้งานทันที (ไม่ต้องติดตั้ง)
 ```bash
 npx @chahuadev/emoji-cleaner
 ```
 
-### ติดตั้งแบบ Global
-```bash
-npm install -g @chahuadev/emoji-cleaner
-```
-
-### ติดตั้งในโปรเจ็กต์
+### วิธีที่ 2: ติดตั้งในโปรเจ็กต์
 ```bash
 npm install @chahuadev/emoji-cleaner --save-dev
 ```
 
-## 🚀 วิธีใช้งานในโปรเจ็กต์
+### วิธีที่ 3: ติดตั้งแบบ Global
+```bash
+npm install -g @chahuadev/emoji-cleaner
+```
 
-### 1. ใช้งานพื้นฐาน
+## � วิธีใช้งานในโปรเจ็กต์จริง
+
+### 1. ตรวจสอบก่อนลบ (Dry-run) - **แนะนำ**
 
 ```bash
+# ดูว่ามีอิโมจิอะไรบ้างในโปรเจ็กต์
+npx @chahuadev/emoji-cleaner . --dry-run
+
+# ดูรายละเอียด
+npx @chahuadev/emoji-cleaner . --dry-run --verbose
+```
+
+### 2. ลบอิโมจิในโฟลเดอร์เฉพาะ
+
+```bash
+# ลบอิโมจิในโฟลเดอร์ src
+npx @chahuadev/emoji-cleaner ./src
+
+# ลบพร้อมสำรองไฟล์
+npx @chahuadev/emoji-cleaner ./src --backup
+```
+
+### 3. ลบอิโมจิในไฟล์เดียว
+
+```bash
+# ลบอิโมจิในไฟล์เฉพาะ
+npx @chahuadev/emoji-cleaner ./components/Header.jsx
+
+# ตรวจสอบก่อน
+npx @chahuadev/emoji-cleaner ./components/Header.jsx --dry-run
+```
+
+### 4. ลบอิโมจิทั้งโปรเจ็กต์
+
+```bash
+# ลบทั้งโปรเจ็กต์ (ข้าม node_modules อัตโนมัติ)
+npx @chahuadev/emoji-cleaner . --backup --verbose
+```
+
+## ⚙️ ตัวเลือกคำสั่ง
+
+| ตัวเลือก | คำอธิบาย | ตัวอย่าง |
+|---------|----------|---------|
+| `--dry-run, -d` | ดูผลลัพธ์โดยไม่แก้ไขไฟล์จริง | `--dry-run` |
+| `--verbose, -v` | แสดงรายละเอียดขณะประมวลผล | `--verbose` |
+| `--backup, -b` | สร้างไฟล์สำรองก่อนแก้ไข | `--backup` |
+| `--extensions, -e` | ระบุประเภทไฟล์ | `-e js,ts,html` |
+| `--exclude, -x` | ข้ามโฟลเดอร์ | `-x node_modules,dist` |
+| `--help, -h` | แสดงคำแนะนำ | `--help` |
+| `--version` | แสดงเวอร์ชัน | `--version` |
+
+## 📁 ไฟล์ที่รองรับ
+
+- 📄 **JavaScript** (.js, .jsx)
+- 📄 **TypeScript** (.ts, .tsx)  
+- 📄 **HTML** (.html)
+
+## 💡 ตัวอย่างการใช้งานจริง
+
+### ในโปรเจ็กต์ React
+
+```bash
+# ตรวจสอบก่อน
+npx @chahuadev/emoji-cleaner src --dry-run
+
+# ลบอิโมจิในโฟลเดอร์ src
+npx @chahuadev/emoji-cleaner src --backup --verbose
+
+# ลบเฉพาะ component
+npx @chahuadev/emoji-cleaner src/components --dry-run
+```
+
+### ในโปรเจ็กต์ Node.js
+
+```bash
+# ทั้งโปรเจ็กต์ (ข้าม node_modules อัตโนมัติ)
+npx @chahuadev/emoji-cleaner . --backup
+
+# เฉพาะโฟลเดอร์สำคัญ
+npx @chahuadev/emoji-cleaner src routes controllers --verbose
+```
+
+### เพิ่มใน package.json scripts
+
+```json
+{
+  "scripts": {
+    "clean:emojis": "emoji-cleaner . --dry-run",
+    "clean:emojis:apply": "emoji-cleaner . --backup",
+    "prebuild": "emoji-cleaner src --backup"
+  }
+}
+```
+
+## 📊 ตัวอย่างผลลัพธ์
+
+```
+🧹 Chahuadev Emoji Cleaner v2.1.0
+================================
+🔍 DRY RUN MODE - ไม่มีการแก้ไขไฟล์
+🎯 Target: ./src
+📁 Extensions: .js, .ts, .jsx, .tsx, .html
+
+✅ src/components/Header.jsx
+   📝 Emojis removed: 15
+   💬 Comments cleaned: 2
+   📏 Size: 2.5KB → 2.4KB
+
+✅ src/pages/Home.tsx  
+   📝 Emojis removed: 8
+   💬 Comments cleaned: 0
+   📏 Size: 5.2KB → 5.1KB
+
+================================
+📊 สรุปผลลัพธ์:
+   📁 Files processed: 25
+   🔄 Files with changes: 12
+   🧹 Total emojis removed: 156
+   💬 Comments cleaned: 8
+   ⏱️  Processing time: 0.15s
+
+💡 ใช้คำสั่งโดยไม่มี --dry-run เพื่อลบจริง
+```
+
+## 🔧 ใช้เป็น Library ในโค้ด
+
+```javascript
+const { removeEmojis, processFile, processDirectory } = require('@chahuadev/emoji-cleaner');
+
+// ลบอิโมจิจากข้อความ
+const result = removeEmojis('Hello 😊 World! 🎉');
+console.log(result.text); // "Hello  World! "
+console.log(result.emojiCount); // 2
+
+// ประมวลผลไฟล์
+const fileResult = processFile('./src/App.js', {
+  dryRun: true,
+  createBackup: false
+});
+
+// ประมวลผลโฟลเดอร์
+const dirResult = processDirectory('./src', {
+  dryRun: false,
+  createBackup: true,
+  extensions: ['.js', '.ts', '.jsx', '.tsx']
+});
+```
+
+## 🛡️ ความปลอดภัย
+
+- **Dry-run mode**: ตรวจสอบผลลัพธ์ก่อนลบจริง
+- **Auto backup**: สำรองไฟล์อัตโนมัติ (เมื่อใช้ --backup)
+- **Smart skipping**: ข้ามโฟลเดอร์ระบบอัตโนมัติ
+- **Error handling**: จัดการข้อผิดพลาดอย่างปลอดภัย
+- **Git integration**: ใช้ร่วมกับ Git ได้ดี
+
+## 🎯 Use Cases จริง
+
+### 1. ก่อนขึ้น Production
+```bash
+# ตรวจสอบก่อน
+npx @chahuadev/emoji-cleaner . --dry-run
+
+# ลบอิโมจิพร้อมสำรอง
+npx @chahuadev/emoji-cleaner . --backup
+
+# Build production
+npm run build
+```
+
+### 2. Pre-commit Hook
+```json
+{
+  "husky": {
+    "hooks": {
+      "pre-commit": "emoji-cleaner src --dry-run"
+    }
+  }
+}
+```
+
+### 3. CI/CD Pipeline
+```yaml
+# .github/workflows/build.yml
+- name: Clean emojis
+  run: npx @chahuadev/emoji-cleaner src --backup
+  
+- name: Build
+  run: npm run build
+```
+
+## � คำเตือน
+
+- **ใช้ `--dry-run` ก่อนเสมอ** เพื่อดูผลลัพธ์
+- **ใช้ `--backup` สำหรับไฟล์สำคัญ**
+- **ทดสอบโค้ดหลังลบอิโมจิ** เพื่อให้แน่ใจว่าทำงานปกติ
+- **ตรวจสอบ Git status** ก่อน commit
+
+## 📈 ประสิทธิภาพ
+
+- **เร็ว**: ประมวลผล 1000+ ไฟล์ใน < 1 วินาที  
+- **ประหยัด**: ลดขนาดไฟล์ 1-5%
+- **ปลอดภัย**: ไม่ทำลายโครงสร้างโค้ด
+- **รองรับ Unicode**: ลบอิโมจิทุกประเภท
+
+## 🤝 การสนับสนุน
+
+- 🐛 **รายงานปัญหา**: [GitHub Issues](https://github.com/chahuadev/emoji-cleaner/issues)
+- 💡 **ขอฟีเจอร์ใหม่**: [GitHub Discussions](https://github.com/chahuadev/emoji-cleaner/discussions)
+- 📧 **ติดต่อ**: contact@chahuadev.com
+
+## 📄 License
+
+MIT License - ดู [LICENSE](LICENSE) สำหรับรายละเอียด
+
+---
+
+**Made with ❤️ by [Chahuadev](https://github.com/chahuadev)**
+
+*เครื่องมือนี้ช่วยทำให้โค้ดของคุณดูเป็นมืออาชีพมากขึ้น และพร้อมสำหรับ production environment*
 # ดูตัวอย่างก่อน (แนะนำ)
 npx @chahuadev/emoji-cleaner . --dry-run
 

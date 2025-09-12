@@ -1,0 +1,56 @@
+{
+  "name": "@chahuadev/emoji-cleaner",
+  "version": "2.1.0",
+  "description": "Universal emoji cleaner tool for JavaScript, TypeScript, and HTML projects - Command line utility and npm package",
+  "main": "src/index.js",
+  "bin": {
+    "emoji-cleaner": "bin/cli.js",
+    "clean-emojis": "bin/cli.js"
+  },
+  "scripts": {
+    "test": "node test/test-emoji-cleaner.js",
+    "clean": "node bin/cli.js",
+    "install-global": "npm install -g .",
+    "uninstall-global": "npm uninstall -g @chahuadev/emoji-cleaner",
+    "prepublishOnly": "npm test"
+  },
+  "keywords": [
+    "emoji",
+    "cleaner",
+    "javascript",
+    "typescript",
+    "html",
+    "automation",
+    "unicode",
+    "cli",
+    "tool",
+    "npm",
+    "package",
+    "text-processing",
+    "file-processing"
+  ],
+  "author": {
+    "name": "Chahuadev",
+    "email": "contact@chahuadev.com",
+    "url": "https://chahuadev.com"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "files": [
+    "src/",
+    "bin/",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chahuadev/emoji-cleaner.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chahuadev/emoji-cleaner/issues"
+  },
+  "homepage": "https://github.com/chahuadev/emoji-cleaner#readme"
+}
