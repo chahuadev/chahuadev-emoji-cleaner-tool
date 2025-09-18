@@ -1,10 +1,49 @@
-# 🧹 Universal Emoji Cleaner v2.2.1
+# 🧹 Universal Emoji Cleaner v2.2.4
 
 **เครื่องมือลบอิโมจิสำหรับ 50+ ภาษาโปรแกรมมิ่ง - ปลอดภัย รวดเร็ว ครบครัน**
 
 [![npm version](https://badge.fury.io/js/%40chahuadev%2Femoji-cleaner.svg)](https://badge.fury.io/js/%40chahuadev%2Femoji-cleaner)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Unicode Support](https://img.shields.io/badge/Unicode-15.1%2B-blue.svg)](https://unicode.org/emoji/charts/)
+[![Unicode Support](https://img.shields.io/badge/Unicode-15.1%2B-blue.svg)](https://unicode.org/emoji## ⚠️ คำเตือนสำคัญ
+
+### 🛡️ ความปลอดภัย
+- **ใช้เวอร์ชันล่าสุดเสมอ**: เวอร์ชันเก่า (< 2.2.3) มีช่องโหว่ด้านความปลอดภัย
+- **หลีกเลี่ยงเวอร์ชันเก่า**: เวอร์ชัน 2.1.x ไม่มี security protection
+- **ใช้ `@latest` flag**: `npx @chahuadev/emoji-cleaner@latest` เพื่อความปลอดภัย
+
+### 🔒 การป้องกันระบบ
+Tool จะปฏิเสธการเข้าถึง:
+- ✋ Windows System directories (`C:\Windows\`, `C:\Program Files\`)
+- ✋ Linux System directories (`/etc/`, `/usr/`, `/bin/`, `/root/`)
+- ✋ ไฟล์ที่มี null bytes หรือ path traversal
+- ✋ ไฟล์ขนาดใหญ่เกิน 10MB
+- ✋ การใช้งานที่อันตราย
+
+### 📋 การใช้งานปลอดภัย
+- **ใช้ `--dry-run` ก่อนเสมอ** เพื่อดูผลลัพธ์
+- **ใช้ `--backup` สำหรับไฟล์สำคัญ**
+- **ทดสอบโค้ดหลังลบอิโมจิ** เพื่อให้แน่ใจว่าทำงานปกติ
+- **ตรวจสอบ Git status** ก่อน commit
+
+## 📝 Changelog
+
+### v2.2.3 (2025-09-18) - Latest Secure Version
+- 🛡️ **เพิ่ม Security Protection แบบสมบูรณ์**
+- 🚨 **แก้ไข CLI Security Gap** - CLI ใช้ security features เต็มรูปแบบ
+- 🧹 **ลบไฟล์เก่าที่ไม่ใช้** (src/index.js)
+- ✅ **ทดสอบ NPX Security สำเร็จ**
+
+### v2.2.2 (2025-09-18)
+- 🔧 **แก้ไข package.json main file reference**
+- 🛡️ **เพิ่ม Security ใน main processing**
+
+### v2.2.1 (2025-09-18)
+- 🛡️ **เพิ่ม Security features ครั้งแรก**
+- 📚 **อัพเดต README ด้วยข้อมูล Security**
+
+### v2.1.x และก่อนหน้า (เลิกใช้แล้ว)
+- ⚠️ **เวอร์ชันเก่าที่มีช่องโหว่ความปลอดภัย**
+- 🚫 **ถูกลบออกจาก NPM registry แล้ว**s/)
 [![Security](https://img.shields.io/badge/Security-Enhanced-green.svg)](https://github.com/chahuadev/chahuadev-emoji-cleaner-tool)
 
 ## 🎯 ทำไมต้องใช้?
@@ -41,21 +80,48 @@ console.log("Hello World! "); // ✅ สะอาด แต่ไม่ทำล
 - 🛡️ **ข้ามโฟลเดอร์ระบบ** (node_modules, .git, dist, build) อัตโนมัติ
 - 📚 **ใช้เป็น Library** สำหรับ Node.js
 
-## 📦 การติดตั้ง
+## 📦 การติดตั้งและถอนการติดตั้ง
 
-### วิธีที่ 1: ใช้งานทันที (ไม่ต้องติดตั้ง)
+### วิธีที่ 1: ใช้งานทันที (ไม่ต้องติดตั้ง) - แนะนำ
 ```bash
-npx @chahuadev/emoji-cleaner
+# ใช้เวอร์ชันล่าสุดเสมอ (ปลอดภัยที่สุด)
+npx @chahuadev/emoji-cleaner@latest
+
+# หรือระบุเวอร์ชันเฉพาะ
+npx @chahuadev/emoji-cleaner@2.2.3
 ```
 
 ### วิธีที่ 2: ติดตั้งในโปรเจ็กต์
 ```bash
-npm install @chahuadev/emoji-cleaner --save-dev
+# ติดตั้ง
+npm install @chahuadev/emoji-cleaner@latest --save-dev
+
+# ถอนการติดตั้ง
+npm uninstall @chahuadev/emoji-cleaner
 ```
 
 ### วิธีที่ 3: ติดตั้งแบบ Global
 ```bash
-npm install -g @chahuadev/emoji-cleaner
+# ติดตั้ง
+npm install -g @chahuadev/emoji-cleaner@latest
+
+# ถอนการติดตั้ง
+npm uninstall -g @chahuadev/emoji-cleaner
+
+# ตรวจสอบการติดตั้ง Global
+npm list -g @chahuadev/emoji-cleaner
+```
+
+### 🧹 ล้าง Cache NPX
+```bash
+# ล้าง cache ทั้งหมด
+npm cache clean --force
+
+# ล้าง cache เฉพาะ npx (Windows)
+Remove-Item -Path "$env:LOCALAPPDATA\npm-cache\_npx" -Recurse -Force
+
+# ล้าง cache เฉพาะ npx (Linux/Mac)
+rm -rf ~/.npm/_npx
 ```
 
 ## � วิธีใช้งานในโปรเจ็กต์จริง

@@ -3,22 +3,28 @@
 /**
  * @fileoverview Universal Emoji Cleaner - CLI Tool
  * @author Chahuadev
- * @version 2.1.0
+ * @version 2.2.3
  * 
- * Command Line Interface for Emoji Cleaner
- * ตัวลบอิโมจิสากล สำหรับใช้งานผ่าน Command Line
+ * Command Line Interface for Emoji Cleaner with Enhanced Security
+ * ตัวลบอิโมจิสากล สำหรับใช้งานผ่าน Command Line พร้อมระบบความปลอดภัยขั้นสูง
  */
 
 const fs = require('fs');
 const path = require('path');
-const { processFile, processDirectory } = require('../src/index');
+
+// เรียกใช้ฟังก์ชันจาก main file ที่มี security features
+const emojiCleaner = require('../emoji-cleaner');
+
+// ใช้ฟังก์ชันจาก main file แทน
+const processFile = emojiCleaner.processFile || emojiCleaner.analyzeFile;
+const processDirectory = emojiCleaner.processDirectory;
 
 /**
  * แสดงข้อมูลการใช้งาน
  */
 function showHelp() {
     console.log(`
-📖 Universal Emoji Cleaner v2.1.0 - Usage Guide
+📖 Universal Emoji Cleaner v2.2.3 - Usage Guide
 
 SYNTAX:
   emoji-cleaner [target] [options]
@@ -75,7 +81,7 @@ function showVersion() {
         console.log(`👨‍💻 Author: ${packageInfo.author.name}`);
         console.log(`🔗 Repository: ${packageInfo.repository.url}`);
     } catch (error) {
-        console.log('🧹 Universal Emoji Cleaner v2.1.0');
+        console.log('🧹 Universal Emoji Cleaner v2.2.3');
     }
 }
 
@@ -182,7 +188,7 @@ function displaySummary(stats, options) {
 }
 
 /**
- * Main CLI function
+ * Main CLI function with Security
  */
 async function main() {
     const args = process.argv.slice(2);
@@ -199,68 +205,97 @@ async function main() {
         return;
     }
 
-    // Check if target exists
-    if (!fs.existsSync(options.target)) {
-        console.error(`❌ Error: Target path does not exist: ${options.target}`);
-        process.exit(1);
+    console.log('🧹 Universal Emoji Cleaner v2.2.3');
+    console.log('================================');
+    
+    if (options.dryRun) {
+        console.log(' DRY RUN MODE - No files will be modified');
     }
-
-    const stat = fs.statSync(options.target);
+    
+    console.log(` Target: ${path.relative(process.cwd(), options.target) || '.'}`);
+    console.log(` Extensions: ${options.extensions.join(', ')}`);
 
     try {
-        if (stat.isFile()) {
-            // Process single file
-            console.log(`🔧 Processing file: ${path.relative(process.cwd(), options.target)}`);
-
-            const result = processFile(options.target, {
-                dryRun: options.dryRun,
-                createBackup: options.backup
-            });
-
-            displayFileResult(result, options);
-
-            if (!result.success) {
+        const targetStats = fs.statSync(options.target);
+        
+        if (targetStats.isFile()) {
+            // ใช้ analyzeFile จาก main emoji-cleaner.js ที่มี security
+            if (typeof emojiCleaner.analyzeFile === 'function') {
+                console.log(' Processing single file with security checks...');
+                const result = emojiCleaner.analyzeFile(options.target, options.dryRun, options.verbose, options.backup);
+                
+                if (result.securityError) {
+                    console.log('🚨 Security check failed!');
+                    process.exit(1);
+                }
+                
+                console.log('================================');
+                if (options.dryRun) {
+                    console.log(' Analysis Complete!');
+                } else {
+                    console.log(' Cleaning Complete!');
+                }
+                
+                console.log(` Emojis ${options.dryRun ? 'found' : 'removed'}: ${result.emojiCount}`);
+                console.log(` Comments ${options.dryRun ? 'found' : 'removed'}: ${result.commentCount}`);
+                
+            } else {
+                console.error('🚨 Security functions not available!');
                 process.exit(1);
             }
-
-        } else if (stat.isDirectory()) {
-            // Process directory
-            console.log(`🔧 Processing directory: ${path.relative(process.cwd(), options.target)}`);
-            if (options.dryRun) {
-                console.log(`🔍 Dry-run mode: previewing changes...`);
-            }
-            console.log(`📁 Extensions: ${options.extensions.join(', ')}`);
-            console.log(`🚫 Excluding: ${options.excludeDirs.join(', ')}`);
-            console.log('');
-
-            const stats = processDirectory(options.target, {
-                dryRun: options.dryRun,
-                extensions: options.extensions,
-                createBackup: options.backup,
-                excludeDirs: options.excludeDirs
-            });
-
-            // Display individual file results if verbose
-            if (options.verbose) {
-                stats.results.forEach(result => {
-                    displayFileResult(result, options);
-                });
+        } else if (targetStats.isDirectory()) {
+            // ใช้ processDirectory จาก main emoji-cleaner.js ที่มี security  
+            if (typeof emojiCleaner.processDirectory === 'function') {
+                console.log(' Processing directory with security checks...');
+                const result = emojiCleaner.processDirectory(options.target, options.dryRun, options.verbose, options.extensions, options.backup);
+                
+                if (result.securityError) {
+                    console.log('🚨 Security check failed!');
+                    process.exit(1);
+                }
+                
+                console.log('================================');
+                if (options.dryRun) {
+                    console.log(' Analysis Complete!');
+                } else {
+                    console.log(' Cleaning Complete!');
+                }
+                
+                console.log(` Files processed: ${result.totalFiles}`);
+                console.log(` Files with emojis: ${result.filesWithEmojis}`);
+                console.log(` Total emojis ${options.dryRun ? 'found' : 'removed'}: ${result.totalEmojis}`);
+                console.log(` Comments ${options.dryRun ? 'found' : 'removed'}: ${result.totalComments}`);
+                
+                if (result.securityErrors > 0) {
+                    console.log(` 🚨 Security errors: ${result.securityErrors}`);
+                }
+                
+                if (result.errors > 0) {
+                    console.log(` ⚠️ Other errors: ${result.errors - result.securityErrors}`);
+                }
+                
+                console.log(` ⏱️ Time taken: ${result.duration}s`);
+                
             } else {
-                // Display only files with changes
-                stats.results.filter(r => r.changed).forEach(result => {
-                    displayFileResult(result, options);
-                });
-            }
-
-            displaySummary(stats, options);
-
-            if (stats.errors > 0) {
+                console.error('🚨 Security functions not available!');
                 process.exit(1);
             }
         }
-
+        
+        if (options.dryRun) {
+            console.log('\n💡 Use without --dry-run to apply changes');
+        }
+        
     } catch (error) {
-        console.error(`❌ Error: ${error.message}`);
+        if (error.message.includes('ENOENT')) {
+            console.error(`❌ Target not found: ${options.target}`);
+        } else if (error.message.includes('Permission denied') || 
+                   error.message.includes('system directories') ||
+                   error.message.includes('Path traversal')) {
+            console.error(`🚨 Security Error: ${error.message}`);
+        } else {
+            console.error(`❌ Error: ${error.message}`);
+        }
         process.exit(1);
     }
 }
