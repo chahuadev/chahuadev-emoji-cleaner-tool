@@ -3,7 +3,7 @@
 /**
  * @fileoverview Universal Emoji Cleaner - CLI Tool
  * @author Chahuadev
- * @version 2.2.3
+ * @version 2.2.4
  * 
  * Command Line Interface for Emoji Cleaner with Enhanced Security
  * ตัวลบอิโมจิสากล สำหรับใช้งานผ่าน Command Line พร้อมระบบความปลอดภัยขั้นสูง
@@ -24,7 +24,7 @@ const processDirectory = emojiCleaner.processDirectory;
  */
 function showHelp() {
     console.log(`
-📖 Universal Emoji Cleaner v2.2.3 - Usage Guide
+📖 Universal Emoji Cleaner v2.2.4 - Usage Guide
 
 SYNTAX:
   emoji-cleaner [target] [options]
@@ -81,7 +81,7 @@ function showVersion() {
         console.log(`👨‍💻 Author: ${packageInfo.author.name}`);
         console.log(`🔗 Repository: ${packageInfo.repository.url}`);
     } catch (error) {
-        console.log('🧹 Universal Emoji Cleaner v2.2.3');
+        console.log('🧹 Universal Emoji Cleaner v2.2.4');
     }
 }
 
@@ -205,7 +205,7 @@ async function main() {
         return;
     }
 
-    console.log('🧹 Universal Emoji Cleaner v2.2.3');
+    console.log('🧹 Universal Emoji Cleaner v2.2.4');
     console.log('================================');
     
     if (options.dryRun) {
