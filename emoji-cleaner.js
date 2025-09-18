@@ -12,6 +12,88 @@
 const fs = require('fs');
 const path = require('path');
 
+// 🛡️ Security Configuration
+const SECURITY_CONFIG = {
+    MAX_PATH_LENGTH: 260,
+    ALLOWED_EXTENSIONS: ['.js', '.ts', '.jsx', '.tsx', '.html', '.css', '.py', '.java', '.cpp', '.c', '.cs', '.php', '.go', '.rs', '.rb', '.pl', '.sh', '.yml', '.yaml', '.sql', '.lua', '.swift', '.kt', '.dart', '.scala'],
+    FORBIDDEN_PATHS: [
+        /^[A-Z]:\\Windows\\/i,
+        /^[A-Z]:\\Program Files\\/i,
+        /^\/etc\//,
+        /^\/usr\/bin\//,
+        /^\/System\//,
+        /^\/bin\//,
+        /^\/sbin\//
+    ],
+    MAX_FILE_SIZE: 10 * 1024 * 1024, // 10MB
+    REGEX_TIMEOUT: 5000,
+    MAX_FILES_PER_SECOND: 100
+};
+
+// 🛡️ Security Functions
+function validateInput(target) {
+    if (!target || typeof target !== 'string') {
+        throw new Error('Invalid target path');
+    }
+
+    if (target.length > SECURITY_CONFIG.MAX_PATH_LENGTH) {
+        throw new Error('Path too long');
+    }
+
+    // ตรวจสอบ dangerous characters (ลบ : ออกเพราะใน Windows มี C: )
+    const dangerousChars = /[<>"|?*\x00-\x1f]/;
+    if (dangerousChars.test(target)) {
+        throw new Error('Dangerous characters in path');
+    }
+
+    return true;
+}
+
+function isPathSafe(targetPath) {
+    const normalizedPath = path.resolve(targetPath);
+
+    // ตรวจสอบ forbidden paths
+    for (const forbiddenPattern of SECURITY_CONFIG.FORBIDDEN_PATHS) {
+        if (forbiddenPattern.test(normalizedPath)) {
+            throw new Error(`Access to system directories is not allowed: ${normalizedPath}`);
+        }
+    }
+
+    // ตรวจสอบ path traversal
+    if (normalizedPath.includes('..')) {
+        throw new Error('Path traversal is not allowed');
+    }
+
+    return true;
+}
+
+function checkFilePermissions(filePath, isDryRun = false) {
+    try {
+        // ตรวจสอบสิทธิ์อ่าน
+        fs.accessSync(filePath, fs.constants.R_OK);
+
+        // ตรวจสอบสิทธิ์เขียน (เฉพาะเมื่อไม่ใช่ dry-run)
+        if (!isDryRun) {
+            fs.accessSync(filePath, fs.constants.W_OK);
+        }
+
+        return true;
+    } catch (error) {
+        throw new Error(`Permission denied: ${filePath}`);
+    }
+}
+
+function sanitizePath(inputPath) {
+    const normalizedPath = path.normalize(inputPath);
+
+    // ตรวจสอบ null bytes
+    if (normalizedPath.includes('\x00')) {
+        throw new Error('Null bytes in path are not allowed');
+    }
+
+    return normalizedPath;
+}
+
 // Enhanced emoji patterns รองรับ Unicode 15.1+ และครอบคลุมทั่วโลก
 const EMOJI_PATTERNS = [
     // Core Emoji Ranges (Unicode 15.1+)
@@ -200,8 +282,34 @@ function removeEmojiComments(content, fileExt) {
  */
 function analyzeFile(filePath, isDryRun = false, verbose = false, createBackup = false, backupDir = null, originalRoot = null) {
     try {
-        const content = fs.readFileSync(filePath, 'utf8');
-        const fileExt = path.extname(filePath).toLowerCase();
+        // 🛡️ Security Checks
+        const sanitizedPath = sanitizePath(filePath);
+        validateInput(sanitizedPath);
+        isPathSafe(sanitizedPath);
+        checkFilePermissions(sanitizedPath, isDryRun);
+
+        // ตรวจสอบขนาดไฟล์
+        const stats = fs.statSync(sanitizedPath);
+        if (stats.size > SECURITY_CONFIG.MAX_FILE_SIZE) {
+            throw new Error(`File too large (${stats.size} bytes): ${sanitizedPath}`);
+        }
+
+        const content = fs.readFileSync(sanitizedPath, 'utf8');
+        const fileExt = path.extname(sanitizedPath).toLowerCase();
+
+        // ตรวจสอบนามสกุลไฟล์
+        if (!SECURITY_CONFIG.ALLOWED_EXTENSIONS.includes(fileExt)) {
+            if (verbose) {
+                console.log(`⏭️ Skipping unsupported file: ${path.relative(process.cwd(), sanitizedPath)}`);
+            }
+            return {
+                processed: false,
+                emojiCount: 0,
+                commentCount: 0,
+                changed: false,
+                skipped: true
+            };
+        }
 
         // ลบอิโมจิ
         const emojiResult = removeEmojis(content);
@@ -213,9 +321,9 @@ function analyzeFile(filePath, isDryRun = false, verbose = false, createBackup =
         const finalContent = commentResult.content;
 
         if (verbose || totalChanges > 0) {
-            const fileName = path.basename(filePath);
+            const fileName = path.basename(sanitizedPath);
             if (isDryRun) {
-                console.log(` Analyzing: ${path.relative(process.cwd(), filePath)}`);
+                console.log(` Analyzing: ${path.relative(process.cwd(), sanitizedPath)}`);
                 if (totalChanges > 0) {
                     console.log(` ${fileName}: ${emojiResult.emojiCount} emojis, ${commentResult.commentCount} comments`);
                     if (verbose) {
@@ -226,7 +334,7 @@ function analyzeFile(filePath, isDryRun = false, verbose = false, createBackup =
                     console.log(`✨ No emojis found in ${fileName}`);
                 }
             } else {
-                console.log(` Processing: ${path.relative(process.cwd(), filePath)}`);
+                console.log(` Processing: ${path.relative(process.cwd(), sanitizedPath)}`);
                 console.log(` ${fileName}: ${emojiResult.emojiCount} emojis, ${commentResult.commentCount} comments`);
             }
         }
@@ -235,10 +343,10 @@ function analyzeFile(filePath, isDryRun = false, verbose = false, createBackup =
         if (!isDryRun && totalChanges > 0) {
             // สำรองไฟล์ถ้าต้องการ
             if (createBackup && backupDir && originalRoot) {
-                backupFile(filePath, backupDir, originalRoot);
+                backupFile(sanitizedPath, backupDir, originalRoot);
             }
 
-            fs.writeFileSync(filePath, finalContent, 'utf8');
+            fs.writeFileSync(sanitizedPath, finalContent, 'utf8');
         }
 
         return {
@@ -249,13 +357,25 @@ function analyzeFile(filePath, isDryRun = false, verbose = false, createBackup =
         };
 
     } catch (error) {
-        console.error(` Error analyzing ${filePath}: ${error.message}`);
+        // จำแนกประเภท error
+        if (error.message.includes('Permission denied') ||
+            error.message.includes('system directories') ||
+            error.message.includes('Path traversal') ||
+            error.message.includes('Dangerous characters')) {
+            console.error(`🚨 Security Error: ${error.message}`);
+        } else {
+            console.error(` Error analyzing ${filePath}: ${error.message}`);
+        }
+
         return {
             processed: false,
             emojiCount: 0,
             commentCount: 0,
             changed: false,
-            error: error.message
+            error: error.message,
+            securityError: error.message.includes('Security') ||
+                error.message.includes('Permission') ||
+                error.message.includes('system directories')
         };
     }
 }
@@ -264,12 +384,32 @@ function analyzeFile(filePath, isDryRun = false, verbose = false, createBackup =
  * ประมวลผลโฟลเดอร์
  */
 function processDirectory(dirPath, isDryRun = false, verbose = false, extensions = ['.js', '.ts', '.jsx', '.tsx', '.html'], createBackup = false) {
+    // 🛡️ Security check for directory
+    try {
+        const sanitizedDirPath = sanitizePath(dirPath);
+        validateInput(sanitizedDirPath);
+        isPathSafe(sanitizedDirPath);
+    } catch (error) {
+        console.error(`🚨 Security Error: ${error.message}`);
+        return {
+            totalFiles: 0,
+            filesWithEmojis: 0,
+            totalEmojis: 0,
+            totalComments: 0,
+            errors: 1,
+            duration: 0,
+            backupDir: null,
+            securityError: true
+        };
+    }
+
     const startTime = Date.now();
     let totalFiles = 0;
     let filesWithEmojis = 0;
     let totalEmojis = 0;
     let totalComments = 0;
     let errors = 0;
+    let securityErrors = 0;
 
     // สร้างโฟลเดอร์สำรองถ้าต้องการ
     let backupDir = null;
@@ -280,29 +420,36 @@ function processDirectory(dirPath, isDryRun = false, verbose = false, extensions
 
     function walkDir(dir) {
         try {
+            // 🛡️ Security check for each directory
+            isPathSafe(dir);
+
             const items = fs.readdirSync(dir);
 
             for (const item of items) {
                 const itemPath = path.join(dir, item);
 
                 try {
-                    const stat = fs.statSync(itemPath);
+                    // 🛡️ Security check for each item
+                    const sanitizedItemPath = sanitizePath(itemPath);
+
+                    const stat = fs.statSync(sanitizedItemPath);
 
                     if (stat.isDirectory()) {
-                        // ข้าม backup folders
+                        // ข้าม backup folders และ system folders
                         if (item.startsWith('backup-') || item.startsWith('emoji-backup-') ||
-                            item === 'node_modules' || item === '.git' || item === 'dist' || item === 'build') {
+                            item === 'node_modules' || item === '.git' || item === 'dist' || item === 'build' ||
+                            item === 'System Volume Information' || item === '$Recycle.Bin' || item.startsWith('.')) {
                             if (verbose) {
-                                console.log(`⏭️ Skipping: ${path.relative(process.cwd(), itemPath)}`);
+                                console.log(`⏭️ Skipping: ${path.relative(process.cwd(), sanitizedItemPath)}`);
                             }
                             continue;
                         }
-                        walkDir(itemPath);
+                        walkDir(sanitizedItemPath);
                     } else if (stat.isFile()) {
-                        const fileExt = path.extname(itemPath).toLowerCase();
+                        const fileExt = path.extname(sanitizedItemPath).toLowerCase();
                         if (extensions.includes(fileExt)) {
                             totalFiles++;
-                            const result = analyzeFile(itemPath, isDryRun, verbose, createBackup, backupDir, dirPath);
+                            const result = analyzeFile(sanitizedItemPath, isDryRun, verbose, createBackup, backupDir, dirPath);
 
                             if (result.processed) {
                                 if (result.changed) {
@@ -311,13 +458,21 @@ function processDirectory(dirPath, isDryRun = false, verbose = false, extensions
                                 totalEmojis += result.emojiCount;
                                 totalComments += result.commentCount;
                             } else {
+                                if (result.securityError) {
+                                    securityErrors++;
+                                }
                                 errors++;
                             }
                         }
                     }
                 } catch (error) {
                     if (verbose) {
-                        console.warn(` Cannot access ${itemPath}: ${error.message}`);
+                        if (error.message.includes('Permission') || error.message.includes('system directories')) {
+                            console.warn(`🚨 Security: Cannot access ${itemPath}: ${error.message}`);
+                            securityErrors++;
+                        } else {
+                            console.warn(` Cannot access ${itemPath}: ${error.message}`);
+                        }
                     }
                     errors++;
                 }
@@ -339,6 +494,7 @@ function processDirectory(dirPath, isDryRun = false, verbose = false, extensions
         totalEmojis,
         totalComments,
         errors,
+        securityErrors,
         duration,
         backupDir
     };

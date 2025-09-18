@@ -1,10 +1,11 @@
-# 🧹 Universal Emoji Cleaner v2.0
+# 🧹 Universal Emoji Cleaner v2.2.1
 
 **เครื่องมือลบอิโมจิสำหรับ 50+ ภาษาโปรแกรมมิ่ง - ปลอดภัย รวดเร็ว ครบครัน**
 
 [![npm version](https://badge.fury.io/js/%40chahuadev%2Femoji-cleaner.svg)](https://badge.fury.io/js/%40chahuadev%2Femoji-cleaner)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Unicode Support](https://img.shields.io/badge/Unicode-15.1%2B-blue.svg)](https://unicode.org/emoji/charts/)
+[![Security](https://img.shields.io/badge/Security-Enhanced-green.svg)](https://github.com/chahuadev/chahuadev-emoji-cleaner-tool)
 
 ## 🎯 ทำไมต้องใช้?
 
@@ -16,20 +17,22 @@ console.log("Hello World! 🌍"); // ❌ มีอิโมจิ
 // TODO: Fix this bug 🐛 ⚠️  // ❌ Comment มีอิโมจิ
 ```
 
-**หลังใช้ Universal Emoji Cleaner v2.0:**
+**หลังใช้ Universal Emoji Cleaner v2.2.1:**
 ```javascript
 console.log("Hello World! "); // ✅ สะอาด แต่ไม่ทำลาย formatting
 // TODO: Fix this bug  // ✅ Comment สะอาด รักษาโครงสร้างเดิม
 ```
 
-## ✨ คุณสมบัติใหม่ v2.0
+## ✨ คุณสมบัติใหม่ v2.2.1
 
+- 🛡️ **Enhanced Security** - ป้องกัน Path Traversal, System File Access และ Permission Bypass
 - 🌟 **รองรับ 50+ ภาษาโปรแกรมมิ่ง** (.js, .ts, .py, .java, .cpp, .go, .rs, .php, .rb, .lua, .sql, .yml, .sh และอีกมากมาย)
 - 🔰 **Unicode 15.1+ Support** ลบอิโมจิใหม่ล่าสุดทั้งหมด
 - 🧠 **Intelligent Comment Cleanup** รู้จักภาษาแต่ละประเภทและลบอิโมจิในคอมเมนต์อย่างฉลาด
 - 🛡️ **รักษา File Formatting** ไม่ทำลายโครงสร้างและการจัดรูปแบบไฟล์
 - 🔍 **HTML Entity Removal** ลบ HTML entities และ named entities
 - 💾 **Enhanced Backup System** ระบบสำรองไฟล์ที่ปรับปรุงใหม่
+- 🚨 **Security Validation** ตรวจสอบ input, path และ permissions อย่างเข้มงวด
 
 - 🎯 **ลบอิโมจิอัตโนมัติ** จากไฟล์ 50+ ภาษาโปรแกรมมิ่ง
 - 🔍 **Dry-run mode** ดูผลลัพธ์ก่อนลบจริง (ปลอดภัย)
@@ -287,7 +290,7 @@ npm run build                                      # build production
 ## 📊 ตัวอย่างผลลัพธ์
 
 ```
-🧹 Universal Emoji Cleaner v2.0
+🧹 Universal Emoji Cleaner v2.2.1
 ================================
 🔍 DRY RUN MODE - ไม่มีการแก้ไขไฟล์
 🎯 Target: ./src
@@ -315,9 +318,42 @@ npm run build                                      # build production
    🧹 Total emojis removed: 234
    💬 Comments cleaned: 18
    🌍 Languages detected: 8
+   🛡️ Security errors: 0
    ⏱️  Processing time: 0.08s
 
 💡 ใช้คำสั่งโดยไม่มี --dry-run เพื่อลบจริง
+```
+
+## 🚨 Security Features ใหม่
+
+### 🛡️ **ป้องกันการโจมตี**
+
+**Path Traversal Protection:**
+```bash
+# ❌ จะถูกบล็อก
+npx @chahuadev/emoji-cleaner "../../../etc/passwd"
+# 🚨 Security Error: Path traversal is not allowed
+
+# ❌ จะถูกบล็อก  
+npx @chahuadev/emoji-cleaner "C:\Windows\System32"
+# 🚨 Security Error: Access to system directories is not allowed
+```
+
+**Input Validation:**
+```bash
+# ❌ จะถูกบล็อก
+npx @chahuadev/emoji-cleaner "file<script>alert('xss')</script>.js"
+# 🚨 Security Error: Dangerous characters in path
+
+# ❌ จะถูกบล็อก
+npx @chahuadev/emoji-cleaner "/path/with/null\x00byte"
+# 🚨 Security Error: Null bytes in path are not allowed
+```
+
+**File Size Protection:**
+```bash
+# ❌ ไฟล์ใหญ่เกิน 10MB จะถูกบล็อก
+# 🚨 Security Error: File too large (15728640 bytes)
 ```
 
 ## 🔧 ใช้เป็น Library ในโค้ด
@@ -346,6 +382,12 @@ const dirResult = processDirectory('./src', {
 
 ## 🛡️ ความปลอดภัย
 
+- **Enhanced Security v2.2.1**: ป้องกันการเข้าถึงไฟล์ระบบและ path traversal attacks
+- **Input Validation**: ตรวจสอบ input อย่างเข้มงวด ป้องกัน malicious paths
+- **Permission Checks**: ตรวจสอบสิทธิ์การเข้าถึงไฟล์ก่อนประมวลผล
+- **Path Sanitization**: ป้องกัน directory escaping และ null byte injection
+- **File Size Limits**: จำกัดขนาดไฟล์ (10MB) เพื่อป้องกัน DoS attacks
+- **System Directory Protection**: ป้องกันการเข้าถึง Windows System, Program Files, และ Unix system directories
 - **Dry-run mode**: ตรวจสอบผลลัพธ์ก่อนลบจริง
 - **Auto backup**: สำรองไฟล์อัตโนมัติ (เมื่อใช้ --backup)
 - **Smart language detection**: รู้จักและประมวลผลแต่ละภาษาอย่างเหมาะสม
@@ -402,6 +444,7 @@ npm run build
 - **ปลอดภัย**: ไม่ทำลายโครงสร้างโค้ด และรักษา formatting
 - **รองรับ Unicode 15.1+**: ลบอิโมจิใหม่ล่าสุดทั้งหมด
 - **Multi-language**: รู้จักและประมวลผล 50+ ภาษาโปรแกรมมิ่ง
+- **Security First**: ป้องกันช่องโหว่ความปลอดภัยระดับ enterprise
 
 ## 🤝 การสนับสนุน
 
@@ -409,7 +452,23 @@ npm run build
 - 💡 **ขอฟีเจอร์ใหม่**: [GitHub Discussions](https://github.com/chahuadev/emoji-cleaner/discussions)
 - 📧 **ติดต่อ**: contact@chahuadev.com
 
-## 📄 License
+## � Changelog
+
+### v2.2.1 (2025-09-18) - Security Enhancement
+- 🛡️ **Enhanced Security**: ป้องกัน Path Traversal และ System File Access
+- 🚨 **Input Validation**: ตรวจสอบ dangerous characters และ null bytes
+- 🔒 **Permission Checks**: ตรวจสอบสิทธิ์การเข้าถึงไฟล์
+- 📏 **File Size Limits**: จำกัดขนาดไฟล์สูงสุด 10MB
+- 🛡️ **System Directory Protection**: ป้องกันการเข้าถึง system directories
+
+### v2.2.0 (2025-09-18) - Major Feature Update
+- 🌟 **50+ Programming Languages**: รองรับภาษาโปรแกรมมิ่งมากขึ้น
+- 🔰 **Unicode 15.1+ Support**: รองรับอิโมจิใหม่ล่าสุด
+- 🧠 **Intelligent Comment Cleanup**: ลบคอมเมนต์ที่มีอิโมจิอย่างฉลาด
+- 🔍 **HTML Entity Removal**: ลบ HTML entities
+- 💾 **Enhanced Backup System**: ระบบสำรองไฟล์ที่ดีขึ้น
+
+## �📄 License
 
 MIT License - ดู [LICENSE](LICENSE) สำหรับรายละเอียด
 
