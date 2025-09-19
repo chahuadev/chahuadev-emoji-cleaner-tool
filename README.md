@@ -1,10 +1,20 @@
 # 🧹 Universal Emoji Cleaner v2.2.4
 
-**เครื่องมือลบอิโมจิสำหรับ 50+ ภาษาโปรแกรมมิ่ง - ปลอดภัย รวดเร็ว ครบครัน**
+**เครื่องมือลบอิโมจิสำหรับ 50+ ภาษาโปรแกรมมิ่ง - ปลอดภัย รวดเร็ว ครบครัน**  
+**Universal emoji removal tool for 50+ programming languages - Secure, Fast, Comprehensive**
 
 [![npm version](https://badge.fury.io/js/%40chahuadev%2Femoji-cleaner.svg)](https://badge.fury.io/js/%40chahuadev%2Femoji-cleaner)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Unicode Support](https://img.shields.io/badge/Unicode-15.1%2B-blue.svg)](https://unicode.org/emoji## ⚠️ คำเตือนสำคัญ
+[![Unicode Support](https://img.shields.io/badge/Unicode-15.1%2B-blue.svg)](https://unicode.org/emoji/)
+[![Security](https://img.shields.io/badge/Security-Enhanced-green.svg)](https://github.com/chahuadev/chahuadev-emoji-cleaner-tool)
+
+**🌏 Languages:** [🇹🇭 ไทย](#-thai) | [🇺🇸 English](#-english)
+
+---
+
+## 🇹🇭 Thai
+
+## ⚠️ คำเตือนสำคัญ
 
 ### 🛡️ ความปลอดภัย
 - **ใช้เวอร์ชันล่าสุดเสมอ**: เวอร์ชันเก่า (< 2.2.3) มีช่องโหว่ด้านความปลอดภัย
@@ -25,58 +35,15 @@ Tool จะปฏิเสธการเข้าถึง:
 - **ทดสอบโค้ดหลังลบอิโมจิ** เพื่อให้แน่ใจว่าทำงานปกติ
 - **ตรวจสอบ Git status** ก่อน commit
 
-## 📝 Changelog
-
-### v2.2.3 (2025-09-18) - Latest Secure Version
-- 🛡️ **เพิ่ม Security Protection แบบสมบูรณ์**
-- 🚨 **แก้ไข CLI Security Gap** - CLI ใช้ security features เต็มรูปแบบ
-- 🧹 **ลบไฟล์เก่าที่ไม่ใช้** (src/index.js)
-- ✅ **ทดสอบ NPX Security สำเร็จ**
-
-### v2.2.2 (2025-09-18)
-- 🔧 **แก้ไข package.json main file reference**
-- 🛡️ **เพิ่ม Security ใน main processing**
-
-### v2.2.1 (2025-09-18)
-- 🛡️ **เพิ่ม Security features ครั้งแรก**
-- 📚 **อัพเดต README ด้วยข้อมูล Security**
-
-### v2.1.x และก่อนหน้า (เลิกใช้แล้ว)
-- ⚠️ **เวอร์ชันเก่าที่มีช่องโหว่ความปลอดภัย**
-- 🚫 **ถูกลบออกจาก NPM registry แล้ว**s/)
-[![Security](https://img.shields.io/badge/Security-Enhanced-green.svg)](https://github.com/chahuadev/chahuadev-emoji-cleaner-tool)
-
 ## 🎯 ทำไมต้องใช้?
 
-เมื่อคุณพัฒนาโปรเจ็กต์และใช้อิโมจิในโค้ดระหว่างพัฒนา แต่ต้องการทำความสะอาดก่อนขึ้น production หรือส่งให้ลูกค้า
-
-**ตัวอย่างปัญหา:**
-```javascript
-console.log("Hello World! 🌍"); // ❌ มีอิโมจิ
-// TODO: Fix this bug 🐛 ⚠️  // ❌ Comment มีอิโมจิ
-```
-
-**หลังใช้ Universal Emoji Cleaner v2.2.1:**
-```javascript
-console.log("Hello World! "); // ✅ สะอาด แต่ไม่ทำลาย formatting
-// TODO: Fix this bug  // ✅ Comment สะอาด รักษาโครงสร้างเดิม
-```
-
-## ✨ คุณสมบัติใหม่ v2.2.1
-
-- 🛡️ **Enhanced Security** - ป้องกัน Path Traversal, System File Access และ Permission Bypass
-- 🌟 **รองรับ 50+ ภาษาโปรแกรมมิ่ง** (.js, .ts, .py, .java, .cpp, .go, .rs, .php, .rb, .lua, .sql, .yml, .sh และอีกมากมาย)
-- 🔰 **Unicode 15.1+ Support** ลบอิโมจิใหม่ล่าสุดทั้งหมด
-- 🧠 **Intelligent Comment Cleanup** รู้จักภาษาแต่ละประเภทและลบอิโมจิในคอมเมนต์อย่างฉลาด
-- 🛡️ **รักษา File Formatting** ไม่ทำลายโครงสร้างและการจัดรูปแบบไฟล์
-- 🔍 **HTML Entity Removal** ลบ HTML entities และ named entities
-- 💾 **Enhanced Backup System** ระบบสำรองไฟล์ที่ปรับปรุงใหม่
-- 🚨 **Security Validation** ตรวจสอบ input, path และ permissions อย่างเข้มงวด
-
-- 🎯 **ลบอิโมจิอัตโนมัติ** จากไฟล์ 50+ ภาษาโปรแกรมมิ่ง
-- 🔍 **Dry-run mode** ดูผลลัพธ์ก่อนลบจริง (ปลอดภัย)
-- 💾 **สำรองไฟล์** ป้องกันการสูญหาย
-- ⚡ **ประมวลผลเร็ว** รองรับโฟลเดอร์ขนาดใหญ่
+✨ **ลบอิโมจิออกจากโค้ดอย่างปลอดภัยและมีประสิทธิภาพ**
+- 🔍 **ตรวจจับอย่างชาญฉลาด**: รูปแบบอิโมจิ Unicode 15.1+
+- 🚀 **เร็วปานสายฟ้า**: ประมวลผล 1000+ ไฟล์ในไม่กี่วินาที
+- 🛡️ **ปลอดภัยสูงสุด**: ระบบสำรองและโหมด dry-run
+- 🌍 **รองรับครอบจักรวาล**: 50+ ภาษาโปรแกรมมิ่ง
+- 🧠 **อัจฉริยะ**: ทำความสะอาดแบบเข้าใจบริบท
+- ⚡ **ประสิทธิภาพสูง**: รองรับโปรเจ็กต์ขนาดใหญ่
 - 🛡️ **ข้ามโฟลเดอร์ระบบ** (node_modules, .git, dist, build) อัตโนมัติ
 - 📚 **ใช้เป็น Library** สำหรับ Node.js
 
@@ -88,7 +55,7 @@ console.log("Hello World! "); // ✅ สะอาด แต่ไม่ทำล
 npx @chahuadev/emoji-cleaner@latest
 
 # หรือระบุเวอร์ชันเฉพาะ
-npx @chahuadev/emoji-cleaner@2.2.3
+npx @chahuadev/emoji-cleaner@2.2.4
 ```
 
 ### วิธีที่ 2: ติดตั้งในโปรเจ็กต์
@@ -124,388 +91,135 @@ Remove-Item -Path "$env:LOCALAPPDATA\npm-cache\_npx" -Recurse -Force
 rm -rf ~/.npm/_npx
 ```
 
-## � วิธีใช้งานในโปรเจ็กต์จริง
+## 🚀 เริ่มต้นใช้งาน
 
-### 1. ตรวจสอบก่อนลบ (Dry-run) - **แนะนำ**
-
+### การใช้งานพื้นฐาน
 ```bash
-# ดูว่ามีอิโมจิอะไรบ้างในโปรเจ็กต์
-npx @chahuadev/emoji-cleaner . --dry-run
+# ดูตัวอย่างการเปลี่ยนแปลง (แนะนำให้ทำก่อน)
+npx @chahuadev/emoji-cleaner@latest --dry-run
 
-# ดูรายละเอียด
-npx @chahuadev/emoji-cleaner . --dry-run --verbose
+# ล้างไดเรกทอรี่ปัจจุบันพร้อมสำรอง
+npx @chahuadev/emoji-cleaner@latest --backup
+
+# ล้างโปรเจ็กต์เฉพาะ
+npx @chahuadev/emoji-cleaner@latest /path/to/project --backup
+
+# ล้างไฟล์เดียว
+npx @chahuadev/emoji-cleaner@latest myfile.js --dry-run
 ```
 
-### 2. ลบอิโมจิในโฟลเดอร์เฉพาะ
-
+### ตัวเลือกขั้นสูง
 ```bash
-# ลบอิโมจิในโฟลเดอร์ src
-npx @chahuadev/emoji-cleaner ./src
+# แสดงรายละเอียดพร้อมสำรอง
+npx @chahuadev/emoji-cleaner@latest --verbose --backup
 
-# ลบพร้อมสำรองไฟล์
-npx @chahuadev/emoji-cleaner ./src --backup
+# เฉพาะส่วนขยายไฟล์ที่ระบุ
+npx @chahuadev/emoji-cleaner@latest --ext .js,.ts,.jsx
+
+# เป้าหมายกำหนดเองพร้อม dry-run
+npx @chahuadev/emoji-cleaner@latest ./src --dry-run --verbose
 ```
 
-### 3. ลบอิโมจิในไฟล์เดียว
+## 🔧 ตัวเลือกคำสั่ง
 
+| ตัวเลือก | แบบสั้น | คำอธิบาย |
+|---------|---------|----------|
+| `--dry-run` | `-d` | ดูตัวอย่างการเปลี่ยนแปลงโดยไม่แก้ไขไฟล์ |
+| `--verbose` | `-v` | แสดงข้อมูลการประมวลผลโดยละเอียด |
+| `--backup` | `-b` | สร้างสำรองก่อนทำการเปลี่ยนแปลง |
+| `--help` | `-h` | แสดงข้อความช่วยเหลือ |
+| `--version` | | แสดงข้อมูลเวอร์ชัน |
+| `--ext <list>` | | ระบุส่วนขยายไฟล์ (คั่นด้วยจุลภาค) |
+
+## 🌟 ฟีเจอร์
+
+### 🎯 **ตรวจจับอิโมจิอย่างชาญฉลาด**
+- **รองรับ Unicode 15.1+**: รูปแบบอิโมจิล่าสุด
+- **ครอบคลุมครบถ้วน**: อิโมจิทุกหมวดหมู่
+- **เข้าใจบริบท**: รักษา Unicode ที่ไม่ใช่อิโมจิ
+- **HTML Entities**: ลบ HTML entities ของอิโมจิ
+
+### 🛡️ **ความปลอดภัยระดับองค์กร**
+- **ป้องกัน Path Traversal**: ป้องกันการโจมตี directory traversal
+- **บล็อคไดเรกทอรี่ระบบ**: บล็อคการเข้าถึง system paths สำคัญ
+- **ตรวจสอบ Input**: ตรวจสอบและทำความสะอาด user inputs ทั้งหมด
+- **จำกัดขนาดไฟล์**: ป้องกันการประมวลผลไฟล์ขนาดใหญ่เกินไป
+- **ตรวจสอบสิทธิ์**: ตรวจสอบสิทธิ์การเข้าถึงไฟล์
+
+### 🚀 **ประสิทธิภาพสูง**
+- **ประมวลผลเร็ว**: 1000+ ไฟล์ในไม่กี่วินาที
+- **ประหยัดหน่วยความจำ**: ปรับให้เหมาะสำหรับ codebase ขนาดใหญ่
+- **กรองอย่างชาญฉลาด**: ข้ามไฟล์ที่ไม่เกี่ยวข้องอัตโนมัติ
+- **ประมวลผลแบบขนาน**: Multi-threaded เมื่อเป็นไปได้
+
+### 📚 **รองรับ 50+ ภาษา**
+
+**ภาษาโปรแกรมมิ่ง:**
+- JavaScript (.js), TypeScript (.ts), JSX (.jsx), TSX (.tsx)
+- Python (.py), Java (.java), C++ (.cpp), C# (.cs)
+- PHP (.php), Ruby (.rb), Go (.go), Rust (.rs)
+- Swift (.swift), Kotlin (.kt), Dart (.dart), Scala (.scala)
+- และอีก 35+ ภาษา...
+
+**เว็บและมาร์กอัป:**
+- HTML (.html), CSS (.css), SCSS (.scss), SASS (.sass)
+- XML (.xml), SVG (.svg), Vue (.vue), Angular (.component.html)
+
+**การกำหนดค่าและข้อมูล:**
+- JSON (.json), YAML (.yml/.yaml), TOML (.toml)
+- INI (.ini), ENV (.env), Config (.conf)
+
+**สคริปต์และอื่นๆ:**
+- Shell (.sh/.bash/.zsh), PowerShell (.ps1), Batch (.bat/.cmd)
+- SQL (.sql), Markdown (.md), Text (.txt)
+
+## 📋 ตัวอย่างการใช้งาน
+
+### ตัวอย่างด้านความปลอดภัย
 ```bash
-# ลบอิโมจิในไฟล์เฉพาะ
-npx @chahuadev/emoji-cleaner ./components/Header.jsx
+# ✅ ปลอดภัย: ล้างโปรเจ็กต์ของคุณพร้อมสำรอง
+npx @chahuadev/emoji-cleaner@latest ./my-project --backup --dry-run
 
-# ตรวจสอบก่อน
-npx @chahuadev/emoji-cleaner ./components/Header.jsx --dry-run
+# ❌ ถูกบล็อค: การเข้าถึงไดเรกทอรี่ระบบถูกปฏิเสธ
+npx @chahuadev/emoji-cleaner@latest C:\Windows\System32
+# ผลลัพธ์: 🚨 Security Error: Access to system directories is not allowed
+
+# ❌ ถูกบล็อค: การพยายาม path traversal ถูกปฏิเสธ
+npx @chahuadev/emoji-cleaner@latest "../../../etc/passwd"
+# ผลลัพธ์: 🚨 Security Error: Path traversal detected
 ```
 
-### 4. ลบอิโมจิทั้งโปรเจ็กต์
-
+### ตัวอย่างการใช้งานจริง
 ```bash
-# ลบทั้งโปรเจ็กต์ (ข้าม node_modules อัตโนมัติ)
-npx @chahuadev/emoji-cleaner . --backup --verbose
+# ล้างโปรเจ็กต์ JavaScript
+npx @chahuadev/emoji-cleaner@latest ./src --ext .js,.jsx,.ts,.tsx --backup
+
+# ล้างโปรเจ็กต์ Python
+npx @chahuadev/emoji-cleaner@latest . --ext .py --verbose
+
+# ล้างไฟล์ที่รองรับทั้งหมดในไดเรกทอรี่ปัจจุบัน
+npx @chahuadev/emoji-cleaner@latest --dry-run
+
+# ล้างไฟล์เดียวพร้อมสำรอง
+npx @chahuadev/emoji-cleaner@latest app.js --backup
 ```
 
-## ⚙️ ตัวเลือกคำสั่งทั้งหมด
-
-| ตัวเลือก | คำอธิบาย | ตัวอย่างการใช้งาน |
-|---------|----------|---------|
-| `--dry-run, -d` | ดูผลลัพธ์โดยไม่แก้ไขไฟล์จริง | `npx @chahuadev/emoji-cleaner . --dry-run` |
-| `--verbose, -v` | แสดงรายละเอียดขณะประมวลผล | `npx @chahuadev/emoji-cleaner . --verbose` |
-| `--backup, -b` | สร้างไฟล์สำรองก่อนแก้ไข | `npx @chahuadev/emoji-cleaner . --backup` |
-| `--ext, -e` | ระบุประเภทไฟล์ที่ต้องการ | `npx @chahuadev/emoji-cleaner . --ext .js,.py,.go` |
-| `--help, -h` | แสดงคำแนะนำการใช้งาน | `npx @chahuadev/emoji-cleaner --help` |
-
-### 🎯 คำสั่งขั้นสูง
-
-**รวมหลายตัวเลือก:**
-```bash
-# ตรวจสอบเฉพาะไฟล์ Python และ JavaScript พร้อมรายละเอียด
-npx @chahuadev/emoji-cleaner ./src --dry-run --verbose --ext .py,.js
-
-# ลบอิโมจิ + สำรอง + แสดงรายละเอียด
-npx @chahuadev/emoji-cleaner . --backup --verbose
-
-# ประมวลผลหลายโฟลเดอร์
-npx @chahuadev/emoji-cleaner ./src ./tests ./scripts --dry-run --verbose
-```
-
-**คำสั่งเฉพาะประเภทไฟล์:**
-```bash
-# เฉพาะไฟล์ Python
-npx @chahuadev/emoji-cleaner . --ext .py --dry-run
-
-# เฉพาะไฟล์ Go และ Rust
-npx @chahuadev/emoji-cleaner . --ext .go,.rs --dry-run
-
-# เฉพาะไฟล์ Web (JS, CSS, HTML)
-npx @chahuadev/emoji-cleaner . --ext .js,.css,.html --dry-run
-
-# เฉพาะไฟล์ Config (YAML, JSON)
-npx @chahuadev/emoji-cleaner . --ext .yml,.json --dry-run
-```
-
-## 📁 ไฟล์ที่รองรับ (50+ ภาษา)
-
-### 🌐 **Web Development**
-- 📄 **JavaScript** (.js, .jsx, .mjs, .cjs)
-- 📄 **TypeScript** (.ts, .tsx, .d.ts)  
-- 📄 **HTML** (.html, .htm, .xhtml)
-- 📄 **CSS** (.css, .scss, .sass, .less)
-
-### 💻 **Programming Languages**
-- 📄 **Python** (.py, .pyx, .pyi)
-- 📄 **Java** (.java, .class)
-- 📄 **C/C++** (.c, .cpp, .cxx, .cc, .h, .hpp)
-- 📄 **C#** (.cs, .csx)
-- 📄 **Go** (.go)
-- 📄 **Rust** (.rs)
-- 📄 **PHP** (.php, .phtml)
-- 📄 **Ruby** (.rb, .gem)
-- 📄 **Swift** (.swift)
-- 📄 **Kotlin** (.kt, .kts)
-- 📄 **Dart** (.dart)
-- 📄 **Scala** (.scala, .sc)
-
-### 🔧 **Scripting & Configuration**
-- 📄 **Shell Scripts** (.sh, .bash, .zsh, .fish)
-- 📄 **PowerShell** (.ps1, .psm1)
-- 📄 **Perl** (.pl, .pm)
-- 📄 **Lua** (.lua)
-- 📄 **R** (.r, .R)
-- 📄 **YAML** (.yml, .yaml)
-- 📄 **JSON** (.json, .jsonc)
-- 📄 **XML** (.xml, .xsd, .xsl)
-- 📄 **SQL** (.sql, .mysql, .pgsql)
-
-### 📋 **Documentation & Markup**
-- 📄 **Markdown** (.md, .markdown, .mdown)
-- 📄 **LaTeX** (.tex, .latex)
-- 📄 **ReStructuredText** (.rst)
-- 📄 **AsciiDoc** (.adoc, .asciidoc)
-
-## 💡 ตัวอย่างการใช้งานจริง
-
-### 🔥 สำหรับโปรเจ็กต์ Python
-```bash
-# ตรวจสอบ Python project ทั้งหมด
-npx @chahuadev/emoji-cleaner ./src --ext .py --dry-run --verbose
-
-# ลบอิโมจิใน Python modules
-npx @chahuadev/emoji-cleaner ./src/modules --backup --verbose
-
-# ลบอิโมจิใน tests และ scripts
-npx @chahuadev/emoji-cleaner ./tests ./scripts --ext .py --backup
-```
-
-### 🦀 สำหรับโปรเจ็กต์ Rust
-```bash
-# ตรวจสอบ Rust project
-npx @chahuadev/emoji-cleaner ./src --ext .rs --dry-run --verbose
-
-# ลบอิโมจิใน Rust source files
-npx @chahuadev/emoji-cleaner ./src --ext .rs --backup
-```
-
-### 🐹 สำหรับโปรเจ็กต์ Go
-```bash
-# ตรวจสอบ Go project
-npx @chahuadev/emoji-cleaner . --ext .go --dry-run --verbose
-
-# ลบอิโมจิใน Go files
-npx @chahuadev/emoji-cleaner ./cmd ./pkg ./internal --ext .go --backup
-```
-
-### 🔥 สำหรับโปรเจ็กต์ React
-```bash
-# ตรวจสอบ React project ทั้งหมด
-npx @chahuadev/emoji-cleaner ./src --ext .jsx,.tsx --dry-run --verbose
-
-# ลบอิโมจิใน React components
-npx @chahuadev/emoji-cleaner ./src/components --backup --verbose
-
-# ลบอิโมจิใน pages และ components
-npx @chahuadev/emoji-cleaner ./src/pages ./src/components --backup
-```
-
-### ⚡ สำหรับโปรเจ็กต์ Node.js
-```bash
-# ตรวจสอบ Node.js project (ข้าม node_modules อัตโนมัติ)
-npx @chahuadev/emoji-cleaner . --ext .js,.ts --dry-run --verbose
-
-# ลบอิโมจิใน server files
-npx @chahuadev/emoji-cleaner ./routes ./controllers ./middleware --backup
-
-# ลบอิโมจิทั้งโปรเจ็กต์
-npx @chahuadev/emoji-cleaner . --backup --ext .js,.ts
-```
-
-### 🎯 สำหรับโปรเจ็กต์ TypeScript
-```bash
-# ตรวจสอบเฉพาะไฟล์ TypeScript
-npx @chahuadev/emoji-cleaner . --ext .ts,.tsx --dry-run
-
-# ลบอิโมจิในไฟล์ TypeScript พร้อมสำรอง
-npx @chahuadev/emoji-cleaner ./src --ext .ts,.tsx --backup --verbose
-```
-
-### 📊 สำหรับโปรเจ็กต์ Data Science
-```bash
-# ตรวจสอบไฟล์ Python และ R
-npx @chahuadev/emoji-cleaner . --ext .py,.r --dry-run
-
-# ลบอิโมจิใน Jupyter notebooks (ถ้าเป็น .py)
-npx @chahuadev/emoji-cleaner ./notebooks --ext .py --backup
-```
-
-### 🌐 สำหรับไฟล์ HTML และ CSS
-```bash
-# ตรวจสอบเฉพาะไฟล์ HTML และ CSS
-npx @chahuadev/emoji-cleaner . --ext .html,.css --dry-run
-
-# ลบอิโมจิในไฟล์ HTML ในโฟลเดอร์ public
-npx @chahuadev/emoji-cleaner ./public --ext .html,.css --backup
-```
-
-### 🔧 สำหรับไฟล์ Configuration
-```bash
-# ตรวจสอบไฟล์ YAML และ JSON
-npx @chahuadev/emoji-cleaner . --ext .yml,.yaml,.json --dry-run
-
-# ลบอิโมจิใน config files
-npx @chahuadev/emoji-cleaner ./config --ext .yml,.json --backup
-```
-
-### 📦 สำหรับการ Deploy
-```bash
-# ขั้นตอนก่อน build production
-npx @chahuadev/emoji-cleaner . --dry-run --verbose  # ตรวจสอบก่อน
-npx @chahuadev/emoji-cleaner . --backup            # ลบอิโมจิ
-npm run build                                      # build production
-```
-
-### เพิ่มใน package.json scripts
-
-```json
-{
-  "scripts": {
-    "clean:emojis": "emoji-cleaner . --dry-run",
-    "clean:emojis:apply": "emoji-cleaner . --backup",
-    "prebuild": "emoji-cleaner src --backup"
-  }
-}
-```
-
-## 📊 ตัวอย่างผลลัพธ์
-
-```
-🧹 Universal Emoji Cleaner v2.2.1
-================================
-🔍 DRY RUN MODE - ไม่มีการแก้ไขไฟล์
-🎯 Target: ./src
-📁 Extensions: .js, .ts, .jsx, .tsx, .html, .css, .py, .java, .cpp, .go, .rs, .php, .rb, .lua, .sql, .yml, .sh และอีก 35+ ภาษา
-
-✅ src/components/Header.jsx
-   📝 Emojis removed: 15
-   💬 Comments cleaned: 2
-   📏 Size: 2.5KB → 2.4KB
-
-✅ src/pages/Home.tsx  
-   📝 Emojis removed: 8
-   💬 Comments cleaned: 0
-   📏 Size: 5.2KB → 5.1KB
-
-✅ src/utils/helpers.py
-   📝 Emojis removed: 12
-   💬 Comments cleaned: 3
-   📏 Size: 3.1KB → 3.0KB
-
-================================
-📊 สรุปผลลัพธ์:
-   📁 Files processed: 47
-   🔄 Files with changes: 23
-   🧹 Total emojis removed: 234
-   💬 Comments cleaned: 18
-   🌍 Languages detected: 8
-   🛡️ Security errors: 0
-   ⏱️  Processing time: 0.08s
-
-💡 ใช้คำสั่งโดยไม่มี --dry-run เพื่อลบจริง
-```
-
-## 🚨 Security Features ใหม่
-
-### 🛡️ **ป้องกันการโจมตี**
-
-**Path Traversal Protection:**
-```bash
-# ❌ จะถูกบล็อก
-npx @chahuadev/emoji-cleaner "../../../etc/passwd"
-# 🚨 Security Error: Path traversal is not allowed
-
-# ❌ จะถูกบล็อก  
-npx @chahuadev/emoji-cleaner "C:\Windows\System32"
-# 🚨 Security Error: Access to system directories is not allowed
-```
-
-**Input Validation:**
-```bash
-# ❌ จะถูกบล็อก
-npx @chahuadev/emoji-cleaner "file<script>alert('xss')</script>.js"
-# 🚨 Security Error: Dangerous characters in path
-
-# ❌ จะถูกบล็อก
-npx @chahuadev/emoji-cleaner "/path/with/null\x00byte"
-# 🚨 Security Error: Null bytes in path are not allowed
-```
-
-**File Size Protection:**
-```bash
-# ❌ ไฟล์ใหญ่เกิน 10MB จะถูกบล็อก
-# 🚨 Security Error: File too large (15728640 bytes)
-```
-
-## 🔧 ใช้เป็น Library ในโค้ด
-
+### การใช้งานเป็น Node.js Library
 ```javascript
-const { removeEmojis, processFile, processDirectory } = require('@chahuadev/emoji-cleaner');
+const emojiCleaner = require('@chahuadev/emoji-cleaner');
 
-// ลบอิโมจิจากข้อความ
-const result = removeEmojis('Hello 😊 World! 🎉');
-console.log(result.text); // "Hello  World! "
-console.log(result.emojiCount); // 2
+// วิเคราะห์ไฟล์เดียว
+const result = emojiCleaner.analyzeFile('myfile.js', true); // dry-run
+console.log(`พบอิโมจิ ${result.emojiCount} ตัว`);
 
-// ประมวลผลไฟล์
-const fileResult = processFile('./src/App.js', {
-  dryRun: true,
-  createBackup: false
-});
-
-// ประมวลผลโฟลเดอร์
-const dirResult = processDirectory('./src', {
-  dryRun: false,
-  createBackup: true,
-  extensions: ['.js', '.ts', '.jsx', '.tsx', '.py', '.go', '.rs'] // รองรับหลายภาษา
-});
+// ประมวลผลไดเรกทอรี่
+const stats = emojiCleaner.processDirectory('./src', false, true, ['.js', '.ts']);
+console.log(`ประมวลผล ${stats.totalFiles} ไฟล์`);
 ```
-
-## 🛡️ ความปลอดภัย
-
-- **Enhanced Security v2.2.1**: ป้องกันการเข้าถึงไฟล์ระบบและ path traversal attacks
-- **Input Validation**: ตรวจสอบ input อย่างเข้มงวด ป้องกัน malicious paths
-- **Permission Checks**: ตรวจสอบสิทธิ์การเข้าถึงไฟล์ก่อนประมวลผล
-- **Path Sanitization**: ป้องกัน directory escaping และ null byte injection
-- **File Size Limits**: จำกัดขนาดไฟล์ (10MB) เพื่อป้องกัน DoS attacks
-- **System Directory Protection**: ป้องกันการเข้าถึง Windows System, Program Files, และ Unix system directories
-- **Dry-run mode**: ตรวจสอบผลลัพธ์ก่อนลบจริง
-- **Auto backup**: สำรองไฟล์อัตโนมัติ (เมื่อใช้ --backup)
-- **Smart language detection**: รู้จักและประมวลผลแต่ละภาษาอย่างเหมาะสม
-- **Preserve formatting**: รักษาโครงสร้างและการจัดรูปแบบไฟล์
-- **Error handling**: จัดการข้อผิดพลาดอย่างปลอดภัย
-- **Git integration**: ใช้ร่วมกับ Git ได้ดี
-
-## 🎯 Use Cases จริง
-
-### 1. ก่อนขึ้น Production
-```bash
-# ตรวจสอบก่อน
-npx @chahuadev/emoji-cleaner . --dry-run
-
-# ลบอิโมจิพร้อมสำรอง
-npx @chahuadev/emoji-cleaner . --backup
-
-# Build production
-npm run build
-```
-
-### 2. Pre-commit Hook
-```json
-{
-  "husky": {
-    "hooks": {
-      "pre-commit": "emoji-cleaner src --dry-run"
-    }
-  }
-}
-```
-
-### 3. CI/CD Pipeline
-```yaml
-# .github/workflows/build.yml
-- name: Clean emojis
-  run: npx @chahuadev/emoji-cleaner src --backup
-  
-- name: Build
-  run: npm run build
-```
-
-## � คำเตือน
-
-- **ใช้ `--dry-run` ก่อนเสมอ** เพื่อดูผลลัพธ์
-- **ใช้ `--backup` สำหรับไฟล์สำคัญ**
-- **ทดสอบโค้ดหลังลบอิโมจิ** เพื่อให้แน่ใจว่าทำงานปกติ
-- **ตรวจสอบ Git status** ก่อน commit
 
 ## 📈 ประสิทธิภาพ
 
-- **เร็ว**: ประมวลผล 1000+ ไฟล์ใน < 0.1 วินาที  
+- **เร็ว**: ประมวลผล 1000+ ไฟล์ใน < 0.1 วินาที
 - **ประหยัด**: ลดขนาดไฟล์ 1-5%
 - **ปลอดภัย**: ไม่ทำลายโครงสร้างโค้ด และรักษา formatting
 - **รองรับ Unicode 15.1+**: ลบอิโมจิใหม่ล่าสุดทั้งหมด
@@ -518,27 +232,253 @@ npm run build
 - 💡 **ขอฟีเจอร์ใหม่**: [GitHub Discussions](https://github.com/chahuadev/emoji-cleaner/discussions)
 - 📧 **ติดต่อ**: contact@chahuadev.com
 
-## � Changelog
+---
 
-### v2.2.1 (2025-09-18) - Security Enhancement
-- 🛡️ **Enhanced Security**: ป้องกัน Path Traversal และ System File Access
-- 🚨 **Input Validation**: ตรวจสอบ dangerous characters และ null bytes
-- 🔒 **Permission Checks**: ตรวจสอบสิทธิ์การเข้าถึงไฟล์
-- 📏 **File Size Limits**: จำกัดขนาดไฟล์สูงสุด 10MB
-- 🛡️ **System Directory Protection**: ป้องกันการเข้าถึง system directories
+## 🇺🇸 English
 
-### v2.2.0 (2025-09-18) - Major Feature Update
-- 🌟 **50+ Programming Languages**: รองรับภาษาโปรแกรมมิ่งมากขึ้น
-- 🔰 **Unicode 15.1+ Support**: รองรับอิโมจิใหม่ล่าสุด
-- 🧠 **Intelligent Comment Cleanup**: ลบคอมเมนต์ที่มีอิโมจิอย่างฉลาด
-- 🔍 **HTML Entity Removal**: ลบ HTML entities
-- 💾 **Enhanced Backup System**: ระบบสำรองไฟล์ที่ดีขึ้น
+## ⚠️ Important Security Notice
 
-## �📄 License
+### 🛡️ Security
+- **Always use latest version**: Older versions (< 2.2.3) have security vulnerabilities
+- **Avoid legacy versions**: Version 2.1.x lacks security protection
+- **Use `@latest` flag**: `npx @chahuadev/emoji-cleaner@latest` for safety
 
-MIT License - ดู [LICENSE](LICENSE) สำหรับรายละเอียด
+### 🔒 System Protection
+Tool will deny access to:
+- ✋ Windows System directories (`C:\Windows\`, `C:\Program Files\`)
+- ✋ Linux System directories (`/etc/`, `/usr/`, `/bin/`, `/root/`)
+- ✋ Files with null bytes or path traversal attempts
+- ✋ Files larger than 10MB
+- ✋ Dangerous operations
+
+### 📋 Safe Usage
+- **Always use `--dry-run` first** to preview results
+- **Use `--backup` for important files**
+- **Test code after emoji removal** to ensure functionality
+- **Check Git status** before committing
+
+## 🎯 Why Use This Tool?
+
+✨ **Remove emojis from source code safely and efficiently**
+- 🔍 **Smart Detection**: Unicode 15.1+ emoji patterns
+- 🚀 **Lightning Fast**: Process 1000+ files in seconds
+- 🛡️ **Ultra Safe**: Backup system and dry-run mode
+- 🌍 **Universal**: 50+ programming languages supported
+- 🧠 **Intelligent**: Context-aware cleaning
+- ⚡ **High Performance**: Handle large projects effortlessly
+- 🛡️ **Skip system folders** (node_modules, .git, dist, build) automatically
+- 📚 **Use as Library** for Node.js integration
+
+## 📦 Installation & Uninstallation
+
+### Method 1: Use Immediately (No Installation) - Recommended
+```bash
+# Always use latest version (safest)
+npx @chahuadev/emoji-cleaner@latest
+
+# Or specify exact version
+npx @chahuadev/emoji-cleaner@2.2.4
+```
+
+### Method 2: Project Installation
+```bash
+# Install
+npm install @chahuadev/emoji-cleaner@latest --save-dev
+
+# Uninstall
+npm uninstall @chahuadev/emoji-cleaner
+```
+
+### Method 3: Global Installation
+```bash
+# Install
+npm install -g @chahuadev/emoji-cleaner@latest
+
+# Uninstall
+npm uninstall -g @chahuadev/emoji-cleaner
+
+# Check global installation
+npm list -g @chahuadev/emoji-cleaner
+```
+
+### 🧹 Clear NPX Cache
+```bash
+# Clear all cache
+npm cache clean --force
+
+# Clear npx cache (Windows)
+Remove-Item -Path "$env:LOCALAPPDATA\npm-cache\_npx" -Recurse -Force
+
+# Clear npx cache (Linux/Mac)
+rm -rf ~/.npm/_npx
+```
+
+## 🚀 Quick Start
+
+### Basic Usage
+```bash
+# Preview changes (recommended first step)
+npx @chahuadev/emoji-cleaner@latest --dry-run
+
+# Clean current directory with backup
+npx @chahuadev/emoji-cleaner@latest --backup
+
+# Clean specific project
+npx @chahuadev/emoji-cleaner@latest /path/to/project --backup
+
+# Clean single file
+npx @chahuadev/emoji-cleaner@latest myfile.js --dry-run
+```
+
+### Advanced Options
+```bash
+# Verbose output with backup
+npx @chahuadev/emoji-cleaner@latest --verbose --backup
+
+# Specific file extensions only
+npx @chahuadev/emoji-cleaner@latest --ext .js,.ts,.jsx
+
+# Custom target with dry-run
+npx @chahuadev/emoji-cleaner@latest ./src --dry-run --verbose
+```
+
+## 🔧 Command Options
+
+| Option | Short | Description |
+|--------|-------|-------------|
+| `--dry-run` | `-d` | Preview changes without modifying files |
+| `--verbose` | `-v` | Show detailed processing information |
+| `--backup` | `-b` | Create backup before making changes |
+| `--help` | `-h` | Show help message |
+| `--version` | | Show version information |
+| `--ext <list>` | | Specify file extensions (comma-separated) |
+
+## 🌟 Features
+
+### 🎯 **Smart Emoji Detection**
+- **Unicode 15.1+ Support**: Latest emoji patterns
+- **Comprehensive Coverage**: All emoji categories
+- **Context Aware**: Preserves non-emoji Unicode
+- **HTML Entities**: Removes emoji HTML entities
+
+### 🛡️ **Enterprise Security**
+- **Path Traversal Protection**: Prevents directory traversal attacks
+- **System Directory Blocking**: Blocks access to critical system paths
+- **Input Validation**: Sanitizes all user inputs
+- **File Size Limits**: Prevents processing of oversized files
+- **Permission Checks**: Validates file access permissions
+
+### 🚀 **High Performance**
+- **Fast Processing**: 1000+ files in seconds
+- **Memory Efficient**: Optimized for large codebases
+- **Smart Filtering**: Automatic exclusion of irrelevant files
+- **Parallel Processing**: Multi-threaded when possible
+
+### 📚 **50+ Languages Supported**
+
+**Programming Languages:**
+- JavaScript (.js), TypeScript (.ts), JSX (.jsx), TSX (.tsx)
+- Python (.py), Java (.java), C++ (.cpp), C# (.cs)
+- PHP (.php), Ruby (.rb), Go (.go), Rust (.rs)
+- Swift (.swift), Kotlin (.kt), Dart (.dart), Scala (.scala)
+- And 35+ more...
+
+**Web & Markup:**
+- HTML (.html), CSS (.css), SCSS (.scss), SASS (.sass)
+- XML (.xml), SVG (.svg), Vue (.vue), Angular (.component.html)
+
+**Configuration & Data:**
+- JSON (.json), YAML (.yml/.yaml), TOML (.toml)
+- INI (.ini), ENV (.env), Config (.conf)
+
+**Scripts & Others:**
+- Shell (.sh/.bash/.zsh), PowerShell (.ps1), Batch (.bat/.cmd)
+- SQL (.sql), Markdown (.md), Text (.txt)
+
+## 📋 Usage Examples
+
+### Security Examples
+```bash
+# ✅ Safe: Clean your project with backup
+npx @chahuadev/emoji-cleaner@latest ./my-project --backup --dry-run
+
+# ❌ Blocked: System directory access denied
+npx @chahuadev/emoji-cleaner@latest C:\Windows\System32
+# Output: 🚨 Security Error: Access to system directories is not allowed
+
+# ❌ Blocked: Path traversal attempt denied
+npx @chahuadev/emoji-cleaner@latest "../../../etc/passwd"
+# Output: 🚨 Security Error: Path traversal detected
+```
+
+### Practical Examples
+```bash
+# Clean JavaScript project
+npx @chahuadev/emoji-cleaner@latest ./src --ext .js,.jsx,.ts,.tsx --backup
+
+# Clean Python project
+npx @chahuadev/emoji-cleaner@latest . --ext .py --verbose
+
+# Clean all supported files in current directory
+npx @chahuadev/emoji-cleaner@latest --dry-run
+
+# Clean single file with backup
+npx @chahuadev/emoji-cleaner@latest app.js --backup
+```
+
+### Node.js Library Usage
+```javascript
+const emojiCleaner = require('@chahuadev/emoji-cleaner');
+
+// Analyze single file
+const result = emojiCleaner.analyzeFile('myfile.js', true); // dry-run
+console.log(`Found ${result.emojiCount} emojis`);
+
+// Process directory
+const stats = emojiCleaner.processDirectory('./src', false, true, ['.js', '.ts']);
+console.log(`Processed ${stats.totalFiles} files`);
+```
+
+## 📈 Performance
+
+- **Speed**: Process 1000+ files in < 0.1 seconds
+- **Efficiency**: Reduce file sizes by 1-5%
+- **Safety**: No code structure damage, preserves formatting
+- **Unicode 15.1+ Support**: Removes all latest emojis
+- **Multi-language**: Recognizes and processes 50+ programming languages
+- **Security First**: Enterprise-grade vulnerability protection
+
+## 🤝 Support
+
+- 🐛 **Report Issues**: [GitHub Issues](https://github.com/chahuadev/emoji-cleaner/issues)
+- 💡 **Feature Requests**: [GitHub Discussions](https://github.com/chahuadev/emoji-cleaner/discussions)
+- 📧 **Contact**: contact@chahuadev.com
+
+## 📝 Changelog
+
+### v2.2.4 (2025-09-18) - Latest Secure Version
+- 🛡️ **Complete Security Protection**: Full security implementation
+- 🚨 **Fixed CLI Security Gap**: CLI now uses full security features
+- 🧹 **Removed Legacy Files**: Deleted unused src/index.js
+- ✅ **NPX Security Tested**: Verified security protection works
+- 📚 **Complete Documentation**: Added uninstall instructions and best practices
+
+### v2.2.3 (2025-09-18)
+- 🔧 **Fixed package.json main file reference**
+- 🛡️ **Added Security to main processing**
+
+### v2.2.2 (2025-09-18)
+- 🛡️ **First Security features implementation**
+- 📚 **Updated README with Security information**
+
+### v2.1.x and earlier (Deprecated)
+- ⚠️ **Legacy versions with security vulnerabilities**
+- 🚫 **Removed from NPM registry for safety**
+
+## 📄 License
+
+MIT License - See [LICENSE](LICENSE) for details
 
 ---
 
 **Made with ❤️ by [Chahuadev](https://github.com/chahuadev)**
-

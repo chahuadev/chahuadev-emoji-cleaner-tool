@@ -207,38 +207,38 @@ async function main() {
 
     console.log('🧹 Universal Emoji Cleaner v2.2.4');
     console.log('================================');
-    
+
     if (options.dryRun) {
         console.log(' DRY RUN MODE - No files will be modified');
     }
-    
+
     console.log(` Target: ${path.relative(process.cwd(), options.target) || '.'}`);
     console.log(` Extensions: ${options.extensions.join(', ')}`);
 
     try {
         const targetStats = fs.statSync(options.target);
-        
+
         if (targetStats.isFile()) {
             // ใช้ analyzeFile จาก main emoji-cleaner.js ที่มี security
             if (typeof emojiCleaner.analyzeFile === 'function') {
                 console.log(' Processing single file with security checks...');
                 const result = emojiCleaner.analyzeFile(options.target, options.dryRun, options.verbose, options.backup);
-                
+
                 if (result.securityError) {
                     console.log('🚨 Security check failed!');
                     process.exit(1);
                 }
-                
+
                 console.log('================================');
                 if (options.dryRun) {
                     console.log(' Analysis Complete!');
                 } else {
                     console.log(' Cleaning Complete!');
                 }
-                
+
                 console.log(` Emojis ${options.dryRun ? 'found' : 'removed'}: ${result.emojiCount}`);
                 console.log(` Comments ${options.dryRun ? 'found' : 'removed'}: ${result.commentCount}`);
-                
+
             } else {
                 console.error('🚨 Security functions not available!');
                 process.exit(1);
@@ -248,50 +248,50 @@ async function main() {
             if (typeof emojiCleaner.processDirectory === 'function') {
                 console.log(' Processing directory with security checks...');
                 const result = emojiCleaner.processDirectory(options.target, options.dryRun, options.verbose, options.extensions, options.backup);
-                
+
                 if (result.securityError) {
                     console.log('🚨 Security check failed!');
                     process.exit(1);
                 }
-                
+
                 console.log('================================');
                 if (options.dryRun) {
                     console.log(' Analysis Complete!');
                 } else {
                     console.log(' Cleaning Complete!');
                 }
-                
+
                 console.log(` Files processed: ${result.totalFiles}`);
                 console.log(` Files with emojis: ${result.filesWithEmojis}`);
                 console.log(` Total emojis ${options.dryRun ? 'found' : 'removed'}: ${result.totalEmojis}`);
                 console.log(` Comments ${options.dryRun ? 'found' : 'removed'}: ${result.totalComments}`);
-                
+
                 if (result.securityErrors > 0) {
                     console.log(` 🚨 Security errors: ${result.securityErrors}`);
                 }
-                
+
                 if (result.errors > 0) {
                     console.log(` ⚠️ Other errors: ${result.errors - result.securityErrors}`);
                 }
-                
+
                 console.log(` ⏱️ Time taken: ${result.duration}s`);
-                
+
             } else {
                 console.error('🚨 Security functions not available!');
                 process.exit(1);
             }
         }
-        
+
         if (options.dryRun) {
             console.log('\n💡 Use without --dry-run to apply changes');
         }
-        
+
     } catch (error) {
         if (error.message.includes('ENOENT')) {
             console.error(`❌ Target not found: ${options.target}`);
-        } else if (error.message.includes('Permission denied') || 
-                   error.message.includes('system directories') ||
-                   error.message.includes('Path traversal')) {
+        } else if (error.message.includes('Permission denied') ||
+            error.message.includes('system directories') ||
+            error.message.includes('Path traversal')) {
             console.error(`🚨 Security Error: ${error.message}`);
         } else {
             console.error(`❌ Error: ${error.message}`);
