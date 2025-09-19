@@ -1,14 +1,14 @@
 {
   "name": "@chahuadev/emoji-cleaner",
-  "version": "2.2.4",
-  "description": "🧹 Universal Emoji Cleaner v2.0 - Enhanced Unicode 15.1+ emoji removal tool supporting 50+ programming languages with intelligent comment cleanup, backup functionality, and security features",
+  "version": "2.2.7",
+  "description": " Universal Emoji Cleaner v2.0 - Enhanced Unicode 15.1+ emoji removal tool supporting 50+ programming languages with intelligent comment cleanup, backup functionality, and security features",
   "main": "emoji-cleaner.js",
   "bin": {
-    "emoji-cleaner": "bin/cli.js",
-    "clean-emojis": "bin/cli.js"
+    "emoji-cleaner": "emoji-cleaner.js",
+    "clean-emojis": "emoji-cleaner.js"
   },
   "scripts": {
-    "clean": "node bin/cli.js",
+    "clean": "node emoji-cleaner.js",
     "install-global": "npm install -g .",
     "uninstall-global": "npm uninstall -g @chahuadev/emoji-cleaner"
   },
@@ -36,8 +36,7 @@
     "node": ">=12.0.0"
   },
   "files": [
-    "src/",
-    "bin/",
+    "emoji-cleaner.js",
     "README.md",
     "CHANGELOG.md",
     "LICENSE"

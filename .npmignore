@@ -36,7 +36,6 @@ Thumbs.db
 *~
 
 # Old electron-specific files (not needed for npm package)
-emoji-cleaner.js
 emoji-cleaner.bat
 emoji-cleaner.sh
 

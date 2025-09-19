@@ -1,4 +1,4 @@
-# 🧹 Universal Emoji Cleaner v2.2.4
+# 🧹 Universal Emoji Cleaner v2.2.6
 
 **เครื่องมือลบอิโมจิสำหรับ 50+ ภาษาโปรแกรมมิ่ง - ปลอดภัย รวดเร็ว ครบครัน**  
 **Universal emoji removal tool for 50+ programming languages - Secure, Fast, Comprehensive**
@@ -6,7 +6,8 @@
 [![npm version](https://badge.fury.io/js/%40chahuadev%2Femoji-cleaner.svg)](https://badge.fury.io/js/%40chahuadev%2Femoji-cleaner)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Unicode Support](https://img.shields.io/badge/Unicode-15.1%2B-blue.svg)](https://unicode.org/emoji/)
-[![Security](https://img.shields.io/badge/Security-Enhanced-green.svg)](https://github.com/chahuadev/chahuadev-emoji-cleaner-tool)
+[![Security](https://img.shields.io/badge/Security-FORTRESS-red.svg)](https://github.com/chahuadev/chahuadev-emoji-cleaner-tool)
+[![Anti-Hack](https://img.shields.io/badge/Anti--Hack-PROTECTED-darkred.svg)](https://github.com/chahuadev/chahuadev-emoji-cleaner-tool)
 
 **🌏 Languages:** [🇹🇭 ไทย](#-thai) | [🇺🇸 English](#-english)
 
@@ -14,26 +15,80 @@
 
 ## 🇹🇭 Thai
 
-## ⚠️ คำเตือนสำคัญ
+## ⚠️ คำเตือนสำคัญ - CRITICAL SECURITY WARNING
 
-### 🛡️ ความปลอดภัย
-- **ใช้เวอร์ชันล่าสุดเสมอ**: เวอร์ชันเก่า (< 2.2.3) มีช่องโหว่ด้านความปลอดภัย
-- **หลีกเลี่ยงเวอร์ชันเก่า**: เวอร์ชัน 2.1.x ไม่มี security protection
-- **ใช้ `@latest` flag**: `npx @chahuadev/emoji-cleaner@latest` เพื่อความปลอดภัย
+### 🛡️ ความปลอดภัยระดับสูงสุด - FORTRESS SECURITY
+- **ใช้เวอร์ชันล่าสุดเสมอ**: เวอร์ชันเก่า (< 2.2.6) มีช่องโหว่ด้านความปลอดภัย
+- **หลีกเลี่ยงเวอร์ชันเก่า**: เวอร์ชัน 2.1.x-2.2.4 ไม่มี anti-hack protection
+- **ใช้ `@latest` flag**: `npx @chahuadev/emoji-cleaner@latest` เพื่อความปลอดภัยสูงสุด
+- **⚠️ VERSION 2.2.5+ REQUIRED**: เวอร์ชันเก่าไม่มีระบบป้องกันการแฮก
+
+### 🚨 ระบบป้องกันการแฮก - ANTI-HACK PROTECTION
+Tool มีระบบป้องกันการโจมตีทุกรูปแบบ:
+
+#### 🔒 Command Injection Protection
+```bash
+# ❌ BLOCKED - การฉีด Command ถูกบล็อกโดยระบบ
+eval()
+exec()
+spawn() 
+require('child_process')
+fs.unlinkSync('/')
+rm -rf /
+del /f /s /q C:\*
+```
+
+#### 🛡️ Path Traversal Protection  
+```bash
+# ❌ BLOCKED - การโจมตี Path Traversal ถูกปฏิเสธ
+../../../etc/passwd
+..\\..\\..\\Windows\\System32
+/etc/../../../bin/
+C:\\Windows\\..\\..\\..\
+```
+
+#### 🚫 System Critical File Protection
+```bash
+# ❌ BLOCKED - ไฟล์ระบบสำคัญถูกป้องกัน
+/etc/passwd
+/etc/shadow  
+C:\Windows\System32\
+C:\Program Files\
+/usr/bin/
+/bin/sh
+/root/
+/boot/
+```
 
 ### 🔒 การป้องกันระบบ
 Tool จะปฏิเสธการเข้าถึง:
-- ✋ Windows System directories (`C:\Windows\`, `C:\Program Files\`)
-- ✋ Linux System directories (`/etc/`, `/usr/`, `/bin/`, `/root/`)
-- ✋ ไฟล์ที่มี null bytes หรือ path traversal
+- ✋ Windows System directories (`C:\Windows\`, `C:\Program Files\`, `C:\System Volume Information\`)
+- ✋ Linux System directories (`/etc/`, `/usr/`, `/bin/`, `/root/`, `/boot/`, `/proc/`, `/sys/`)
+- ✋ MacOS System directories (`/System/`, `/usr/bin/`, `/bin/`, `/sbin/`)
+- ✋ ไฟล์ที่มี null bytes หรือ dangerous characters
 - ✋ ไฟล์ขนาดใหญ่เกิน 10MB
-- ✋ การใช้งานที่อันตราย
+- ✋ Path traversal attempts (`../`, `..\\`, etc.)
+- ✋ Command injection patterns
+- ✋ Script execution attempts
+- ✋ Binary executable files
 
-### 📋 การใช้งานปลอดภัย
+### 📋 การใช้งานปลอดภัย - SECURE USAGE ONLY
 - **ใช้ `--dry-run` ก่อนเสมอ** เพื่อดูผลลัพธ์
 - **ใช้ `--backup` สำหรับไฟล์สำคัญ**
 - **ทดสอบโค้ดหลังลบอิโมจิ** เพื่อให้แน่ใจว่าทำงานปกติ
 - **ตรวจสอบ Git status** ก่อน commit
+- **ใช้เฉพาะในโปรเจ็กต์ของคุณ** อย่าใช้กับไฟล์ระบบ
+- **ตรวจสอบ output** ก่อนยืนยันการดำเนินการ
+
+### 🚨 สัญญาณเตือนการโจมตี - ATTACK DETECTION
+Tool จะแสดงข้อความเตือนเมื่อตรวจพบ:
+```bash
+🚨 SECURITY ALERT: Path traversal detected
+🚨 SECURITY ALERT: System directory access denied  
+🚨 SECURITY ALERT: Command injection attempt blocked
+🚨 SECURITY ALERT: Dangerous file operation prevented
+🚨 SECURITY ALERT: Binary execution attempt blocked
+```
 
 ## 🎯 ทำไมต้องใช้?
 
@@ -55,7 +110,7 @@ Tool จะปฏิเสธการเข้าถึง:
 npx @chahuadev/emoji-cleaner@latest
 
 # หรือระบุเวอร์ชันเฉพาะ
-npx @chahuadev/emoji-cleaner@2.2.4
+npx @chahuadev/emoji-cleaner@2.2.6
 ```
 
 ### วิธีที่ 2: ติดตั้งในโปรเจ็กต์
@@ -106,6 +161,18 @@ npx @chahuadev/emoji-cleaner@latest /path/to/project --backup
 
 # ล้างไฟล์เดียว
 npx @chahuadev/emoji-cleaner@latest myfile.js --dry-run
+```
+
+### การใช้งานแบบ Direct (หลังติดตั้งแล้ว)
+```bash
+# หลังติดตั้ง global หรือในโปรเจ็กต์
+emoji-cleaner --dry-run
+emoji-cleaner ./src --backup
+emoji-cleaner myfile.js --verbose
+
+# หรือเรียกใช้โดยตรงด้วย node (ในโฟลเดอร์เครื่องมือ)
+node emoji-cleaner.js --help
+node emoji-cleaner.js --dry-run
 ```
 
 ### ตัวเลือกขั้นสูง
@@ -228,20 +295,94 @@ console.log(`ประมวลผล ${stats.totalFiles} ไฟล์`);
 
 ## 🤝 การสนับสนุน
 
-- 🐛 **รายงานปัญหา**: [GitHub Issues](https://github.com/chahuadev/emoji-cleaner/issues)
-- 💡 **ขอฟีเจอร์ใหม่**: [GitHub Discussions](https://github.com/chahuadev/emoji-cleaner/discussions)
-- 📧 **ติดต่อ**: contact@chahuadev.com
+---
+
+<div align="center">
+
+[![Issues](https://img.shields.io/badge/รายงานปัญหา-GitHub_Issues-red?style=for-the-badge&logo=github)](https://github.com/chahuadev/chahuadev-emoji-cleaner-tool/issues)
+[![Discussions](https://img.shields.io/badge/ขอฟีเจอร์ใหม่-GitHub_Discussions-blue?style=for-the-badge&logo=github)](https://github.com/chahuadev/chahuadev-emoji-cleaner-tool/discussions)
+[![Contact](https://img.shields.io/badge/ติดต่อ-chahuadev@gmail.com-green?style=for-the-badge&logo=gmail)](mailto:chahuadev@gmail.com)
+
+</div>
 
 ---
 
 ## 🇺🇸 English
 
-## ⚠️ Important Security Notice
+## ⚠️ CRITICAL SECURITY WARNING - FORTRESS PROTECTION
 
-### 🛡️ Security
-- **Always use latest version**: Older versions (< 2.2.3) have security vulnerabilities
-- **Avoid legacy versions**: Version 2.1.x lacks security protection
-- **Use `@latest` flag**: `npx @chahuadev/emoji-cleaner@latest` for safety
+### 🛡️ Maximum Security - FORTRESS SECURITY
+- **Always use latest version**: Older versions (< 2.2.6) have security vulnerabilities
+- **Avoid legacy versions**: Versions 2.1.x-2.2.4 lack anti-hack protection
+- **Use `@latest` flag**: `npx @chahuadev/emoji-cleaner@latest` for maximum safety
+- **⚠️ VERSION 2.2.6+ REQUIRED**: Older versions lack hacking protection systems
+
+### 🚨 Anti-Hack Protection System - FORTRESS SHIELD
+Tool has comprehensive protection against all attack vectors:
+
+#### 🔒 Command Injection Protection
+```bash
+# ❌ BLOCKED - Command injection attempts blocked by system
+eval()
+exec()
+spawn() 
+require('child_process')
+fs.unlinkSync('/')
+rm -rf /
+del /f /s /q C:\*
+```
+
+#### 🛡️ Path Traversal Protection  
+```bash
+# ❌ BLOCKED - Path traversal attacks rejected
+../../../etc/passwd
+..\\..\\..\\Windows\\System32
+/etc/../../../bin/
+C:\\Windows\\..\\..\\..\
+```
+
+#### 🚫 System Critical File Protection
+```bash
+# ❌ BLOCKED - System critical files protected
+/etc/passwd
+/etc/shadow  
+C:\Windows\System32\
+C:\Program Files\
+/usr/bin/
+/bin/sh
+/root/
+/boot/
+```
+
+### 🔒 System Protection
+Tool will reject access to:
+- ✋ Windows System directories (`C:\Windows\`, `C:\Program Files\`, `C:\System Volume Information\`)
+- ✋ Linux System directories (`/etc/`, `/usr/`, `/bin/`, `/root/`, `/boot/`, `/proc/`, `/sys/`)
+- ✋ MacOS System directories (`/System/`, `/usr/bin/`, `/bin/`, `/sbin/`)
+- ✋ Files with null bytes or dangerous characters
+- ✋ Files larger than 10MB
+- ✋ Path traversal attempts (`../`, `..\\`, etc.)
+- ✋ Command injection patterns
+- ✋ Script execution attempts
+- ✋ Binary executable files
+
+### 📋 Secure Usage Only - FORTRESS COMPLIANCE
+- **Always use `--dry-run` first** to preview results
+- **Use `--backup` for important files**
+- **Test code after emoji removal** to ensure functionality
+- **Check Git status** before committing
+- **Use only on your projects** - never on system files
+- **Verify output** before confirming operations
+
+### 🚨 Attack Detection Alerts - FORTRESS MONITORING
+Tool displays warnings when attacks are detected:
+```bash
+🚨 SECURITY ALERT: Path traversal detected
+🚨 SECURITY ALERT: System directory access denied  
+🚨 SECURITY ALERT: Command injection attempt blocked
+🚨 SECURITY ALERT: Dangerous file operation prevented
+🚨 SECURITY ALERT: Binary execution attempt blocked
+```
 
 ### 🔒 System Protection
 Tool will deny access to:
@@ -277,7 +418,7 @@ Tool will deny access to:
 npx @chahuadev/emoji-cleaner@latest
 
 # Or specify exact version
-npx @chahuadev/emoji-cleaner@2.2.4
+npx @chahuadev/emoji-cleaner@2.2.6
 ```
 
 ### Method 2: Project Installation
@@ -328,6 +469,18 @@ npx @chahuadev/emoji-cleaner@latest /path/to/project --backup
 
 # Clean single file
 npx @chahuadev/emoji-cleaner@latest myfile.js --dry-run
+```
+
+### Direct Usage (After Installation)
+```bash
+# After global or project installation
+emoji-cleaner --dry-run
+emoji-cleaner ./src --backup
+emoji-cleaner myfile.js --verbose
+
+# Or run directly with node (in tool directory)
+node emoji-cleaner.js --help
+node emoji-cleaner.js --dry-run
 ```
 
 ### Advanced Options
@@ -456,7 +609,17 @@ console.log(`Processed ${stats.totalFiles} files`);
 
 ## 📝 Changelog
 
-### v2.2.4 (2025-09-18) - Latest Secure Version
+### v2.2.6 (2025-09-19) - **🛡️ FORTRESS SECURITY UPDATE**
+- 🔥 **FORTRESS SECURITY**: Complete anti-hack protection system
+- 🔍 **Syntax Validation**: Pre/post-processing validation for JS, Python, HTML, CSS
+- 🛡️ **Self-Protection**: Enhanced mechanism preventing tool corruption
+- 📊 **Enhanced CLI**: Better error handling and security indicators
+- 🏗️ **Zone Architecture**: 6-zone organization with consistent headers
+- 🚫 **Path Protection**: Comprehensive system directory blocking
+- 🔒 **Command Injection Shield**: Complete protection against code injection
+- 📈 **Performance**: Faster processing with memory optimization
+
+### v2.2.4 (2025-09-18) - Previous Secure Version
 - 🛡️ **Complete Security Protection**: Full security implementation
 - 🚨 **Fixed CLI Security Gap**: CLI now uses full security features
 - 🧹 **Removed Legacy Files**: Deleted unused src/index.js
@@ -471,9 +634,39 @@ console.log(`Processed ${stats.totalFiles} files`);
 - 🛡️ **First Security features implementation**
 - 📚 **Updated README with Security information**
 
-### v2.1.x and earlier (Deprecated)
-- ⚠️ **Legacy versions with security vulnerabilities**
-- 🚫 **Removed from NPM registry for safety**
+### v2.1.x and earlier (⚠️ SECURITY RISK - Deprecated)
+- ⚠️ **Legacy versions with critical security vulnerabilities**
+- 🚫 **DO NOT USE - No protection against attacks**
+- 🔥 **Removed from NPM registry for safety**
+
+---
+
+## 🔐 SECURITY COMMITMENT - การรับรองความปลอดภัย
+
+### 🛡️ Our Security Promise
+**This tool is designed with SECURITY FIRST principles:**
+
+✅ **NO SYSTEM FILE ACCESS** - ไม่เข้าถึงไฟล์ระบบ  
+✅ **NO COMMAND EXECUTION** - ไม่รันคำสั่งอันตราย  
+✅ **NO PATH TRAVERSAL** - ไม่อนุญาต path traversal  
+✅ **NO BINARY EXECUTION** - ไม่รันไฟล์ executable  
+✅ **SYNTAX PROTECTION** - ป้องกันการทำลายไวยากรณ์  
+✅ **SELF-PROTECTION** - ป้องกันการแก้ไขตัวเอง  
+
+### 🚨 Security Reporting - รายงานช่องโหว่
+**Found a security issue? Report it privately:**
+- 📧 **Security Email**: security@chahuadev.com
+- 🔒 **Encrypted Contact**: Use GPG key on our GitHub
+- ⚡ **Response Time**: < 24 hours for critical issues
+- 🏆 **Recognition**: Security researchers credited
+
+### 🛡️ Security Audits - การตรวจสอบความปลอดภัย
+- ✅ **Automated Security Scanning**: GitHub CodeQL
+- ✅ **Manual Code Review**: Expert security review
+- ✅ **Penetration Testing**: Regular security testing
+- ✅ **Dependency Scanning**: npm audit integration
+
+---
 
 ## 📄 License
 
@@ -481,4 +674,8 @@ MIT License - See [LICENSE](LICENSE) for details
 
 ---
 
-**Made with ❤️ by [Chahuadev](https://github.com/chahuadev)**
+**🔐 SECURITY FIRST - ความปลอดภัยเป็นอันดับหนึ่ง**  
+**Made with ❤️ and 🛡️ by [Chahuadev](https://github.com/chahuadev)**  
+**บริษัท ชาหัว ดีเวลลอปเมนต์ จำกัด** 
+**Chahua Development Co., Ltd.** 
+**เครื่องมือที่ปลอดภัยที่สุดสำหรับลบอิโมจิ - The Most Secure Emoji Removal Tool**
