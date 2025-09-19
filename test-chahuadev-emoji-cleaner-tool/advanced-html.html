@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 🌟 Meta tags with emoji-rich descriptions -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="🚀 Advanced HTML Test Page with comprehensive emoji patterns for testing 🧪 emoji removal capabilities">
+    <meta name="keywords" content="🔍 testing, ✨ emoji, 🧹 cleaning, 📊 analysis, 🎯 validation">
+    <meta name="author" content="👨‍💻 Chahuadev Test Suite">
+    
+    <!-- 🎨 Title with emoji branding -->
+    <title>🧪 Advanced HTML Emoji Test Suite | 🚀 Comprehensive Testing Platform</title>
+    
+    <!-- 🔗 External resources with emoji comments -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- 🎨 Bootstrap for styling -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- 🎨 Inline CSS with emoji-rich styling -->
+    <style>
+        /* 🎯 Global styles with emoji theming */
+        :root {
+            --primary-color: #007bff; /* 🔵 Primary blue */
+            --success-color: #28a745; /* 🟢 Success green */
+            --warning-color: #ffc107; /* 🟡 Warning yellow */
+            --danger-color: #dc3545;  /* 🔴 Danger red */
+            --emoji-font: 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji';
+        }
+        
+        /* 🎪 Header styles with emoji decoration */
+        .emoji-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .emoji-header::before {
+            content: "✨🚀🎯📊🔥💎⭐🌟"; /* 🎨 Emoji decoration */
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.2rem;
+            opacity: 0.7;
+        }
+        
+        /* 📊 Dashboard cards with emoji indicators */
+        .emoji-card {
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .emoji-card::before {
+            content: attr(data-emoji); /* 🎯 Dynamic emoji from data attribute */
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 2rem;
+            opacity: 0.3;
+        }
+        
+        .emoji-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .emoji-card.success { border-left-color: var(--success-color); }
+        .emoji-card.warning { border-left-color: var(--warning-color); }
+        .emoji-card.danger { border-left-color: var(--danger-color); }
+        
+        /* 🎨 Button styles with emoji states */
+        .btn-emoji {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-emoji::after {
+            content: attr(data-emoji-state);
+            margin-left: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-emoji:hover::after {
+            transform: scale(1.2);
+        }
+        
+        /* 📊 Progress bars with emoji milestones */
+        .emoji-progress {
+            position: relative;
+            height: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        
+        .emoji-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #28a745, #20c997);
+            transition: width 0.5s ease;
+            position: relative;
+        }
+        
+        .emoji-milestone {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+            z-index: 10;
+        }
+        
+        /* 🎪 Animation keyframes with emoji effects */
+        @keyframes emoji-bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes emoji-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        @keyframes emoji-rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .emoji-animate-bounce { animation: emoji-bounce 2s infinite; }
+        .emoji-animate-pulse { animation: emoji-pulse 1.5s infinite; }
+        .emoji-animate-rotate { animation: emoji-rotate 3s linear infinite; }
+        
+        /* 📱 Responsive emoji grid */
+        .emoji-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        /* 🎯 Interactive elements */
+        .emoji-interactive:hover {
+            cursor: pointer;
+            filter: brightness(1.2);
+        }
+        
+        /* 🌈 Theme variations */
+        .theme-dark { background: #2c3e50; color: #ecf0f1; }
+        .theme-colorful { background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #f9ca24); }
+        
+        /* 📊 Data visualization styles */
+        .emoji-chart {
+            position: relative;
+            height: 200px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .emoji-bar {
+            position: absolute;
+            bottom: 0;
+            background: var(--primary-color);
+            transition: height 0.5s ease;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- 🎪 Main header with emoji branding -->
+    <header class="emoji-header">
+        <div class="container">
+            <h1 class="display-4 mb-3">🧪 Advanced HTML Emoji Test Suite</h1>
+            <p class="lead">🚀 Comprehensive testing platform for emoji removal capabilities</p>
+            <div class="emoji-animate-bounce">🎯</div>
+        </div>
+    </header>
+
+    <!-- 📊 Navigation with emoji menu items -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">🏠 Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#dashboard">📊 Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#analytics">📈 Analytics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#settings">⚙️ Settings</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            🎯 Tools
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#validator">🔍 Validator</a></li>
+                            <li><a class="dropdown-item" href="#analyzer">🧠 Analyzer</a></li>
+                            <li><a class="dropdown-item" href="#reporter">📋 Reporter</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#help">❓ Help</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="navbar-nav">
+                    <a class="nav-link" href="#profile">👤 Profile</a>
+                    <a class="nav-link" href="#notifications">🔔 Notifications <span class="badge bg-danger">3</span></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 🎯 Main content area -->
+    <main class="container my-5">
+        
+        <!-- 📊 Dashboard section with emoji metrics -->
+        <section id="dashboard" class="mb-5">
+            <h2 class="mb-4">📊 Real-time Dashboard</h2>
+            
+            <div class="row">
+                <!-- 🎯 Status cards with emoji indicators -->
+                <div class="col-md-3 mb-4">
+                    <div class="card emoji-card success" data-emoji="✅">
+                        <div class="card-body">
+                            <h5 class="card-title">🎉 Success Rate</h5>
+                            <h3 class="text-success">97.8%</h3>
+                            <p class="card-text">🚀 Excellent performance today!</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <div class="card emoji-card warning" data-emoji="⚠️">
+                        <div class="card-body">
+                            <h5 class="card-title">⏱️ Response Time</h5>
+                            <h3 class="text-warning">145ms</h3>
+                            <p class="card-text">🟡 Within acceptable range</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <div class="card emoji-card" data-emoji="👥">
+                        <div class="card-body">
+                            <h5 class="card-title">👤 Active Users</h5>
+                            <h3 class="text-primary">1,234</h3>
+                            <p class="card-text">🔄 Currently online</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <div class="card emoji-card danger" data-emoji="🚨">
+                        <div class="card-body">
+                            <h5 class="card-title">🐛 Error Rate</h5>
+                            <h3 class="text-danger">0.2%</h3>
+                            <p class="card-text">🔴 Monitor closely</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 📈 Progress tracking with emoji milestones -->
+            <div class="row mt-4">
+                <div class="col-12">
+                    <h4>🎯 Project Progress</h4>
+                    <div class="emoji-progress mb-3">
+                        <div class="emoji-progress-bar" style="width: 75%"></div>
+                        <div class="emoji-milestone" style="left: 25%">🎯</div>
+                        <div class="emoji-milestone" style="left: 50%">🚀</div>
+                        <div class="emoji-milestone" style="left: 75%">🏆</div>
+                        <div class="emoji-milestone" style="left: 100%">🎉</div>
+                    </div>
+                    <p>📊 Current progress: <strong>75% complete</strong> - 🎉 Almost there!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 🧪 Interactive testing area -->
+        <section id="testing" class="mb-5">
+            <h2 class="mb-4">🧪 Interactive Testing Area</h2>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- 🎨 Emoji input form -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>🎯 Test Input Form</h5>
+                        </div>
+                        <div class="card-body">
+                            <form id="emojiTestForm">
+                                <div class="mb-3">
+                                    <label for="testName" class="form-label">📝 Test Name</label>
+                                    <input type="text" class="form-control" id="testName" 
+                                           placeholder="Enter test name with 🎯 emojis...">
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="testCategory" class="form-label">🏷️ Category</label>
+                                    <select class="form-select" id="testCategory">
+                                        <option value="">Choose category...</option>
+                                        <option value="validation">🔍 Validation</option>
+                                        <option value="performance">⚡ Performance</option>
+                                        <option value="security">🔐 Security</option>
+                                        <option value="usability">👤 Usability</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="testDescription" class="form-label">📝 Description</label>
+                                    <textarea class="form-control" id="testDescription" rows="3" 
+                                              placeholder="Describe your test with 🎨 emoji details..."></textarea>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="testPriority" class="form-label">🎯 Priority</label>
+                                    <div class="btn-group" role="group">
+                                        <input type="radio" class="btn-check" name="priority" id="low" value="low">
+                                        <label class="btn btn-outline-success" for="low">🟢 Low</label>
+                                        
+                                        <input type="radio" class="btn-check" name="priority" id="medium" value="medium">
+                                        <label class="btn btn-outline-warning" for="medium">🟡 Medium</label>
+                                        
+                                        <input type="radio" class="btn-check" name="priority" id="high" value="high">
+                                        <label class="btn btn-outline-danger" for="high">🔴 High</label>
+                                    </div>
+                                </div>
+                                
+                                <div class="d-grid gap-2">
+                                    <button type="submit" class="btn btn-primary btn-emoji" data-emoji-state="🚀">
+                                        Launch Test
+                                    </button>
+                                    <button type="reset" class="btn btn-secondary btn-emoji" data-emoji-state="🔄">
+                                        Reset Form
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <!-- 📊 Real-time results display -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>📊 Live Results</h5>
+                        </div>
+                        <div class="card-body">
+                            <div id="testResults">
+                                <!-- 🎯 Sample test results with emojis -->
+                                <div class="alert alert-success">
+                                    <h6>✅ Test #001 - Validation Suite</h6>
+                                    <p class="mb-1">🎯 Status: <strong>Passed</strong></p>
+                                    <p class="mb-1">⏱️ Duration: <strong>2.34s</strong></p>
+                                    <p class="mb-0">📈 Score: <strong>98/100</strong></p>
+                                </div>
+                                
+                                <div class="alert alert-warning">
+                                    <h6>⚠️ Test #002 - Performance Check</h6>
+                                    <p class="mb-1">🟡 Status: <strong>Warning</strong></p>
+                                    <p class="mb-1">⏱️ Duration: <strong>4.67s</strong></p>
+                                    <p class="mb-0">📉 Score: <strong>75/100</strong></p>
+                                </div>
+                                
+                                <div class="alert alert-danger">
+                                    <h6>❌ Test #003 - Security Scan</h6>
+                                    <p class="mb-1">🔴 Status: <strong>Failed</strong></p>
+                                    <p class="mb-1">💥 Error: <strong>Validation timeout</strong></p>
+                                    <p class="mb-0">📊 Score: <strong>45/100</strong></p>
+                                </div>
+                            </div>
+                            
+                            <!-- 🎪 Action buttons -->
+                            <div class="d-grid gap-2 mt-3">
+                                <button class="btn btn-outline-primary btn-emoji" data-emoji-state="📊">
+                                    View Detailed Report
+                                </button>
+                                <button class="btn btn-outline-success btn-emoji" data-emoji-state="📤">
+                                    Export Results
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 📈 Data visualization section -->
+        <section id="analytics" class="mb-5">
+            <h2 class="mb-4">📈 Analytics & Visualization</h2>
+            
+            <div class="row">
+                <div class="col-md-8">
+                    <!-- 📊 Emoji chart visualization -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>📊 Performance Metrics</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="emoji-chart">
+                                <div class="emoji-bar" style="left: 5%; width: 10%; height: 60%;">
+                                    <span>🟢 60%</span>
+                                </div>
+                                <div class="emoji-bar" style="left: 20%; width: 10%; height: 80%;">
+                                    <span>🟡 80%</span>
+                                </div>
+                                <div class="emoji-bar" style="left: 35%; width: 10%; height: 45%;">
+                                    <span>🔴 45%</span>
+                                </div>
+                                <div class="emoji-bar" style="left: 50%; width: 10%; height: 95%;">
+                                    <span>🚀 95%</span>
+                                </div>
+                                <div class="emoji-bar" style="left: 65%; width: 10%; height: 70%;">
+                                    <span>⭐ 70%</span>
+                                </div>
+                                <div class="emoji-bar" style="left: 80%; width: 10%; height: 88%;">
+                                    <span>🎯 88%</span>
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <small class="text-muted">
+                                    📊 Weekly performance overview with emoji indicators
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <!-- 🎯 Key metrics summary -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>🎯 Key Metrics</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled">
+                                <li class="mb-2">
+                                    <strong>🚀 Total Tests:</strong> 1,247
+                                </li>
+                                <li class="mb-2">
+                                    <strong>✅ Passed:</strong> 1,189 (95.3%)
+                                </li>
+                                <li class="mb-2">
+                                    <strong>⚠️ Warnings:</strong> 43 (3.5%)
+                                </li>
+                                <li class="mb-2">
+                                    <strong>❌ Failed:</strong> 15 (1.2%)
+                                </li>
+                                <li class="mb-2">
+                                    <strong>⏱️ Avg Time:</strong> 2.34s
+                                </li>
+                                <li class="mb-2">
+                                    <strong>📈 Trend:</strong> 🔺 Improving
+                                </li>
+                            </ul>
+                            
+                            <div class="mt-3">
+                                <button class="btn btn-sm btn-outline-primary w-100 btn-emoji" data-emoji-state="📊">
+                                    View Full Report
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 🎪 Interactive elements showcase -->
+        <section id="interactive" class="mb-5">
+            <h2 class="mb-4">🎪 Interactive Elements</h2>
+            
+            <div class="emoji-grid">
+                <!-- 🎯 Interactive cards with hover effects -->
+                <div class="card emoji-interactive" onclick="showEmojiAlert('🎯', 'Target clicked!')">
+                    <div class="card-body text-center">
+                        <div class="emoji-animate-pulse" style="font-size: 3rem;">🎯</div>
+                        <h5>Target System</h5>
+                        <p>Click to test targeting</p>
+                    </div>
+                </div>
+                
+                <div class="card emoji-interactive" onclick="showEmojiAlert('🚀', 'Rocket launched!')">
+                    <div class="card-body text-center">
+                        <div class="emoji-animate-bounce" style="font-size: 3rem;">🚀</div>
+                        <h5>Launch System</h5>
+                        <p>Click to launch tests</p>
+                    </div>
+                </div>
+                
+                <div class="card emoji-interactive" onclick="showEmojiAlert('⚙️', 'Settings opened!')">
+                    <div class="card-body text-center">
+                        <div class="emoji-animate-rotate" style="font-size: 3rem;">⚙️</div>
+                        <h5>Configuration</h5>
+                        <p>Click to configure</p>
+                    </div>
+                </div>
+                
+                <div class="card emoji-interactive" onclick="showEmojiAlert('📊', 'Analytics opened!')">
+                    <div class="card-body text-center">
+                        <div class="emoji-animate-pulse" style="font-size: 3rem;">📊</div>
+                        <h5>Analytics</h5>
+                        <p>Click for insights</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 🔔 Notifications and alerts -->
+        <section id="notifications" class="mb-5">
+            <h2 class="mb-4">🔔 Notifications & Alerts</h2>
+            
+            <div class="row">
+                <div class="col-12">
+                    <!-- 📋 Notification list with emoji types -->
+                    <div class="list-group">
+                        <div class="list-group-item list-group-item-success">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h6 class="mb-1">✅ System Update Complete</h6>
+                                <small>🕐 3 mins ago</small>
+                            </div>
+                            <p class="mb-1">🚀 All systems have been successfully updated to version 2.4.1</p>
+                            <small>📊 Status: Operational | 🎯 Impact: None</small>
+                        </div>
+                        
+                        <div class="list-group-item list-group-item-warning">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h6 class="mb-1">⚠️ High Memory Usage Detected</h6>
+                                <small>🕐 15 mins ago</small>
+                            </div>
+                            <p class="mb-1">📈 Memory usage is at 87% - monitoring closely</p>
+                            <small>🔍 Action: Monitor | 🎯 Threshold: 90%</small>
+                        </div>
+                        
+                        <div class="list-group-item list-group-item-info">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h6 class="mb-1">ℹ️ New Feature Available</h6>
+                                <small>🕐 1 hour ago</small>
+                            </div>
+                            <p class="mb-1">🎉 Advanced emoji cleaning algorithms are now available</p>
+                            <small>🆕 Feature: Enhanced Processing | 🎯 Version: 2.4.1</small>
+                        </div>
+                        
+                        <div class="list-group-item list-group-item-danger">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h6 class="mb-1">🚨 Security Alert</h6>
+                                <small>🕐 2 hours ago</small>
+                            </div>
+                            <p class="mb-1">🔒 Unusual access pattern detected from IP 192.168.1.100</p>
+                            <small>🛡️ Action: Blocked | 🎯 Risk Level: Medium</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 🦶 Footer with emoji branding -->
+    <footer class="bg-dark text-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>🏢 About Us</h5>
+                    <p>🚀 Chahuadev Test Suite provides comprehensive emoji testing capabilities for modern applications.</p>
+                    <div class="social-links">
+                        <a href="#" class="text-light me-3">📘 Facebook</a>
+                        <a href="#" class="text-light me-3">🐦 Twitter</a>
+                        <a href="#" class="text-light me-3">💼 LinkedIn</a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <h5>🔗 Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light">📚 Documentation</a></li>
+                        <li><a href="#" class="text-light">🆘 Support</a></li>
+                        <li><a href="#" class="text-light">📝 Blog</a></li>
+                        <li><a href="#" class="text-light">📧 Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-4">
+                    <h5>📬 Newsletter</h5>
+                    <p>🔔 Subscribe for updates on emoji testing tools</p>
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="📧 Your email...">
+                        <button class="btn btn-primary" type="button">🚀 Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="my-4">
+            
+            <div class="text-center">
+                <p>&copy; 2025 🏢 Chahuadev Test Suite. All rights reserved. 
+                   Made with ❤️ for testing emoji removal capabilities.</p>
+                <p>🧪 Test File Version 2.0 | 📊 Total Emojis: 200+ | 🎯 Complexity: High</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 🚀 JavaScript with emoji-enhanced functionality -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // 🎯 Emoji alert function
+        function showEmojiAlert(emoji, message) {
+            alert(`${emoji} ${message}`);
+            console.log(`🎪 Interactive element clicked: ${emoji} - ${message}`);
+        }
+        
+        // 📊 Real-time updates with emoji status
+        function updateStatus() {
+            const statusElements = document.querySelectorAll('[data-emoji]');
+            statusElements.forEach(element => {
+                const emoji = element.getAttribute('data-emoji');
+                console.log(`🔄 Updating status for: ${emoji}`);
+            });
+        }
+        
+        // 🎨 Theme switcher with emoji feedback
+        function switchTheme(themeName) {
+            document.body.className = `theme-${themeName}`;
+            console.log(`🎨 Theme switched to: ${themeName}`);
+            
+            // 🎉 Show theme change notification
+            const notification = document.createElement('div');
+            notification.className = 'alert alert-info position-fixed top-0 end-0 m-3';
+            notification.innerHTML = `🎨 Theme changed to ${themeName}! ✨`;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+        
+        // 🔄 Auto-refresh data with emoji progress
+        setInterval(() => {
+            console.log('🔄 Auto-refreshing data...');
+            updateStatus();
+        }, 30000);
+        
+        // 🎯 Form validation with emoji feedback
+        document.getElementById('emojiTestForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const testName = document.getElementById('testName').value;
+            const category = document.getElementById('testCategory').value;
+            
+            if (!testName) {
+                alert('⚠️ Please enter a test name!');
+                return;
+            }
+            
+            if (!category) {
+                alert('⚠️ Please select a category!');
+                return;
+            }
+            
+            // 🎉 Success feedback
+            alert(`✅ Test "${testName}" submitted successfully!`);
+            console.log(`🚀 Test submitted: ${testName} (${category})`);
+            
+            // 🔄 Reset form with emoji confirmation
+            this.reset();
+            console.log('🧹 Form reset completed');
+        });
+        
+        // 🎪 Initialize page with emoji welcome
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🎉 Advanced HTML Emoji Test Suite loaded successfully!');
+            console.log('📊 Total interactive elements initialized');
+            console.log('🎯 Ready for comprehensive emoji testing');
+            
+            // 🚀 Simulate loading progress
+            let progress = 0;
+            const progressBar = document.querySelector('.emoji-progress-bar');
+            
+            const loadingInterval = setInterval(() => {
+                progress += 5;
+                if (progressBar) {
+                    progressBar.style.width = `${progress}%`;
+                }
+                
+                if (progress >= 100) {
+                    clearInterval(loadingInterval);
+                    console.log('✅ Page initialization complete!');
+                }
+            }, 100);
+        });
+        
+        // 📊 Analytics tracking with emoji events
+        function trackEmojiEvent(eventType, emojiType, details) {
+            console.log(`📈 Tracking: ${eventType} | ${emojiType} | ${details}`);
+            
+            // 🎯 Simulate analytics data collection
+            const eventData = {
+                type: eventType,
+                emoji: emojiType,
+                details: details,
+                timestamp: new Date().toISOString(),
+                session: 'test_session_' + Math.random().toString(36).substr(2, 9)
+            };
+            
+            console.log('📊 Event data:', eventData);
+        }
+        
+        // 🎨 Dynamic emoji content updates
+        function updateEmojiContent() {
+            const emojiElements = document.querySelectorAll('.emoji-animate-pulse, .emoji-animate-bounce, .emoji-animate-rotate');
+            
+            emojiElements.forEach(element => {
+                trackEmojiEvent('animation_cycle', element.textContent, 'content_update');
+            });
+        }
+        
+        // 🔄 Set up periodic emoji content updates
+        setInterval(updateEmojiContent, 10000);
+    </script>
+
+    <!-- 🎯 Additional inline scripts for complex emoji patterns -->
+    <script>
+        // 🧪 Complex emoji testing patterns
+        const emojiTestData = {
+            categories: {
+                'validation': '🔍',
+                'performance': '⚡',
+                'security': '🔐',
+                'usability': '👤'
+            },
+            statuses: {
+                'success': '✅',
+                'warning': '⚠️',
+                'error': '❌',
+                'info': 'ℹ️'
+            },
+            priorities: {
+                'low': '🟢',
+                'medium': '🟡',
+                'high': '🔴',
+                'critical': '🚨'
+            }
+        };
+        
+        // 📊 Generate dynamic emoji reports
+        function generateEmojiReport() {
+            const report = {
+                title: '📊 Comprehensive Emoji Testing Report',
+                summary: {
+                    total_tests: 1247,
+                    passed: '✅ 1189',
+                    warnings: '⚠️ 43',
+                    failed: '❌ 15',
+                    coverage: '🎯 97.3%'
+                },
+                recommendations: [
+                    '🔧 Optimize slow-running tests',
+                    '📈 Increase test coverage for edge cases',
+                    '🛡️ Enhance security test scenarios',
+                    '🎨 Improve user experience testing'
+                ],
+                next_steps: [
+                    '🚀 Deploy updated test suite',
+                    '📊 Monitor performance metrics',
+                    '🔄 Schedule regular reviews',
+                    '✨ Implement new testing features'
+                ]
+            };
+            
+            console.log('📋 Generated emoji report:', report);
+            return report;
+        }
+        
+        // 🎪 Advanced emoji interaction handlers
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('emoji-interactive')) {
+                const emoji = e.target.querySelector('[class*="emoji-animate"]')?.textContent || '❓';
+                trackEmojiEvent('click', emoji, 'interactive_element');
+            }
+        });
+        
+        // 🔄 Emoji state management
+        const emojiState = {
+            activeAnimations: new Set(),
+            clickCounts: new Map(),
+            sessionData: {
+                startTime: new Date(),
+                interactions: 0,
+                lastActivity: new Date()
+            }
+        };
+        
+        // 📊 Update emoji statistics
+        function updateEmojiStats() {
+            emojiState.sessionData.interactions++;
+            emojiState.sessionData.lastActivity = new Date();
+            
+            console.log(`📈 Session stats updated: ${emojiState.sessionData.interactions} interactions`);
+        }
+        
+        // 🎯 Attach stats tracking to all emoji elements
+        document.querySelectorAll('[data-emoji], [class*="emoji-"]').forEach(element => {
+            element.addEventListener('click', updateEmojiStats);
+            element.addEventListener('mouseenter', () => {
+                trackEmojiEvent('hover', element.textContent || 'element', 'mouse_enter');
+            });
+        });
+    </script>
+</body>
+</html>
+
+<!-- 
+🎊 End of Advanced HTML Test File
+📝 This file contains comprehensive HTML patterns with extensive emoji usage
+🧪 Features: Complex structure, inline CSS/JS, forms, interactive elements
+🎯 Perfect for testing emoji removal capabilities across all HTML constructs
+📊 Total emoji count: 300+ emojis in various contexts (content, attributes, comments, scripts)
+✅ All HTML is valid and renders properly in modern browsers
+-->

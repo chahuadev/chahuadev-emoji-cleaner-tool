@@ -12,6 +12,40 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [2.3.0] - 2025-09-19 - **🧹 CLEAN REGISTRY RELEASE**
+
+### 🔄 Registry Management | การจัดการ Registry
+- **🗑️ Legacy Version Cleanup** | ทำความสะอาดเวอร์ชันเก่า
+  - Removed legacy versions 2.2.3 and 2.2.4 from npm registry | ลบเวอร์ชันเก่า 2.2.3 และ 2.2.4 ออกจาก npm registry
+  - Clean registry with only stable releases | ทำความสะอาด registry ให้มีเฉพาะรีลีสที่เสถียร
+  - Simplified version history | ประวัติเวอร์ชันที่เรียบง่าย
+
+### ✨ Features Maintained | คุณสมบัติที่คงไว้
+- **🔧 Single-File CLI Architecture** | สถาปัตยกรรม CLI ไฟล์เดียว
+  - All CLI functionality in emoji-cleaner.js | ฟังก์ชัน CLI ทั้งหมดใน emoji-cleaner.js
+  - No bin/ directory dependencies | ไม่มีการพึ่งพาโฟลเดอร์ bin/
+  - Simplified package structure | โครงสร้าง package ที่เรียบง่าย
+
+- **🛡️ Security Features** | คุณสมบัติด้านความปลอดภัย
+  - Complete FORTRESS security system | ระบบความปลอดภัย FORTRESS แบบสมบูรณ์
+  - Path traversal protection | ป้องกัน path traversal
+  - System directory blocking | บล็อกไดเรกทอรี่ระบบ
+  - Command injection prevention | ป้องกันการฉีด command
+
+- **🎯 Enhanced Emoji Detection** | การตรวจจับอิโมจิที่ปรับปรุง
+  - Unicode 15.1+ support | รองรับ Unicode 15.1+
+  - Comprehensive emoji patterns | รูปแบบอิโมจิที่ครอบคลุม
+  - Context-aware processing | การประมวลผลที่เข้าใจบริบท
+  - 50+ programming languages supported | รองรับ 50+ ภาษาโปรแกรมมิ่ง
+
+### 📦 Package Quality | คุณภาพแพ็กเกจ
+- **🧼 Clean Installation** | การติดตั้งที่สะอาด
+  - Only essential files included | รวมเฉพาะไฟล์ที่จำเป็น
+  - Optimized package size | ขนาดแพ็กเกจที่ปรับให้เหมาะสม
+  - Clear dependency structure | โครงสร้างการพึ่งพาที่ชัดเจน
+
+---
+
 ## [2.2.7] - 2025-09-19 - **🔧 SINGLE-FILE CLI ARCHITECTURE**
 
 ### 🏗️ Architectural Changes | การเปลี่ยนแปลงสถาปัตยกรรม

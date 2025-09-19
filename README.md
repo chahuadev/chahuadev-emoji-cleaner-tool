@@ -1,4 +1,4 @@
-# 🧹 Universal Emoji Cleaner v2.2.6
+# 🧹 Universal Emoji Cleaner v2.3.0
 
 **เครื่องมือลบอิโมจิสำหรับ 50+ ภาษาโปรแกรมมิ่ง - ปลอดภัย รวดเร็ว ครบครัน**  
 **Universal emoji removal tool for 50+ programming languages - Secure, Fast, Comprehensive**
@@ -18,7 +18,7 @@
 ## ⚠️ คำเตือนสำคัญ - CRITICAL SECURITY WARNING
 
 ### 🛡️ ความปลอดภัยระดับสูงสุด - FORTRESS SECURITY
-- **ใช้เวอร์ชันล่าสุดเสมอ**: เวอร์ชันเก่า (< 2.2.6) มีช่องโหว่ด้านความปลอดภัย
+- **ใช้เวอร์ชันล่าสุดเสมอ**: เวอร์ชันเก่า (< 2.3.0) มีช่องโหว่ด้านความปลอดภัย
 - **หลีกเลี่ยงเวอร์ชันเก่า**: เวอร์ชัน 2.1.x-2.2.4 ไม่มี anti-hack protection
 - **ใช้ `@latest` flag**: `npx @chahuadev/emoji-cleaner@latest` เพื่อความปลอดภัยสูงสุด
 - **⚠️ VERSION 2.2.5+ REQUIRED**: เวอร์ชันเก่าไม่มีระบบป้องกันการแฮก
@@ -110,7 +110,7 @@ Tool จะแสดงข้อความเตือนเมื่อตร
 npx @chahuadev/emoji-cleaner@latest
 
 # หรือระบุเวอร์ชันเฉพาะ
-npx @chahuadev/emoji-cleaner@2.2.6
+npx @chahuadev/emoji-cleaner@2.3.0
 ```
 
 ### วิธีที่ 2: ติดตั้งในโปรเจ็กต์
@@ -312,10 +312,10 @@ console.log(`ประมวลผล ${stats.totalFiles} ไฟล์`);
 ## ⚠️ CRITICAL SECURITY WARNING - FORTRESS PROTECTION
 
 ### 🛡️ Maximum Security - FORTRESS SECURITY
-- **Always use latest version**: Older versions (< 2.2.6) have security vulnerabilities
-- **Avoid legacy versions**: Versions 2.1.x-2.2.4 lack anti-hack protection
+- **Always use latest version**: Older versions (< 2.3.0) have security vulnerabilities
+- **Avoid legacy versions**: Versions 2.1.x-2.2.x lack anti-hack protection
 - **Use `@latest` flag**: `npx @chahuadev/emoji-cleaner@latest` for maximum safety
-- **⚠️ VERSION 2.2.6+ REQUIRED**: Older versions lack hacking protection systems
+- **⚠️ VERSION 2.3.0+ REQUIRED**: Older versions lack hacking protection systems
 
 ### 🚨 Anti-Hack Protection System - FORTRESS SHIELD
 Tool has comprehensive protection against all attack vectors:
@@ -418,7 +418,7 @@ Tool will deny access to:
 npx @chahuadev/emoji-cleaner@latest
 
 # Or specify exact version
-npx @chahuadev/emoji-cleaner@2.2.6
+npx @chahuadev/emoji-cleaner@2.3.0
 ```
 
 ### Method 2: Project Installation
@@ -609,10 +609,12 @@ console.log(`Processed ${stats.totalFiles} files`);
 
 ## 📝 Changelog
 
-### v2.2.6 (2025-09-19) - **🛡️ FORTRESS SECURITY UPDATE**
-- 🔥 **FORTRESS SECURITY**: Complete anti-hack protection system
-- 🔍 **Syntax Validation**: Pre/post-processing validation for JS, Python, HTML, CSS
-- 🛡️ **Self-Protection**: Enhanced mechanism preventing tool corruption
+### v2.3.0 (2025-09-19) - **🧹 CLEAN REGISTRY RELEASE**
+- 🧹 **Clean Registry**: Removed legacy versions for clean npm registry
+- � **Single-File CLI**: Consolidated architecture with emoji-cleaner.js
+- 🛡️ **Security Features**: Complete FORTRESS protection system maintained
+- 🎯 **Enhanced Detection**: Unicode 15.1+ emoji patterns
+- 📦 **Optimized Package**: Clean structure with essential files only
 - 📊 **Enhanced CLI**: Better error handling and security indicators
 - 🏗️ **Zone Architecture**: 6-zone organization with consistent headers
 - 🚫 **Path Protection**: Comprehensive system directory blocking
