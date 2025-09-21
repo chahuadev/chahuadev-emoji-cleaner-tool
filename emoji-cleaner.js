@@ -1417,20 +1417,20 @@ function displayFileResult(result, options) {
 
     if (result.success) {
         if (result.changed) {
-            const icon = options.dryRun ? '🔍 [DRY]' : '✅ [DONE]';
+            const icon = options.dryRun ? ' [DRY]' : ' [DONE]';
             console.log(`${icon} ${relativePath}`);
             if (options.verbose) {
-                console.log(`  📊 Emojis removed: ${result.emojiCount}`);
-                console.log(`  🧹 Comments cleaned: ${result.commentCount}`);
-                console.log(`  📏 Size: ${result.originalSize} → ${result.newSize} bytes`);
+                console.log(`   Emojis removed: ${result.emojiCount}`);
+                console.log(`   Comments cleaned: ${result.commentCount}`);
+                console.log(`   Size: ${result.originalSize} → ${result.newSize} bytes`);
             } else {
                 console.log(`     ${result.emojiCount} emojis, ${result.commentCount} comments`);
             }
         } else if (options.verbose) {
-            console.log(`✨ ${relativePath} - No emojis found`);
+            console.log(` ${relativePath} - No emojis found`);
         }
     } else {
-        console.log(`❌ ERROR: ${relativePath} - Error: ${result.error}`);
+        console.log(` ERROR: ${relativePath} - Error: ${result.error}`);
     }
 }
 
@@ -1439,27 +1439,27 @@ function displayFileResult(result, options) {
 //                        Summary Statistics Display Function
 // ══════════════════════════════════════════════════════════════════════════════
 function displaySummary(stats, options) {
-    console.log(`\n📊 Summary:`);
-    console.log(`  📁 Files processed: ${stats.totalFiles}`);
-    console.log(`  🔄 Files with changes: ${stats.filesWithChanges}`);
-    console.log(`  🧹 Total emojis removed: ${stats.totalEmojis}`);
-    console.log(`  💬 Total comments cleaned: ${stats.totalComments}`);
-    console.log(`  ⏱️ Processing time: ${stats.duration}s`);
+    console.log(`\n Summary:`);
+    console.log(`   Files processed: ${stats.totalFiles}`);
+    console.log(`   Files with changes: ${stats.filesWithChanges}`);
+    console.log(`   Total emojis removed: ${stats.totalEmojis}`);
+    console.log(`   Total comments cleaned: ${stats.totalComments}`);
+    console.log(`  ⏱ Processing time: ${stats.duration}s`);
 
     if (stats.errors > 0) {
-        console.log(`  ❌ Errors: ${stats.errors}`);
+        console.log(`   Errors: ${stats.errors}`);
     }
 
     if (stats.backupDir) {
-        console.log(`  💾 Backup directory: ${path.relative(process.cwd(), stats.backupDir)}`);
+        console.log(`   Backup directory: ${path.relative(process.cwd(), stats.backupDir)}`);
     }
 
     if (options.dryRun) {
-        console.log(`\n🔍 Dry-run completed. Use without --dry-run to apply changes.`);
+        console.log(`\n Dry-run completed. Use without --dry-run to apply changes.`);
     } else if (stats.filesWithChanges > 0) {
-        console.log(`\n🎉 Cleaning completed successfully!`);
+        console.log(`\n Cleaning completed successfully!`);
     } else {
-        console.log(`\n✨ No emojis found in processed files.`);
+        console.log(`\n No emojis found in processed files.`);
     }
 }
 
@@ -1484,19 +1484,19 @@ async function enhancedMain() {
         }
 
         // Display header
-        console.log('🧹 Universal Emoji Cleaner v2.3.1');
+        console.log(' Universal Emoji Cleaner v2.3.1');
         console.log('================================');
         if (options.dryRun) {
-            console.log('🔍 DRY RUN MODE - No files will be modified');
+            console.log(' DRY RUN MODE - No files will be modified');
         }
-        console.log(`📁 Target: ${path.relative(process.cwd(), options.target)}`);
-        console.log(`📄 Extensions: ${options.extensions.join(', ')}`);
+        console.log(` Target: ${path.relative(process.cwd(), options.target)}`);
+        console.log(` Extensions: ${options.extensions.join(', ')}`);
 
         const startTime = Date.now();
 
         // Check if target exists
         if (!fs.existsSync(options.target)) {
-            console.error(`❌ Target not found: ${options.target}`);
+            console.error(` Target not found: ${options.target}`);
             process.exit(1);
         }
 
@@ -1504,61 +1504,61 @@ async function enhancedMain() {
 
         if (stats.isFile()) {
             // Process single file
-            console.log('🔍 Processing single file...');
+            console.log(' Processing single file...');
             const result = await analyzeFile(options.target, options.dryRun, options.verbose, options.backup);
 
             const duration = ((Date.now() - startTime) / 1000).toFixed(2);
 
             console.log('================================');
             if (options.dryRun) {
-                console.log('📊 Analysis Complete!');
+                console.log(' Analysis Complete!');
             } else {
-                console.log('🎉 Cleaning Complete!');
+                console.log(' Cleaning Complete!');
             }
-            console.log(`📊 Emojis ${options.dryRun ? 'found' : 'removed'}: ${result.emojiCount}`);
-            console.log(`💬 Comments ${options.dryRun ? 'found' : 'removed'}: ${result.commentCount}`);
-            console.log(`⏱️ Time taken: ${duration}s`);
+            console.log(` Emojis ${options.dryRun ? 'found' : 'removed'}: ${result.emojiCount}`);
+            console.log(` Comments ${options.dryRun ? 'found' : 'removed'}: ${result.commentCount}`);
+            console.log(`⏱ Time taken: ${duration}s`);
 
         } else {
             // Process directory
-            console.log('🔍 Processing directory...');
+            console.log(' Processing directory...');
             const results = processDirectory(options.target, options.dryRun, options.verbose, options.extensions, options.backup);
 
             const duration = ((Date.now() - startTime) / 1000).toFixed(2);
 
             console.log('================================');
             if (options.dryRun) {
-                console.log('📊 Analysis Complete!');
+                console.log(' Analysis Complete!');
             } else {
-                console.log('🎉 Cleaning Complete!');
+                console.log(' Cleaning Complete!');
             }
-            console.log(`📁 Files ${options.dryRun ? 'with emojis' : 'processed'}: ${results.filesWithEmojis}`);
-            console.log(`📊 Total emojis ${options.dryRun ? 'found' : 'removed'}: ${results.totalEmojis}`);
-            console.log(`💬 Comments ${options.dryRun ? 'with emojis' : 'removed'}: ${results.totalComments}`);
-            console.log(`⏱️ Time taken: ${duration}s`);
+            console.log(` Files ${options.dryRun ? 'with emojis' : 'processed'}: ${results.filesWithEmojis}`);
+            console.log(` Total emojis ${options.dryRun ? 'found' : 'removed'}: ${results.totalEmojis}`);
+            console.log(` Comments ${options.dryRun ? 'with emojis' : 'removed'}: ${results.totalComments}`);
+            console.log(` Time taken: ${duration}s`);
 
             if (results.errors > 0) {
-                console.log(`❌ Errors encountered: ${results.errors}`);
+                console.log(` Errors encountered: ${results.errors}`);
             }
 
             if (results.backupDir) {
-                console.log(`💾 Backup directory: ${path.relative(process.cwd(), results.backupDir)}`);
+                console.log(` Backup directory: ${path.relative(process.cwd(), results.backupDir)}`);
             }
         }
 
         if (options.dryRun) {
-            console.log('\n🔍 Use without --dry-run to apply changes');
+            console.log('\n Use without --dry-run to apply changes');
         }
 
     } catch (error) {
         if (error.message.includes('ENOENT')) {
-            console.error(`❌ Target not found: ${options.target}`);
+            console.error(` Target not found: ${options.target}`);
         } else if (error.message.includes('Permission denied') ||
             error.message.includes('system directories') ||
             error.message.includes('Path traversal')) {
-            console.error(`🔒 Security Error: ${error.message}`);
+            console.error(` Security Error: ${error.message}`);
         } else {
-            console.error(`❌ Error: ${error.message}`);
+            console.error(` Error: ${error.message}`);
         }
         process.exit(1);
     }
