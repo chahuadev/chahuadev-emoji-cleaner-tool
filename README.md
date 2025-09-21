@@ -299,7 +299,7 @@ console.log(`ประมวลผล ${stats.totalFiles} ไฟล์`);
 
 <div align="center">
 
-[![Issues](https://img.shields.io/badge/รายงานปัญหา-GitHub_Issues-red?style=for-the-badge&logo=github)](https://github.com/chahuadev/chahuadev-emoji-cleaner-tool/issues)
+[![Issues](https://img.shields.io/badge/รายงานปัญหา-GitHub_Issues-red?style=for-the-badge&logo=github)]([[https://github.com/chahuadev/chahuadev-emoji-cleaner-tool/issues](https://github.com/chahuadev/chahuadev-emoji-cleaner-tool/issues)](https://github.com/chahuadev/chahuadev-emoji-cleaner-tool/issues))
 [![Discussions](https://img.shields.io/badge/ขอฟีเจอร์ใหม่-GitHub_Discussions-blue?style=for-the-badge&logo=github)](https://github.com/chahuadev/chahuadev-emoji-cleaner-tool/discussions)
 [![Contact](https://img.shields.io/badge/ติดต่อ-chahuadev@gmail.com-green?style=for-the-badge&logo=gmail)](mailto:chahuadev@gmail.com)
 
