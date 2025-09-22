@@ -1205,7 +1205,7 @@ async function main() {
         }
     }
 
-    console.log('🧹 Universal Emoji Cleaner v2.1');
+    console.log(' Universal Emoji Cleaner v2.1');
     console.log('================================');
     if (isDryRun) {
         console.log(' DRY RUN MODE - No files will be modified');
@@ -1328,13 +1328,13 @@ SUPPORTED FILES:
   [+] And more text-based files
 
 FEATURES:
-  ✨ Remove emojis from code and text
-  🧹 Remove emoji-only comments
-  📁 Optional backup before changes
-  👁️ Dry-run mode for preview
-  📊 Detailed statistics and reporting
-  ⚡ Fast processing of large codebases
-  🔒 Security validation and safe processing
+   [+] Remove emojis from code and text
+   [+] Remove emoji-only comments
+   [+] Optional backup before changes
+   [+] Dry-run mode for preview
+   [+] Detailed statistics and reporting
+   [+] Fast processing of large codebases
+   [+] Security validation and safe processing
 
 For more information, visit: https://github.com/chahuadev/chahuadev-emoji-cleaner-tool
 `);
@@ -1348,13 +1348,13 @@ function showVersion() {
     const packagePath = path.join(__dirname, 'package.json');
     try {
         const packageInfo = JSON.parse(fs.readFileSync(packagePath, 'utf8'));
-        console.log(`🧹 Universal Emoji Cleaner v${packageInfo.version}`);
-        console.log(`📦 npm package: ${packageInfo.name}`);
-        console.log(`👨‍💻 Author: ${packageInfo.author.name || packageInfo.author}`);
-        console.log(`🔗 Repository: ${packageInfo.repository.url || packageInfo.repository}`);
+        console.log(`[+] Universal Emoji Cleaner v${packageInfo.version}`);
+        console.log(`[+] npm package: ${packageInfo.name}`);
+        console.log(`[+] Author: ${packageInfo.author.name || packageInfo.author}`);
+        console.log(`[+] Repository: ${packageInfo.repository.url || packageInfo.repository}`);
     } catch (error) {
-        console.log('🧹 Universal Emoji Cleaner v2.3.1');
-        console.log('👨‍💻 Author: Chahua Development Co., Ltd.');
+        console.log('[+] Universal Emoji Cleaner v2.3.1');
+        console.log('[+] Author: Chahua Development Co., Ltd.');
     }
 }
 
@@ -1444,7 +1444,7 @@ function displaySummary(stats, options) {
     console.log(`   Files with changes: ${stats.filesWithChanges}`);
     console.log(`   Total emojis removed: ${stats.totalEmojis}`);
     console.log(`   Total comments cleaned: ${stats.totalComments}`);
-    console.log(`  ⏱ Processing time: ${stats.duration}s`);
+    console.log(`   Processing time: ${stats.duration}s`);
 
     if (stats.errors > 0) {
         console.log(`   Errors: ${stats.errors}`);
@@ -1517,7 +1517,7 @@ async function enhancedMain() {
             }
             console.log(` Emojis ${options.dryRun ? 'found' : 'removed'}: ${result.emojiCount}`);
             console.log(` Comments ${options.dryRun ? 'found' : 'removed'}: ${result.commentCount}`);
-            console.log(`⏱ Time taken: ${duration}s`);
+            console.log(` Time taken: ${duration}s`);
 
         } else {
             // Process directory

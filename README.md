@@ -1,4 +1,4 @@
-# 🧹 Universal Emoji Cleaner v2.3.1
+#  Universal Emoji Cleaner v2.3.1
 
 **เครื่องมือลบอิโมจิสำหรับ 50+ ภาษาโปรแกรมมิ่ง - ปลอดภัย รวดเร็ว ครบครัน**  
 **Universal emoji removal tool for 50+ programming languages - Secure, Fast, Comprehensive**
@@ -9,26 +9,26 @@
 [![Security](https://img.shields.io/badge/Security-FORTRESS-red.svg)](https://github.com/chahuadev/chahuadev-emoji-cleaner-tool)
 [![Anti-Hack](https://img.shields.io/badge/Anti--Hack-PROTECTED-darkred.svg)](https://github.com/chahuadev/chahuadev-emoji-cleaner-tool)
 
-**🌏 Languages:** [🇹🇭 ไทย](#-thai) | [🇺🇸 English](#-english)
+** Languages:** [🇹🇭 ไทย](#-thai) | [🇺🇸 English](#-english)
 
 ---
 
 ## 🇹🇭 Thai
 
-## ⚠️ คำเตือนสำคัญ - CRITICAL SECURITY WARNING
+##  คำเตือนสำคัญ - CRITICAL SECURITY WARNING
 
-### 🛡️ ความปลอดภัยระดับสูงสุด - FORTRESS SECURITY
+###  ความปลอดภัยระดับสูงสุด - FORTRESS SECURITY
 - **ใช้เวอร์ชันล่าสุดเสมอ**: เวอร์ชันเก่า (< 2.3.1) มีช่องโหว่ด้านความปลอดภัย
 - **หลีกเลี่ยงเวอร์ชันเก่า**: เวอร์ชัน 2.1.x-2.2.4 ไม่มี anti-hack protection
 - **ใช้ `@latest` flag**: `npx @chahuadev/emoji-cleaner@latest` เพื่อความปลอดภัยสูงสุด
-- **⚠️ VERSION 2.2.5+ REQUIRED**: เวอร์ชันเก่าไม่มีระบบป้องกันการแฮก
+- ** VERSION 2.2.5+ REQUIRED**: เวอร์ชันเก่าไม่มีระบบป้องกันการแฮก
 
-### 🚨 ระบบป้องกันการแฮก - ANTI-HACK PROTECTION
+###  ระบบป้องกันการแฮก - ANTI-HACK PROTECTION
 Tool มีระบบป้องกันการโจมตีทุกรูปแบบ:
 
-#### 🔒 Command Injection Protection
+####  Command Injection Protection
 ```bash
-# ❌ BLOCKED - การฉีด Command ถูกบล็อกโดยระบบ
+#  BLOCKED - การฉีด Command ถูกบล็อกโดยระบบ
 eval()
 exec()
 spawn() 
@@ -38,18 +38,18 @@ rm -rf /
 del /f /s /q C:\*
 ```
 
-#### 🛡️ Path Traversal Protection  
+####  Path Traversal Protection  
 ```bash
-# ❌ BLOCKED - การโจมตี Path Traversal ถูกปฏิเสธ
+#  BLOCKED - การโจมตี Path Traversal ถูกปฏิเสธ
 ../../../etc/passwd
 ..\\..\\..\\Windows\\System32
 /etc/../../../bin/
 C:\\Windows\\..\\..\\..\
 ```
 
-#### 🚫 System Critical File Protection
+####  System Critical File Protection
 ```bash
-# ❌ BLOCKED - ไฟล์ระบบสำคัญถูกป้องกัน
+#  BLOCKED - ไฟล์ระบบสำคัญถูกป้องกัน
 /etc/passwd
 /etc/shadow  
 C:\Windows\System32\
@@ -60,19 +60,19 @@ C:\Program Files\
 /boot/
 ```
 
-### 🔒 การป้องกันระบบ
+###  การป้องกันระบบ
 Tool จะปฏิเสธการเข้าถึง:
-- ✋ Windows System directories (`C:\Windows\`, `C:\Program Files\`, `C:\System Volume Information\`)
-- ✋ Linux System directories (`/etc/`, `/usr/`, `/bin/`, `/root/`, `/boot/`, `/proc/`, `/sys/`)
-- ✋ MacOS System directories (`/System/`, `/usr/bin/`, `/bin/`, `/sbin/`)
-- ✋ ไฟล์ที่มี null bytes หรือ dangerous characters
-- ✋ ไฟล์ขนาดใหญ่เกิน 10MB
-- ✋ Path traversal attempts (`../`, `..\\`, etc.)
-- ✋ Command injection patterns
-- ✋ Script execution attempts
-- ✋ Binary executable files
+-  Windows System directories (`C:\Windows\`, `C:\Program Files\`, `C:\System Volume Information\`)
+-  Linux System directories (`/etc/`, `/usr/`, `/bin/`, `/root/`, `/boot/`, `/proc/`, `/sys/`)
+-  MacOS System directories (`/System/`, `/usr/bin/`, `/bin/`, `/sbin/`)
+-  ไฟล์ที่มี null bytes หรือ dangerous characters
+-  ไฟล์ขนาดใหญ่เกิน 10MB
+-  Path traversal attempts (`../`, `..\\`, etc.)
+-  Command injection patterns
+-  Script execution attempts
+-  Binary executable files
 
-### 📋 การใช้งานปลอดภัย - SECURE USAGE ONLY
+###  การใช้งานปลอดภัย - SECURE USAGE ONLY
 - **ใช้ `--dry-run` ก่อนเสมอ** เพื่อดูผลลัพธ์
 - **ใช้ `--backup` สำหรับไฟล์สำคัญ**
 - **ทดสอบโค้ดหลังลบอิโมจิ** เพื่อให้แน่ใจว่าทำงานปกติ
@@ -80,29 +80,29 @@ Tool จะปฏิเสธการเข้าถึง:
 - **ใช้เฉพาะในโปรเจ็กต์ของคุณ** อย่าใช้กับไฟล์ระบบ
 - **ตรวจสอบ output** ก่อนยืนยันการดำเนินการ
 
-### 🚨 สัญญาณเตือนการโจมตี - ATTACK DETECTION
+###  สัญญาณเตือนการโจมตี - ATTACK DETECTION
 Tool จะแสดงข้อความเตือนเมื่อตรวจพบ:
 ```bash
-🚨 SECURITY ALERT: Path traversal detected
-🚨 SECURITY ALERT: System directory access denied  
-🚨 SECURITY ALERT: Command injection attempt blocked
-🚨 SECURITY ALERT: Dangerous file operation prevented
-🚨 SECURITY ALERT: Binary execution attempt blocked
+ SECURITY ALERT: Path traversal detected
+ SECURITY ALERT: System directory access denied  
+ SECURITY ALERT: Command injection attempt blocked
+ SECURITY ALERT: Dangerous file operation prevented
+ SECURITY ALERT: Binary execution attempt blocked
 ```
 
-## 🎯 ทำไมต้องใช้?
+##  ทำไมต้องใช้?
 
-✨ **ลบอิโมจิออกจากโค้ดอย่างปลอดภัยและมีประสิทธิภาพ**
-- 🔍 **ตรวจจับอย่างชาญฉลาด**: รูปแบบอิโมจิ Unicode 15.1+
-- 🚀 **เร็วปานสายฟ้า**: ประมวลผล 1000+ ไฟล์ในไม่กี่วินาที
-- 🛡️ **ปลอดภัยสูงสุด**: ระบบสำรองและโหมด dry-run
-- 🌍 **รองรับครอบจักรวาล**: 50+ ภาษาโปรแกรมมิ่ง
-- 🧠 **อัจฉริยะ**: ทำความสะอาดแบบเข้าใจบริบท
-- ⚡ **ประสิทธิภาพสูง**: รองรับโปรเจ็กต์ขนาดใหญ่
-- 🛡️ **ข้ามโฟลเดอร์ระบบ** (node_modules, .git, dist, build) อัตโนมัติ
-- 📚 **ใช้เป็น Library** สำหรับ Node.js
+ **ลบอิโมจิออกจากโค้ดอย่างปลอดภัยและมีประสิทธิภาพ**
+-  **ตรวจจับอย่างชาญฉลาด**: รูปแบบอิโมจิ Unicode 15.1+
+-  **เร็วปานสายฟ้า**: ประมวลผล 1000+ ไฟล์ในไม่กี่วินาที
+-  **ปลอดภัยสูงสุด**: ระบบสำรองและโหมด dry-run
+-  **รองรับครอบจักรวาล**: 50+ ภาษาโปรแกรมมิ่ง
+-  **อัจฉริยะ**: ทำความสะอาดแบบเข้าใจบริบท
+-  **ประสิทธิภาพสูง**: รองรับโปรเจ็กต์ขนาดใหญ่
+-  **ข้ามโฟลเดอร์ระบบ** (node_modules, .git, dist, build) อัตโนมัติ
+-  **ใช้เป็น Library** สำหรับ Node.js
 
-## 📦 การติดตั้งและถอนการติดตั้ง
+##  การติดตั้งและถอนการติดตั้ง
 
 ### วิธีที่ 1: ใช้งานทันที (ไม่ต้องติดตั้ง) - แนะนำ
 ```bash
@@ -146,7 +146,7 @@ Remove-Item -Path "$env:LOCALAPPDATA\npm-cache\_npx" -Recurse -Force
 rm -rf ~/.npm/_npx
 ```
 
-## 🚀 เริ่มต้นใช้งาน
+##  เริ่มต้นใช้งาน
 
 ### การใช้งานพื้นฐาน
 ```bash
@@ -198,28 +198,28 @@ npx @chahuadev/emoji-cleaner@latest ./src --dry-run --verbose
 | `--version` | | แสดงข้อมูลเวอร์ชัน |
 | `--ext <list>` | | ระบุส่วนขยายไฟล์ (คั่นด้วยจุลภาค) |
 
-## 🌟 ฟีเจอร์
+##  ฟีเจอร์
 
-### 🎯 **ตรวจจับอิโมจิอย่างชาญฉลาด**
+###  **ตรวจจับอิโมจิอย่างชาญฉลาด**
 - **รองรับ Unicode 15.1+**: รูปแบบอิโมจิล่าสุด
 - **ครอบคลุมครบถ้วน**: อิโมจิทุกหมวดหมู่
 - **เข้าใจบริบท**: รักษา Unicode ที่ไม่ใช่อิโมจิ
 - **HTML Entities**: ลบ HTML entities ของอิโมจิ
 
-### 🛡️ **ความปลอดภัยระดับองค์กร**
+###  **ความปลอดภัยระดับองค์กร**
 - **ป้องกัน Path Traversal**: ป้องกันการโจมตี directory traversal
 - **บล็อคไดเรกทอรี่ระบบ**: บล็อคการเข้าถึง system paths สำคัญ
 - **ตรวจสอบ Input**: ตรวจสอบและทำความสะอาด user inputs ทั้งหมด
 - **จำกัดขนาดไฟล์**: ป้องกันการประมวลผลไฟล์ขนาดใหญ่เกินไป
 - **ตรวจสอบสิทธิ์**: ตรวจสอบสิทธิ์การเข้าถึงไฟล์
 
-### 🚀 **ประสิทธิภาพสูง**
+###  **ประสิทธิภาพสูง**
 - **ประมวลผลเร็ว**: 1000+ ไฟล์ในไม่กี่วินาที
 - **ประหยัดหน่วยความจำ**: ปรับให้เหมาะสำหรับ codebase ขนาดใหญ่
 - **กรองอย่างชาญฉลาด**: ข้ามไฟล์ที่ไม่เกี่ยวข้องอัตโนมัติ
 - **ประมวลผลแบบขนาน**: Multi-threaded เมื่อเป็นไปได้
 
-### 📚 **รองรับ 50+ ภาษา**
+###  **รองรับ 50+ ภาษา**
 
 **ภาษาโปรแกรมมิ่ง:**
 - JavaScript (.js), TypeScript (.ts), JSX (.jsx), TSX (.tsx)
@@ -240,20 +240,20 @@ npx @chahuadev/emoji-cleaner@latest ./src --dry-run --verbose
 - Shell (.sh/.bash/.zsh), PowerShell (.ps1), Batch (.bat/.cmd)
 - SQL (.sql), Markdown (.md), Text (.txt)
 
-## 📋 ตัวอย่างการใช้งาน
+##  ตัวอย่างการใช้งาน
 
 ### ตัวอย่างด้านความปลอดภัย
 ```bash
 # ✅ ปลอดภัย: ล้างโปรเจ็กต์ของคุณพร้อมสำรอง
 npx @chahuadev/emoji-cleaner@latest ./my-project --backup --dry-run
 
-# ❌ ถูกบล็อค: การเข้าถึงไดเรกทอรี่ระบบถูกปฏิเสธ
+#  ถูกบล็อค: การเข้าถึงไดเรกทอรี่ระบบถูกปฏิเสธ
 npx @chahuadev/emoji-cleaner@latest C:\Windows\System32
-# ผลลัพธ์: 🚨 Security Error: Access to system directories is not allowed
+# ผลลัพธ์:  Security Error: Access to system directories is not allowed
 
-# ❌ ถูกบล็อค: การพยายาม path traversal ถูกปฏิเสธ
+#  ถูกบล็อค: การพยายาม path traversal ถูกปฏิเสธ
 npx @chahuadev/emoji-cleaner@latest "../../../etc/passwd"
-# ผลลัพธ์: 🚨 Security Error: Path traversal detected
+# ผลลัพธ์:  Security Error: Path traversal detected
 ```
 
 ### ตัวอย่างการใช้งานจริง
@@ -284,7 +284,7 @@ const stats = emojiCleaner.processDirectory('./src', false, true, ['.js', '.ts']
 console.log(`ประมวลผล ${stats.totalFiles} ไฟล์`);
 ```
 
-## 📈 ประสิทธิภาพ
+##  ประสิทธิภาพ
 
 - **เร็ว**: ประมวลผล 1000+ ไฟล์ใน < 0.1 วินาที
 - **ประหยัด**: ลดขนาดไฟล์ 1-5%
@@ -293,7 +293,7 @@ console.log(`ประมวลผล ${stats.totalFiles} ไฟล์`);
 - **Multi-language**: รู้จักและประมวลผล 50+ ภาษาโปรแกรมมิ่ง
 - **Security First**: ป้องกันช่องโหว่ความปลอดภัยระดับ enterprise
 
-## 🤝 การสนับสนุน
+##  การสนับสนุน
 
 ---
 
@@ -309,20 +309,20 @@ console.log(`ประมวลผล ${stats.totalFiles} ไฟล์`);
 
 ## 🇺🇸 English
 
-## ⚠️ CRITICAL SECURITY WARNING - FORTRESS PROTECTION
+##  CRITICAL SECURITY WARNING - FORTRESS PROTECTION
 
-### 🛡️ Maximum Security - FORTRESS SECURITY
+###  Maximum Security - FORTRESS SECURITY
 - **Always use latest version**: Older versions (< 2.3.1) have security vulnerabilities
 - **Avoid legacy versions**: Versions 2.1.x-2.2.x lack anti-hack protection
 - **Use `@latest` flag**: `npx @chahuadev/emoji-cleaner@latest` for maximum safety
-- **⚠️ VERSION 2.3.1+ REQUIRED**: Older versions lack hacking protection systems
+- ** VERSION 2.3.1+ REQUIRED**: Older versions lack hacking protection systems
 
-### 🚨 Anti-Hack Protection System - FORTRESS SHIELD
+###  Anti-Hack Protection System - FORTRESS SHIELD
 Tool has comprehensive protection against all attack vectors:
 
-#### 🔒 Command Injection Protection
+####  Command Injection Protection
 ```bash
-# ❌ BLOCKED - Command injection attempts blocked by system
+#  BLOCKED - Command injection attempts blocked by system
 eval()
 exec()
 spawn() 
@@ -332,18 +332,18 @@ rm -rf /
 del /f /s /q C:\*
 ```
 
-#### 🛡️ Path Traversal Protection  
+####  Path Traversal Protection  
 ```bash
-# ❌ BLOCKED - Path traversal attacks rejected
+#  BLOCKED - Path traversal attacks rejected
 ../../../etc/passwd
 ..\\..\\..\\Windows\\System32
 /etc/../../../bin/
 C:\\Windows\\..\\..\\..\
 ```
 
-#### 🚫 System Critical File Protection
+####  System Critical File Protection
 ```bash
-# ❌ BLOCKED - System critical files protected
+#  BLOCKED - System critical files protected
 /etc/passwd
 /etc/shadow  
 C:\Windows\System32\
@@ -354,19 +354,19 @@ C:\Program Files\
 /boot/
 ```
 
-### 🔒 System Protection
+###  System Protection
 Tool will reject access to:
-- ✋ Windows System directories (`C:\Windows\`, `C:\Program Files\`, `C:\System Volume Information\`)
-- ✋ Linux System directories (`/etc/`, `/usr/`, `/bin/`, `/root/`, `/boot/`, `/proc/`, `/sys/`)
-- ✋ MacOS System directories (`/System/`, `/usr/bin/`, `/bin/`, `/sbin/`)
-- ✋ Files with null bytes or dangerous characters
-- ✋ Files larger than 10MB
-- ✋ Path traversal attempts (`../`, `..\\`, etc.)
-- ✋ Command injection patterns
-- ✋ Script execution attempts
-- ✋ Binary executable files
+-  Windows System directories (`C:\Windows\`, `C:\Program Files\`, `C:\System Volume Information\`)
+-  Linux System directories (`/etc/`, `/usr/`, `/bin/`, `/root/`, `/boot/`, `/proc/`, `/sys/`)
+-  MacOS System directories (`/System/`, `/usr/bin/`, `/bin/`, `/sbin/`)
+-  Files with null bytes or dangerous characters
+-  Files larger than 10MB
+-  Path traversal attempts (`../`, `..\\`, etc.)
+-  Command injection patterns
+-  Script execution attempts
+-  Binary executable files
 
-### 📋 Secure Usage Only - FORTRESS COMPLIANCE
+###  Secure Usage Only - FORTRESS COMPLIANCE
 - **Always use `--dry-run` first** to preview results
 - **Use `--backup` for important files**
 - **Test code after emoji removal** to ensure functionality
@@ -374,43 +374,43 @@ Tool will reject access to:
 - **Use only on your projects** - never on system files
 - **Verify output** before confirming operations
 
-### 🚨 Attack Detection Alerts - FORTRESS MONITORING
+###  Attack Detection Alerts - FORTRESS MONITORING
 Tool displays warnings when attacks are detected:
 ```bash
-🚨 SECURITY ALERT: Path traversal detected
-🚨 SECURITY ALERT: System directory access denied  
-🚨 SECURITY ALERT: Command injection attempt blocked
-🚨 SECURITY ALERT: Dangerous file operation prevented
-🚨 SECURITY ALERT: Binary execution attempt blocked
+ SECURITY ALERT: Path traversal detected
+ SECURITY ALERT: System directory access denied  
+ SECURITY ALERT: Command injection attempt blocked
+ SECURITY ALERT: Dangerous file operation prevented
+ SECURITY ALERT: Binary execution attempt blocked
 ```
 
-### 🔒 System Protection
+###  System Protection
 Tool will deny access to:
-- ✋ Windows System directories (`C:\Windows\`, `C:\Program Files\`)
-- ✋ Linux System directories (`/etc/`, `/usr/`, `/bin/`, `/root/`)
-- ✋ Files with null bytes or path traversal attempts
-- ✋ Files larger than 10MB
-- ✋ Dangerous operations
+-  Windows System directories (`C:\Windows\`, `C:\Program Files\`)
+-  Linux System directories (`/etc/`, `/usr/`, `/bin/`, `/root/`)
+-  Files with null bytes or path traversal attempts
+-  Files larger than 10MB
+-  Dangerous operations
 
-### 📋 Safe Usage
+###  Safe Usage
 - **Always use `--dry-run` first** to preview results
 - **Use `--backup` for important files**
 - **Test code after emoji removal** to ensure functionality
 - **Check Git status** before committing
 
-## 🎯 Why Use This Tool?
+##  Why Use This Tool?
 
-✨ **Remove emojis from source code safely and efficiently**
-- 🔍 **Smart Detection**: Unicode 15.1+ emoji patterns
-- 🚀 **Lightning Fast**: Process 1000+ files in seconds
-- 🛡️ **Ultra Safe**: Backup system and dry-run mode
-- 🌍 **Universal**: 50+ programming languages supported
-- 🧠 **Intelligent**: Context-aware cleaning
-- ⚡ **High Performance**: Handle large projects effortlessly
-- 🛡️ **Skip system folders** (node_modules, .git, dist, build) automatically
-- 📚 **Use as Library** for Node.js integration
+ **Remove emojis from source code safely and efficiently**
+-  **Smart Detection**: Unicode 15.1+ emoji patterns
+-  **Lightning Fast**: Process 1000+ files in seconds
+-  **Ultra Safe**: Backup system and dry-run mode
+-  **Universal**: 50+ programming languages supported
+-  **Intelligent**: Context-aware cleaning
+-  **High Performance**: Handle large projects effortlessly
+-  **Skip system folders** (node_modules, .git, dist, build) automatically
+-  **Use as Library** for Node.js integration
 
-## 📦 Installation & Uninstallation
+##  Installation & Uninstallation
 
 ### Method 1: Use Immediately (No Installation) - Recommended
 ```bash
@@ -442,7 +442,7 @@ npm uninstall -g @chahuadev/emoji-cleaner
 npm list -g @chahuadev/emoji-cleaner
 ```
 
-### 🧹 Clear NPX Cache
+###  Clear NPX Cache
 ```bash
 # Clear all cache
 npm cache clean --force
@@ -454,7 +454,7 @@ Remove-Item -Path "$env:LOCALAPPDATA\npm-cache\_npx" -Recurse -Force
 rm -rf ~/.npm/_npx
 ```
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Basic Usage
 ```bash
@@ -495,7 +495,7 @@ npx @chahuadev/emoji-cleaner@latest --ext .js,.ts,.jsx
 npx @chahuadev/emoji-cleaner@latest ./src --dry-run --verbose
 ```
 
-## 🔧 Command Options
+##  Command Options
 
 | Option | Short | Description |
 |--------|-------|-------------|
@@ -506,28 +506,28 @@ npx @chahuadev/emoji-cleaner@latest ./src --dry-run --verbose
 | `--version` | | Show version information |
 | `--ext <list>` | | Specify file extensions (comma-separated) |
 
-## 🌟 Features
+##  Features
 
-### 🎯 **Smart Emoji Detection**
+###  **Smart Emoji Detection**
 - **Unicode 15.1+ Support**: Latest emoji patterns
 - **Comprehensive Coverage**: All emoji categories
 - **Context Aware**: Preserves non-emoji Unicode
 - **HTML Entities**: Removes emoji HTML entities
 
-### 🛡️ **Enterprise Security**
+###  **Enterprise Security**
 - **Path Traversal Protection**: Prevents directory traversal attacks
 - **System Directory Blocking**: Blocks access to critical system paths
 - **Input Validation**: Sanitizes all user inputs
 - **File Size Limits**: Prevents processing of oversized files
 - **Permission Checks**: Validates file access permissions
 
-### 🚀 **High Performance**
+###  **High Performance**
 - **Fast Processing**: 1000+ files in seconds
 - **Memory Efficient**: Optimized for large codebases
 - **Smart Filtering**: Automatic exclusion of irrelevant files
 - **Parallel Processing**: Multi-threaded when possible
 
-### 📚 **50+ Languages Supported**
+### **50+ Languages Supported**
 
 **Programming Languages:**
 - JavaScript (.js), TypeScript (.ts), JSX (.jsx), TSX (.tsx)
@@ -548,20 +548,20 @@ npx @chahuadev/emoji-cleaner@latest ./src --dry-run --verbose
 - Shell (.sh/.bash/.zsh), PowerShell (.ps1), Batch (.bat/.cmd)
 - SQL (.sql), Markdown (.md), Text (.txt)
 
-## 📋 Usage Examples
+##  Usage Examples
 
 ### Security Examples
 ```bash
-# ✅ Safe: Clean your project with backup
+#  Safe: Clean your project with backup
 npx @chahuadev/emoji-cleaner@latest ./my-project --backup --dry-run
 
-# ❌ Blocked: System directory access denied
+#  Blocked: System directory access denied
 npx @chahuadev/emoji-cleaner@latest C:\Windows\System32
-# Output: 🚨 Security Error: Access to system directories is not allowed
+# Output:  Security Error: Access to system directories is not allowed
 
-# ❌ Blocked: Path traversal attempt denied
+#  Blocked: Path traversal attempt denied
 npx @chahuadev/emoji-cleaner@latest "../../../etc/passwd"
-# Output: 🚨 Security Error: Path traversal detected
+# Output:  Security Error: Path traversal detected
 ```
 
 ### Practical Examples
@@ -592,7 +592,7 @@ const stats = emojiCleaner.processDirectory('./src', false, true, ['.js', '.ts']
 console.log(`Processed ${stats.totalFiles} files`);
 ```
 
-## 📈 Performance
+##  Performance
 
 - **Speed**: Process 1000+ files in < 0.1 seconds
 - **Efficiency**: Reduce file sizes by 1-5%
@@ -601,83 +601,83 @@ console.log(`Processed ${stats.totalFiles} files`);
 - **Multi-language**: Recognizes and processes 50+ programming languages
 - **Security First**: Enterprise-grade vulnerability protection
 
-## 🤝 Support
+##  Support
 
-- 🐛 **Report Issues**: [GitHub Issues](https://github.com/chahuadev/emoji-cleaner/issues)
-- 💡 **Feature Requests**: [GitHub Discussions](https://github.com/chahuadev/emoji-cleaner/discussions)
-- 📧 **Contact**: contact@chahuadev.com
+-  **Report Issues**: [GitHub Issues](https://github.com/chahuadev/emoji-cleaner/issues)
+-  **Feature Requests**: [GitHub Discussions](https://github.com/chahuadev/emoji-cleaner/discussions)
+-  **Contact**: contact@chahuadev.com
 
-## 📝 Changelog
+##  Changelog
 
 ### v2.3.0 (2025-09-19) - **🧹 CLEAN REGISTRY RELEASE**
-- 🧹 **Clean Registry**: Removed legacy versions for clean npm registry
-- � **Single-File CLI**: Consolidated architecture with emoji-cleaner.js
-- 🛡️ **Security Features**: Complete FORTRESS protection system maintained
-- 🎯 **Enhanced Detection**: Unicode 15.1+ emoji patterns
-- 📦 **Optimized Package**: Clean structure with essential files only
-- 📊 **Enhanced CLI**: Better error handling and security indicators
-- 🏗️ **Zone Architecture**: 6-zone organization with consistent headers
-- 🚫 **Path Protection**: Comprehensive system directory blocking
-- 🔒 **Command Injection Shield**: Complete protection against code injection
-- 📈 **Performance**: Faster processing with memory optimization
+-  **Clean Registry**: Removed legacy versions for clean npm registry
+-  **Single-File CLI**: Consolidated architecture with emoji-cleaner.js
+-  **Security Features**: Complete FORTRESS protection system maintained
+-  **Enhanced Detection**: Unicode 15.1+ emoji patterns
+-  **Optimized Package**: Clean structure with essential files only
+-  **Enhanced CLI**: Better error handling and security indicators
+-  **Zone Architecture**: 6-zone organization with consistent headers
+-  **Path Protection**: Comprehensive system directory blocking
+-  **Command Injection Shield**: Complete protection against code injection
+-  **Performance**: Faster processing with memory optimization
 
 ### v2.2.4 (2025-09-18) - Previous Secure Version
-- 🛡️ **Complete Security Protection**: Full security implementation
-- 🚨 **Fixed CLI Security Gap**: CLI now uses full security features
-- 🧹 **Removed Legacy Files**: Deleted unused src/index.js
-- ✅ **NPX Security Tested**: Verified security protection works
-- 📚 **Complete Documentation**: Added uninstall instructions and best practices
+-  **Complete Security Protection**: Full security implementation
+-  **Fixed CLI Security Gap**: CLI now uses full security features
+-  **Removed Legacy Files**: Deleted unused src/index.js
+-  **NPX Security Tested**: Verified security protection works
+-  **Complete Documentation**: Added uninstall instructions and best practices
 
 ### v2.2.3 (2025-09-18)
-- 🔧 **Fixed package.json main file reference**
-- 🛡️ **Added Security to main processing**
+-  **Fixed package.json main file reference**
+-  **Added Security to main processing**
 
 ### v2.2.2 (2025-09-18)
-- 🛡️ **First Security features implementation**
-- 📚 **Updated README with Security information**
+- **First Security features implementation**
+-  **Updated README with Security information**
 
-### v2.1.x and earlier (⚠️ SECURITY RISK - Deprecated)
-- ⚠️ **Legacy versions with critical security vulnerabilities**
-- 🚫 **DO NOT USE - No protection against attacks**
-- 🔥 **Removed from NPM registry for safety**
+### v2.1.x and earlier ( SECURITY RISK - Deprecated)
+-  **Legacy versions with critical security vulnerabilities**
+-  **DO NOT USE - No protection against attacks**
+-  **Removed from NPM registry for safety**
 
 ---
 
-## 🔐 SECURITY COMMITMENT - การรับรองความปลอดภัย
+##  SECURITY COMMITMENT - การรับรองความปลอดภัย
 
-### 🛡️ Our Security Promise
+###  Our Security Promise
 **This tool is designed with SECURITY FIRST principles:**
 
-✅ **NO SYSTEM FILE ACCESS** - ไม่เข้าถึงไฟล์ระบบ  
-✅ **NO COMMAND EXECUTION** - ไม่รันคำสั่งอันตราย  
-✅ **NO PATH TRAVERSAL** - ไม่อนุญาต path traversal  
-✅ **NO BINARY EXECUTION** - ไม่รันไฟล์ executable  
-✅ **SYNTAX PROTECTION** - ป้องกันการทำลายไวยากรณ์  
-✅ **SELF-PROTECTION** - ป้องกันการแก้ไขตัวเอง  
+ **NO SYSTEM FILE ACCESS** - ไม่เข้าถึงไฟล์ระบบ  
+ **NO COMMAND EXECUTION** - ไม่รันคำสั่งอันตราย  
+ **NO PATH TRAVERSAL** - ไม่อนุญาต path traversal  
+ **NO BINARY EXECUTION** - ไม่รันไฟล์ executable  
+ **SYNTAX PROTECTION** - ป้องกันการทำลายไวยากรณ์  
+ **SELF-PROTECTION** - ป้องกันการแก้ไขตัวเอง  
 
-### 🚨 Security Reporting - รายงานช่องโหว่
+###  Security Reporting - รายงานช่องโหว่
 **Found a security issue? Report it privately:**
-- 📧 **Security Email**: security@chahuadev.com
-- 🔒 **Encrypted Contact**: Use GPG key on our GitHub
-- ⚡ **Response Time**: < 24 hours for critical issues
-- 🏆 **Recognition**: Security researchers credited
+-  **Security Email**: security@chahuadev.com
+-  **Encrypted Contact**: Use GPG key on our GitHub
+-  **Response Time**: < 24 hours for critical issues
+-  **Recognition**: Security researchers credited
 
-### 🛡️ Security Audits - การตรวจสอบความปลอดภัย
-- ✅ **Automated Security Scanning**: GitHub CodeQL
-- ✅ **Manual Code Review**: Expert security review
-- ✅ **Penetration Testing**: Regular security testing
-- ✅ **Dependency Scanning**: npm audit integration
+###  Security Audits - การตรวจสอบความปลอดภัย
+-  **Automated Security Scanning**: GitHub CodeQL
+-  **Manual Code Review**: Expert security review
+-  **Penetration Testing**: Regular security testing
+-  **Dependency Scanning**: npm audit integration
 
 ---
 
-## 📄 License
+##  License
 
 MIT License - See [LICENSE](LICENSE) for details
 
 ---
 
-**🔐 SECURITY FIRST - ความปลอดภัยเป็นอันดับหนึ่ง**  
-**Made with ❤️ and 🛡️ by [Chahuadev](https://github.com/chahuadev)**  
+** SECURITY FIRST - ความปลอดภัยเป็นอันดับหนึ่ง**  
+**Made by [Chahuadev](https://github.com/chahuadev)**  
 **บริษัท ชาหัว ดีเวลลอปเมนต์ จำกัด** 
 **Chahua Development Co., Ltd.** 
 **เครื่องมือที่ปลอดภัยที่สุดสำหรับลบอิโมจิ - The Most Secure Emoji Removal Tool**
