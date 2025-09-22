@@ -1,0 +1,357 @@
+# GitHub Actions CI/CD Pipeline for Chahuadev Emoji Cleaner
+# โครงสร้างการทดสอบอัตโนมัติสำหรับเครื่องมือลบอิโมจิ
+
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop, release/* ]
+  pull_request:
+    branches: [ main, develop ]
+  schedule:
+    # Run daily at 3 AM UTC to catch dependency issues
+    - cron: '0 3 * * *'
+
+# Environment variables
+env:
+  NODE_VERSION_MATRIX: '[16, 18, 20]'
+  ARTIFACT_RETENTION_DAYS: 30
+
+jobs:
+  # ══════════════════════════════════════════════════════════════════════
+  # Job 1: Code Quality & Security Checks
+  # ตรวจสอบคุณภาพโค้ดและความปลอดภัย
+  # ══════════════════════════════════════════════════════════════════════
+  code-quality:
+    name: Code Quality & Security
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # Full history for better analysis
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: package-lock.json
+    
+    - name: Install Dependencies
+      run: npm ci --prefer-offline --no-audit
+    
+    - name: Security Audit
+      run: npm audit --audit-level moderate
+      continue-on-error: true
+    
+    - name: Check Package Lock
+      run: |
+        if [ -f package-lock.json ]; then
+          echo "✅ package-lock.json exists"
+          npm ci --dry-run
+        else
+          echo "⚠️ package-lock.json missing - generating..."
+          npm install
+        fi
+    
+    - name: License Check
+      run: |
+        if [ -f LICENSE ]; then
+          echo "✅ LICENSE file exists"
+          head -5 LICENSE
+        else
+          echo "❌ LICENSE file missing"
+          exit 1
+        fi
+
+  # ══════════════════════════════════════════════════════════════════════
+  # Job 2: Multi-Node Version Testing
+  # ทดสอบบน Node.js หลายเวอร์ชัน
+  # ══════════════════════════════════════════════════════════════════════
+  test:
+    name: Test Suite (Node ${{ matrix.node-version }})
+    runs-on: ${{ matrix.os }}
+    needs: code-quality
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        node-version: [16, 18, 20]
+        exclude:
+          # Skip some combinations to reduce CI time
+          - os: macos-latest
+            node-version: 16
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+    
+    - name: Setup Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    
+    - name: Install Dependencies
+      run: npm ci --prefer-offline
+    
+    - name: Test CLI Functionality
+      run: |
+        # Test CLI installation and basic functionality
+        node emoji-cleaner.js --help
+        node emoji-cleaner.js --version
+      shell: bash
+    
+    - name: Test Emoji Detection
+      run: |
+        # Create test files with emojis
+        mkdir -p test-samples
+        echo "console.log('Hello 🌍 World 🚀');" > test-samples/emoji-test.js
+        echo "function test() { return '✨ Magic ✨'; }" > test-samples/emoji-test2.js
+        
+        # Test dry-run functionality
+        node emoji-cleaner.js test-samples/ --dry-run
+        
+        # Cleanup
+        rm -rf test-samples/
+      shell: bash
+    
+    # Upload test results (if available)
+    - name: Upload Test Results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: test-results-${{ matrix.os }}-node${{ matrix.node-version }}
+        path: |
+          test-results/
+          coverage/
+        retention-days: ${{ env.ARTIFACT_RETENTION_DAYS }}
+
+  # ══════════════════════════════════════════════════════════════════════
+  # Job 3: Integration Tests
+  # การทดสอบการรวมระบบ
+  # ══════════════════════════════════════════════════════════════════════
+  integration-test:
+    name: Integration Tests
+    runs-on: ubuntu-latest
+    needs: [code-quality, test]
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: Install Dependencies
+      run: npm ci
+    
+    - name: Test NPM Package Installation
+      run: |
+        # Test local installation
+        npm pack
+        PACKAGE_FILE=$(ls *.tgz)
+        echo "Testing package: $PACKAGE_FILE"
+        
+        # Create temporary directory and test installation
+        mkdir -p /tmp/test-install
+        cd /tmp/test-install
+        npm init -y
+        npm install /github/workspace/$PACKAGE_FILE
+        
+        # Test CLI after installation
+        npx emoji-cleaner --help
+        npx emoji-cleaner --version
+    
+    - name: Test with Sample Projects
+      run: |
+        # Create test files with various emoji patterns
+        mkdir -p test-samples
+        
+        # JavaScript with emojis
+        cat > test-samples/emoji-js.js << 'EOF'
+        // Hello 🌍 World
+        function greet() {
+            console.log("Welcome! 🎉🎊");
+            return "Success ✅";
+        }
+        EOF
+        
+        # TypeScript with emojis
+        cat > test-samples/emoji-ts.ts << 'EOF'
+        interface User {
+            name: string; // User name 👤
+            emoji: string; // Favorite emoji 😊
+        }
+        EOF
+        
+        # HTML with emojis
+        cat > test-samples/emoji.html << 'EOF'
+        <h1>Welcome 🏠 Home</h1>
+        <p>Click here 👆 to continue</p>
+        EOF
+        
+        # Test the tool with dry-run
+        node emoji-cleaner.js test-samples/ --dry-run --verbose
+        
+        # Test with backup
+        node emoji-cleaner.js test-samples/ --backup --dry-run
+    
+    - name: Cleanup Test Files
+      run: |
+        rm -rf test-samples/
+        rm -f *.tgz
+
+  # ══════════════════════════════════════════════════════════════════════
+  # Job 4: Performance Benchmarks
+  # การทดสอบประสิทธิภาพ
+  # ══════════════════════════════════════════════════════════════════════
+  performance:
+    name: Performance Benchmarks
+    runs-on: ubuntu-latest
+    needs: [test]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: Install Dependencies
+      run: npm ci
+    
+    - name: Run Performance Tests
+      run: |
+        # Create large test files for performance testing
+        mkdir -p perf-test
+        for i in {1..100}; do
+          cat > perf-test/large-file-$i.js << EOF
+        // File $i with emojis 🔥🚀✨
+        function performanceTest$i() {
+            console.log("Testing performance 📊");
+            return "Result 🎯: Success ✅";
+        }
+        
+        /* Multi-line comment with emojis
+         * This is a test 🧪
+         * Performance matters ⚡
+         */
+        async function asyncTest$i() {
+            console.log("Async test 🔄");
+            await new Promise(resolve => setTimeout(resolve, 1));
+            return "Done ✅";
+        }
+        EOF
+        done
+        
+        # Measure execution time
+        echo "Starting performance test..."
+        time node emoji-cleaner.js perf-test/ --dry-run
+        
+        # Cleanup
+        rm -rf perf-test/
+
+  # ══════════════════════════════════════════════════════════════════════
+  # Job 5: Release Preparation
+  # การเตรียมการปล่อยเวอร์ชัน
+  # ══════════════════════════════════════════════════════════════════════
+  release-check:
+    name: Release Readiness Check
+    runs-on: ubuntu-latest
+    needs: [code-quality, test, integration-test]
+    if: startsWith(github.ref, 'refs/tags/v') || github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        registry-url: 'https://registry.npmjs.org'
+    
+    - name: Install Dependencies
+      run: npm ci
+    
+    - name: Validate Package
+      run: |
+        npm pack --dry-run
+        echo "Package validation completed"
+    
+    - name: Check Version Consistency
+      run: |
+        PACKAGE_VERSION=$(node -p "require('./package.json').version")
+        echo "Package version: $PACKAGE_VERSION"
+        
+        if [ -f README.md ]; then
+          if grep -q "$PACKAGE_VERSION" README.md; then
+            echo "✅ Version found in README.md"
+          else
+            echo "⚠️ Version not found in README.md"
+          fi
+        fi
+    
+    - name: Generate Release Notes
+      if: startsWith(github.ref, 'refs/tags/v')
+      run: |
+        echo "## Release Notes for ${{ github.ref_name }}" > release-notes.md
+        echo "" >> release-notes.md
+        echo "### Changes in this release:" >> release-notes.md
+        git log --oneline --since="1 week ago" >> release-notes.md
+    
+    - name: Upload Release Artifacts
+      if: startsWith(github.ref, 'refs/tags/v')
+      uses: actions/upload-artifact@v4
+      with:
+        name: release-artifacts-${{ github.ref_name }}
+        path: |
+          *.tgz
+          release-notes.md
+        retention-days: 90
+
+# ══════════════════════════════════════════════════════════════════════
+# Workflow Status Notifications
+# การแจ้งเตือนสถานะ workflow
+# ══════════════════════════════════════════════════════════════════════
+  notify:
+    name: Workflow Notification
+    runs-on: ubuntu-latest
+    needs: [code-quality, test, integration-test]
+    if: always()
+    
+    steps:
+    - name: Workflow Status Summary
+      run: |
+        echo "## 📊 CI/CD Pipeline Summary"
+        echo "- Code Quality: ${{ needs.code-quality.result }}"
+        echo "- Tests: ${{ needs.test.result }}"
+        echo "- Integration: ${{ needs.integration-test.result }}"
+        
+        if [[ "${{ needs.code-quality.result }}" == "success" && "${{ needs.test.result }}" == "success" && "${{ needs.integration-test.result }}" == "success" ]]; then
+          echo "✅ All checks passed! Ready for deployment."
+          echo "BUILD_STATUS=success" >> $GITHUB_ENV
+        else
+          echo "❌ Some checks failed. Please review the logs."
+          echo "BUILD_STATUS=failure" >> $GITHUB_ENV
+        fi
+    
+    - name: Set Status Badge
+      run: |
+        if [ "$BUILD_STATUS" == "success" ]; then
+          echo "🎉 Build successful - all systems green!"
+        else
+          echo "🚨 Build failed - attention required!"
+        fi

@@ -4,7 +4,7 @@
 // @fileoverview Universal Emoji Cleaner Tool with Enhanced Security
 // @author บริษัท ชาหัว ดีเวลลอปเมนต์ จำกัด
 // @author Chahua Development Co., Ltd.
-// @version 2.3.1
+// @version 2.4.0
 // ----------------------------------
 //  นโยบายความปลอดภัยระดับป้อมปราการ:
 // ----------------------------------
@@ -1283,7 +1283,7 @@ async function main() {
 // ══════════════════════════════════════════════════════════════════════════════
 function showHelp() {
     console.log(`
-🧹 Universal Emoji Cleaner v2.3.1 - Usage Guide
+🧹 Universal Emoji Cleaner v2.4.0 - Usage Guide
 
 SYNTAX:
   emoji-cleaner [target] [options]
@@ -1353,7 +1353,7 @@ function showVersion() {
         console.log(`[+] Author: ${packageInfo.author.name || packageInfo.author}`);
         console.log(`[+] Repository: ${packageInfo.repository.url || packageInfo.repository}`);
     } catch (error) {
-        console.log('[+] Universal Emoji Cleaner v2.3.1');
+        console.log('[+] Universal Emoji Cleaner v2.4.0');
         console.log('[+] Author: Chahua Development Co., Ltd.');
     }
 }
@@ -1484,7 +1484,7 @@ async function enhancedMain() {
         }
 
         // Display header
-        console.log(' Universal Emoji Cleaner v2.3.1');
+        console.log('Universal Emoji Cleaner v2.4.0');
         console.log('================================');
         if (options.dryRun) {
             console.log(' DRY RUN MODE - No files will be modified');

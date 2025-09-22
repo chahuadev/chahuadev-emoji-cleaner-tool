@@ -1,4 +1,4 @@
-#  Universal Emoji Cleaner v2.3.1
+# Universal Emoji Cleaner v2.4.0
 
 **เครื่องมือลบอิโมจิสำหรับ 50+ ภาษาโปรแกรมมิ่ง - ปลอดภัย รวดเร็ว ครบครัน**  
 **Universal emoji removal tool for 50+ programming languages - Secure, Fast, Comprehensive**
@@ -18,7 +18,7 @@
 ##  คำเตือนสำคัญ - CRITICAL SECURITY WARNING
 
 ###  ความปลอดภัยระดับสูงสุด - FORTRESS SECURITY
-- **ใช้เวอร์ชันล่าสุดเสมอ**: เวอร์ชันเก่า (< 2.3.1) มีช่องโหว่ด้านความปลอดภัย
+- **ใช้เวอร์ชันล่าสุดเสมอ**: เวอร์ชันเก่า (< 2.4.0) มีช่องโหว่ด้านความปลอดภัย
 - **หลีกเลี่ยงเวอร์ชันเก่า**: เวอร์ชัน 2.1.x-2.2.4 ไม่มี anti-hack protection
 - **ใช้ `@latest` flag**: `npx @chahuadev/emoji-cleaner@latest` เพื่อความปลอดภัยสูงสุด
 - ** VERSION 2.2.5+ REQUIRED**: เวอร์ชันเก่าไม่มีระบบป้องกันการแฮก
@@ -110,7 +110,7 @@ Tool จะแสดงข้อความเตือนเมื่อตร
 npx @chahuadev/emoji-cleaner@latest
 
 # หรือระบุเวอร์ชันเฉพาะ
-npx @chahuadev/emoji-cleaner@2.3.1
+npx @chahuadev/emoji-cleaner@2.4.0
 ```
 
 ### วิธีที่ 2: ติดตั้งในโปรเจ็กต์
@@ -312,10 +312,10 @@ console.log(`ประมวลผล ${stats.totalFiles} ไฟล์`);
 ##  CRITICAL SECURITY WARNING - FORTRESS PROTECTION
 
 ###  Maximum Security - FORTRESS SECURITY
-- **Always use latest version**: Older versions (< 2.3.1) have security vulnerabilities
-- **Avoid legacy versions**: Versions 2.1.x-2.2.x lack anti-hack protection
+- **Always use latest version**: Older versions (< 2.4.0) have security vulnerabilities
+- **Avoid legacy versions**: Versions 2.1.x-2.3.x lack anti-hack protection
 - **Use `@latest` flag**: `npx @chahuadev/emoji-cleaner@latest` for maximum safety
-- ** VERSION 2.3.1+ REQUIRED**: Older versions lack hacking protection systems
+- **VERSION 2.4.0+ REQUIRED**: Older versions lack hacking protection systems
 
 ###  Anti-Hack Protection System - FORTRESS SHIELD
 Tool has comprehensive protection against all attack vectors:
@@ -418,7 +418,7 @@ Tool will deny access to:
 npx @chahuadev/emoji-cleaner@latest
 
 # Or specify exact version
-npx @chahuadev/emoji-cleaner@2.3.1
+npx @chahuadev/emoji-cleaner@2.4.0
 ```
 
 ### Method 2: Project Installation
@@ -670,14 +670,29 @@ console.log(`Processed ${stats.totalFiles} files`);
 
 ---
 
-##  License
+## License - สัญญาอนุญาต
 
 MIT License - See [LICENSE](LICENSE) for details
 
+## Authors - ผู้พัฒนา
+
+**Chahua Development Co., Ltd. (บริษัท ชาหัว ดีเวลลอปเมนต์ จำกัด)**
+- Website: https://chahuadev.com
+- Email: chahuadev@gmail.com
+- GitHub: [@chahuadev](https://github.com/chahuadev)
+
+### Contributors
+- Lead Developer: Chahua Development Team
+- Security Consultant: Internal Security Team
+- Documentation: Technical Writing Team
+
 ---
 
-** SECURITY FIRST - ความปลอดภัยเป็นอันดับหนึ่ง**  
-**Made by [Chahuadev](https://github.com/chahuadev)**  
+<div align="center">
+
+**If you find this project useful, please give it a star!**
+**หากคุณคิดว่าโปรเจ็กต์นี้มีประโยชน์ กรุณา Star ให้ด้วยนะครับ!**
+
 **บริษัท ชาหัว ดีเวลลอปเมนต์ จำกัด** 
 **Chahua Development Co., Ltd.** 
 **เครื่องมือที่ปลอดภัยที่สุดสำหรับลบอิโมจิ - The Most Secure Emoji Removal Tool**
