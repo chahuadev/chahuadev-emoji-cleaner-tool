@@ -1563,7 +1563,7 @@ async function main() {
 // ══════════════════════════════════════════════════════════════════════════════
 function showHelp() {
     console.log(`
-🧹 Universal Emoji Cleaner v2.5.0 - Usage Guide
+ Universal Emoji Cleaner v2.5.0 - Usage Guide
 
 SYNTAX:
   emoji-cleaner [target] [options]
