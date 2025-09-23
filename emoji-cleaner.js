@@ -4,7 +4,7 @@
 // @fileoverview Universal Emoji Cleaner Tool with Enhanced Security
 // @author บริษัท ชาหัว ดีเวลลอปเมนต์ จำกัด
 // @author Chahua Development Co., Ltd.
-// @version 2.4.0
+// @version 2.5.0
 // ----------------------------------
 //  นโยบายความปลอดภัยระดับป้อมปราการ:
 // ----------------------------------
@@ -1633,7 +1633,7 @@ function showVersion() {
         console.log(`[+] Author: ${packageInfo.author.name || packageInfo.author}`);
         console.log(`[+] Repository: ${packageInfo.repository.url || packageInfo.repository}`);
     } catch (error) {
-        console.log('[+] Universal Emoji Cleaner v2.4.0');
+        console.log('[+] Universal Emoji Cleaner v2.5.0');
         console.log('[+] Author: Chahua Development Co., Ltd.');
     }
 }

@@ -144,7 +144,7 @@ Tool จะแสดงข้อความเตือนเมื่อตร
 npx @chahuadev/emoji-cleaner@latest
 
 # หรือระบุเวอร์ชันเฉพาะ
-npx @chahuadev/emoji-cleaner@2.4.0
+npx @chahuadev/emoji-cleaner@2.5.0
 ```
 
 ### วิธีที่ 2: ติดตั้งในโปรเจ็กต์
