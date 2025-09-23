@@ -1764,7 +1764,7 @@ async function enhancedMain() {
         }
 
         // Display header
-        console.log('Universal Emoji Cleaner v2.4.0');
+        console.log('Universal Emoji Cleaner v2.5.0');
         console.log('================================');
         if (options.dryRun) {
             console.log(' DRY RUN MODE - No files will be modified');
