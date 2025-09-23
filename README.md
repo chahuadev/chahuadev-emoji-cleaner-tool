@@ -1,13 +1,14 @@
-# Universal Emoji Cleaner v2.4.0
+# Universal Emoji Cleaner v2.5.0
 
-**เครื่องมือลบอิโมจิสำหรับ 50+ ภาษาโปรแกรมมิ่ง - ปลอดภัย รวดเร็ว ครบครัน**  
-**Universal emoji removal tool for 50+ programming languages - Secure, Fast, Comprehensive**
+**เครื่องมือลบอิโมจิสำหรับ 50+ ภาษาโปรแกรมมิ่ง พร้อม Smart File Analysis - ปลอดภัย รวดเร็ว ครบครัน**  
+**Universal emoji removal tool for 50+ programming languages with Smart File Analysis - Secure, Fast, Comprehensive**
 
 [![npm version](https://badge.fury.io/js/%40chahuadev%2Femoji-cleaner.svg)](https://badge.fury.io/js/%40chahuadev%2Femoji-cleaner)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Unicode Support](https://img.shields.io/badge/Unicode-15.1%2B-blue.svg)](https://unicode.org/emoji/)
 [![Security](https://img.shields.io/badge/Security-FORTRESS-red.svg)](https://github.com/chahuadev/chahuadev-emoji-cleaner-tool)
 [![Anti-Hack](https://img.shields.io/badge/Anti--Hack-PROTECTED-darkred.svg)](https://github.com/chahuadev/chahuadev-emoji-cleaner-tool)
+[![Smart Analysis](https://img.shields.io/badge/Smart-Analysis-brightgreen.svg)](https://github.com/chahuadev/chahuadev-emoji-cleaner-tool)
 
 ** Languages:** [🇹🇭 ไทย](#-thai) | [🇺🇸 English](#-english)
 
@@ -92,11 +93,44 @@ Tool จะแสดงข้อความเตือนเมื่อตร
 
 ##  ทำไมต้องใช้?
 
- **ลบอิโมจิออกจากโค้ดอย่างปลอดภัยและมีประสิทธิภาพ**
+ **ลบอิโมจิออกจากโค้ดอย่างปลอดภัยและมีประสิทธิภาพ พร้อม Smart File Analysis**
+-  ** Smart File Analysis**: วิเคราะห์ไฟล์ซับซ้อนอัตโนมัติ
+-  ** Complex File Detection**: ตรวจจับไฟล์ใหญ่และซับซ้อน  
+-  ** Structural Health Scoring**: คะแนนสุขภาพโครงสร้างโค้ด
+-  ** Performance Optimization**: chunk processing สำหรับไฟล์ใหญ่
+-  ** Context-Aware Processing**: รู้จักประเภทและความซับซ้อนของไฟล์
 -  **ตรวจจับอย่างชาญฉลาด**: รูปแบบอิโมจิ Unicode 15.1+
 -  **เร็วปานสายฟ้า**: ประมวลผล 1000+ ไฟล์ในไม่กี่วินาที
 -  **ปลอดภัยสูงสุด**: ระบบสำรองและโหมด dry-run
 -  **รองรับครอบจักรวาล**: 50+ ภาษาโปรแกรมมิ่ง
+
+##   NEW in v2.5.0: Smart File Analysis System
+
+###   Intelligent Complex File Detection
+- **อัตโนมัติ**: ตรวจจับไฟล์ซับซ้อน (5+ classes, 20+ functions, inheritance)
+- **ขนาดใหญ่**: รองรับไฟล์เกิน 200KB โดยไม่มีปัญหา
+- **โครงสร้าง**: วิเคราะห์ classes, functions, async operations
+- **ความปลอดภัย**: tokenization อัจฉริยะป้องกัน syntax errors
+
+###   Structural Health Analysis
+```bash
+ Running smart analysis...
+ Smart Analysis Results: Structural Health: 100/100, Context: class-based
+ Processing time: 0.16s (ultra-fast!)
+ Found: 4 emojis detected and removed
+```
+
+###   Context-Aware Detection
+- **class-based**: ไฟล์ที่มี classes หลายตัว
+- **function-heavy**: ไฟล์ที่เน้น functions
+- **framework**: React, Vue, Angular detection
+- **utility**: Helper และ utility files
+
+###   Performance Features
+- **Chunk Processing**: แบ่งไฟล์ใหญ่เป็นส่วน ๆ
+- **Smart Timeouts**: timeout ยืดหยุ่นตามความซับซ้อน  
+- **Memory Optimization**: ใช้ memory อย่างมีประสิทธิภาพ
+- **Tolerance Mode**: ยอมรับความซับซ้อนระดับสูง
 -  **อัจฉริยะ**: ทำความสะอาดแบบเข้าใจบริบท
 -  **ประสิทธิภาพสูง**: รองรับโปรเจ็กต์ขนาดใหญ่
 -  **ข้ามโฟลเดอร์ระบบ** (node_modules, .git, dist, build) อัตโนมัติ
@@ -148,19 +182,32 @@ rm -rf ~/.npm/_npx
 
 ##  เริ่มต้นใช้งาน
 
+###  NEW: Smart File Analysis ในการใช้งาน
+```bash
+# ตัวอย่างไฟล์ซับซ้อน - Smart Analysis จะทำงานอัตโนมัติ
+npx @chahuadev/emoji-cleaner@latest complex-file.js --verbose
+
+# Output:
+#  Complex file detected - using Smart File Analysis...
+#  Running smart analysis...
+#  Smart Analysis Results: Structural Health: 100/100, Context: class-based
+#  Processing time: 0.16s
+#  Found: 4 emojis detected and removed
+```
+
 ### การใช้งานพื้นฐาน
 ```bash
 # ดูตัวอย่างการเปลี่ยนแปลง (แนะนำให้ทำก่อน)
 npx @chahuadev/emoji-cleaner@latest --dry-run
 
-# ล้างไดเรกทอรี่ปัจจุบันพร้อมสำรอง
-npx @chahuadev/emoji-cleaner@latest --backup
+# ล้างไดเรกทอรี่ปัจจุบันพร้อมสำรอง + Smart Analysis
+npx @chahuadev/emoji-cleaner@latest --backup --verbose
 
 # ล้างโปรเจ็กต์เฉพาะ
 npx @chahuadev/emoji-cleaner@latest /path/to/project --backup
 
-# ล้างไฟล์เดียว
-npx @chahuadev/emoji-cleaner@latest myfile.js --dry-run
+# ล้างไฟล์เดียวพร้อม Smart Analysis
+npx @chahuadev/emoji-cleaner@latest myfile.js --dry-run --verbose
 ```
 
 ### การใช้งานแบบ Direct (หลังติดตั้งแล้ว)
@@ -312,10 +359,10 @@ console.log(`ประมวลผล ${stats.totalFiles} ไฟล์`);
 ##  CRITICAL SECURITY WARNING - FORTRESS PROTECTION
 
 ###  Maximum Security - FORTRESS SECURITY
-- **Always use latest version**: Older versions (< 2.4.0) have security vulnerabilities
-- **Avoid legacy versions**: Versions 2.1.x-2.3.x lack anti-hack protection
+- **Always use latest version**: Older versions (< 2.5.0) have security vulnerabilities  
+- **Avoid legacy versions**: Versions 2.1.x-2.4.x lack Smart File Analysis
 - **Use `@latest` flag**: `npx @chahuadev/emoji-cleaner@latest` for maximum safety
-- **VERSION 2.4.0+ REQUIRED**: Older versions lack hacking protection systems
+- **VERSION 2.5.0+ RECOMMENDED**: Latest version includes Smart File Analysis system
 
 ###  Anti-Hack Protection System - FORTRESS SHIELD
 Tool has comprehensive protection against all attack vectors:
@@ -400,7 +447,11 @@ Tool will deny access to:
 
 ##  Why Use This Tool?
 
- **Remove emojis from source code safely and efficiently**
+ **Remove emojis from source code safely and efficiently with Smart File Analysis**
+-  ** Smart File Analysis**: Intelligent complex file detection and processing
+-  ** Structural Health**: Advanced code structure analysis and scoring  
+-  ** Performance Optimized**: Chunk processing for large files (200KB+)
+-  ** Context-Aware**: Recognizes file types and complexity automatically
 -  **Smart Detection**: Unicode 15.1+ emoji patterns
 -  **Lightning Fast**: Process 1000+ files in seconds
 -  **Ultra Safe**: Backup system and dry-run mode
@@ -410,15 +461,39 @@ Tool will deny access to:
 -  **Skip system folders** (node_modules, .git, dist, build) automatically
 -  **Use as Library** for Node.js integration
 
+##   NEW in v2.5.0: Smart File Analysis Features
+
+###   Intelligent Analysis
+- **Complex File Detection**: Automatically detects files with 5+ classes, 20+ functions
+- **Structural Health Scoring**: Analyzes code quality and structure (0-100 score)
+- **Context Recognition**: Identifies file types (class-based, function-heavy, framework)
+- **Performance Optimization**: Smart chunk processing for files >200KB
+
+###   Advanced Capabilities  
+```bash
+# Smart Analysis Example Output:
+ Complex file detected - using Smart File Analysis...
+ Running smart analysis...
+ Smart Analysis Results: Structural Health: 100/100, Context: class-based
+ Processing time: 0.16s (ultra-fast!)
+ Found: 4 emojis detected and removed
+```
+
+###  ⚡ Performance Features
+- **Memory Efficient**: Optimized for large codebases
+- **Intelligent Timeouts**: Adaptive timeout based on file complexity  
+- **Error Tolerance**: Graceful handling of complex file structures
+- **Chunk Processing**: Divide large files for optimal performance
+
 ##  Installation & Uninstallation
 
 ### Method 1: Use Immediately (No Installation) - Recommended
 ```bash
-# Always use latest version (safest)
+# Always use latest version (safest) - includes Smart File Analysis
 npx @chahuadev/emoji-cleaner@latest
 
 # Or specify exact version
-npx @chahuadev/emoji-cleaner@2.4.0
+npx @chahuadev/emoji-cleaner@2.5.0
 ```
 
 ### Method 2: Project Installation
@@ -605,7 +680,7 @@ console.log(`Processed ${stats.totalFiles} files`);
 
 -  **Report Issues**: [GitHub Issues](https://github.com/chahuadev/emoji-cleaner/issues)
 -  **Feature Requests**: [GitHub Discussions](https://github.com/chahuadev/emoji-cleaner/discussions)
--  **Contact**: contact@chahuadev.com
+-  **Contact**: chahuadev@gmail.com
 
 ##  Changelog
 
@@ -657,7 +732,7 @@ console.log(`Processed ${stats.totalFiles} files`);
 
 ###  Security Reporting - รายงานช่องโหว่
 **Found a security issue? Report it privately:**
--  **Security Email**: security@chahuadev.com
+-  **Security Email**: chahuadev@gmail.com
 -  **Encrypted Contact**: Use GPG key on our GitHub
 -  **Response Time**: < 24 hours for critical issues
 -  **Recognition**: Security researchers credited
