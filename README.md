@@ -1,347 +1,5 @@
 # Universal Emoji Cleaner v2.5.0
 
-**เครื่องมือลบอิโมจิสำหรับ 50+ ภาษาโปรแกรมมิ่ง พร้อม Smart File Analysis - ปลอดภัย รวดเร็ว ครบครัน**  
-**Universal emoji removal tool for 50+ programming languages with Smart File Analysis - Secure, Fast, Comprehensive**
-
-[![npm version](https://badge.fury.io/js/%40chahuadev%2Femoji-cleaner.svg)](https://badge.fury.io/js/%40chahuadev%2Femoji-cleaner)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Unicode Support](https://img.shields.io/badge/Unicode-15.1%2B-blue.svg)](https://unicode.org/emoji/)
-[![Security](https://img.shields.io/badge/Security-FORTRESS-red.svg)](https://github.com/chahuadev/chahuadev-emoji-cleaner-tool)
-[![Anti-Hack](https://img.shields.io/badge/Anti--Hack-PROTECTED-darkred.svg)](https://github.com/chahuadev/chahuadev-emoji-cleaner-tool)
-[![Smart Analysis](https://img.shields.io/badge/Smart-Analysis-brightgreen.svg)](https://github.com/chahuadev/chahuadev-emoji-cleaner-tool)
-
-** Languages:** [🇹🇭 ไทย](#-thai) | [🇺🇸 English](#-english)
-
----
-
-## 🇹🇭 Thai
-
-##  คำเตือนสำคัญ - CRITICAL SECURITY WARNING
-
-###  ความปลอดภัยระดับสูงสุด - FORTRESS SECURITY
-- **ใช้เวอร์ชันล่าสุดเสมอ**: เวอร์ชันเก่า (< 2.4.0) มีช่องโหว่ด้านความปลอดภัย
-- **หลีกเลี่ยงเวอร์ชันเก่า**: เวอร์ชัน 2.1.x-2.2.4 ไม่มี anti-hack protection
-- **ใช้ `@latest` flag**: `npx @chahuadev/emoji-cleaner@latest` เพื่อความปลอดภัยสูงสุด
-- ** VERSION 2.2.5+ REQUIRED**: เวอร์ชันเก่าไม่มีระบบป้องกันการแฮก
-
-###  ระบบป้องกันการแฮก - ANTI-HACK PROTECTION
-Tool มีระบบป้องกันการโจมตีทุกรูปแบบ:
-
-####  Command Injection Protection
-```bash
-#  BLOCKED - การฉีด Command ถูกบล็อกโดยระบบ
-eval()
-exec()
-spawn() 
-require('child_process')
-fs.unlinkSync('/')
-rm -rf /
-del /f /s /q C:\*
-```
-
-####  Path Traversal Protection  
-```bash
-#  BLOCKED - การโจมตี Path Traversal ถูกปฏิเสธ
-../../../etc/passwd
-..\\..\\..\\Windows\\System32
-/etc/../../../bin/
-C:\\Windows\\..\\..\\..\
-```
-
-####  System Critical File Protection
-```bash
-#  BLOCKED - ไฟล์ระบบสำคัญถูกป้องกัน
-/etc/passwd
-/etc/shadow  
-C:\Windows\System32\
-C:\Program Files\
-/usr/bin/
-/bin/sh
-/root/
-/boot/
-```
-
-###  การป้องกันระบบ
-Tool จะปฏิเสธการเข้าถึง:
--  Windows System directories (`C:\Windows\`, `C:\Program Files\`, `C:\System Volume Information\`)
--  Linux System directories (`/etc/`, `/usr/`, `/bin/`, `/root/`, `/boot/`, `/proc/`, `/sys/`)
--  MacOS System directories (`/System/`, `/usr/bin/`, `/bin/`, `/sbin/`)
--  ไฟล์ที่มี null bytes หรือ dangerous characters
--  ไฟล์ขนาดใหญ่เกิน 10MB
--  Path traversal attempts (`../`, `..\\`, etc.)
--  Command injection patterns
--  Script execution attempts
--  Binary executable files
-
-###  การใช้งานปลอดภัย - SECURE USAGE ONLY
-- **ใช้ `--dry-run` ก่อนเสมอ** เพื่อดูผลลัพธ์
-- **ใช้ `--backup` สำหรับไฟล์สำคัญ**
-- **ทดสอบโค้ดหลังลบอิโมจิ** เพื่อให้แน่ใจว่าทำงานปกติ
-- **ตรวจสอบ Git status** ก่อน commit
-- **ใช้เฉพาะในโปรเจ็กต์ของคุณ** อย่าใช้กับไฟล์ระบบ
-- **ตรวจสอบ output** ก่อนยืนยันการดำเนินการ
-
-###  สัญญาณเตือนการโจมตี - ATTACK DETECTION
-Tool จะแสดงข้อความเตือนเมื่อตรวจพบ:
-```bash
- SECURITY ALERT: Path traversal detected
- SECURITY ALERT: System directory access denied  
- SECURITY ALERT: Command injection attempt blocked
- SECURITY ALERT: Dangerous file operation prevented
- SECURITY ALERT: Binary execution attempt blocked
-```
-
-##  ทำไมต้องใช้?
-
- **ลบอิโมจิออกจากโค้ดอย่างปลอดภัยและมีประสิทธิภาพ พร้อม Smart File Analysis**
--  ** Smart File Analysis**: วิเคราะห์ไฟล์ซับซ้อนอัตโนมัติ
--  ** Complex File Detection**: ตรวจจับไฟล์ใหญ่และซับซ้อน  
--  ** Structural Health Scoring**: คะแนนสุขภาพโครงสร้างโค้ด
--  ** Performance Optimization**: chunk processing สำหรับไฟล์ใหญ่
--  ** Context-Aware Processing**: รู้จักประเภทและความซับซ้อนของไฟล์
--  **ตรวจจับอย่างชาญฉลาด**: รูปแบบอิโมจิ Unicode 15.1+
--  **เร็วปานสายฟ้า**: ประมวลผล 1000+ ไฟล์ในไม่กี่วินาที
--  **ปลอดภัยสูงสุด**: ระบบสำรองและโหมด dry-run
--  **รองรับครอบจักรวาล**: 50+ ภาษาโปรแกรมมิ่ง
-
-##   NEW in v2.5.0: Smart File Analysis System
-
-###   Intelligent Complex File Detection
-- **อัตโนมัติ**: ตรวจจับไฟล์ซับซ้อน (5+ classes, 20+ functions, inheritance)
-- **ขนาดใหญ่**: รองรับไฟล์เกิน 200KB โดยไม่มีปัญหา
-- **โครงสร้าง**: วิเคราะห์ classes, functions, async operations
-- **ความปลอดภัย**: tokenization อัจฉริยะป้องกัน syntax errors
-
-###   Structural Health Analysis
-```bash
- Running smart analysis...
- Smart Analysis Results: Structural Health: 100/100, Context: class-based
- Processing time: 0.16s (ultra-fast!)
- Found: 4 emojis detected and removed
-```
-
-###   Context-Aware Detection
-- **class-based**: ไฟล์ที่มี classes หลายตัว
-- **function-heavy**: ไฟล์ที่เน้น functions
-- **framework**: React, Vue, Angular detection
-- **utility**: Helper และ utility files
-
-###   Performance Features
-- **Chunk Processing**: แบ่งไฟล์ใหญ่เป็นส่วน ๆ
-- **Smart Timeouts**: timeout ยืดหยุ่นตามความซับซ้อน  
-- **Memory Optimization**: ใช้ memory อย่างมีประสิทธิภาพ
-- **Tolerance Mode**: ยอมรับความซับซ้อนระดับสูง
--  **อัจฉริยะ**: ทำความสะอาดแบบเข้าใจบริบท
--  **ประสิทธิภาพสูง**: รองรับโปรเจ็กต์ขนาดใหญ่
--  **ข้ามโฟลเดอร์ระบบ** (node_modules, .git, dist, build) อัตโนมัติ
--  **ใช้เป็น Library** สำหรับ Node.js
-
-##  การติดตั้งและถอนการติดตั้ง
-
-### วิธีที่ 1: ใช้งานทันที (ไม่ต้องติดตั้ง) - แนะนำ
-```bash
-# ใช้เวอร์ชันล่าสุดเสมอ (ปลอดภัยที่สุด)
-npx @chahuadev/emoji-cleaner@latest
-
-# หรือระบุเวอร์ชันเฉพาะ
-npx @chahuadev/emoji-cleaner@2.5.0
-```
-
-### วิธีที่ 2: ติดตั้งในโปรเจ็กต์
-```bash
-# ติดตั้ง
-npm install @chahuadev/emoji-cleaner@latest --save-dev
-
-# ถอนการติดตั้ง
-npm uninstall @chahuadev/emoji-cleaner
-```
-
-### วิธีที่ 3: ติดตั้งแบบ Global
-```bash
-# ติดตั้ง
-npm install -g @chahuadev/emoji-cleaner@latest
-
-# ถอนการติดตั้ง
-npm uninstall -g @chahuadev/emoji-cleaner
-
-# ตรวจสอบการติดตั้ง Global
-npm list -g @chahuadev/emoji-cleaner
-```
-
-### 🧹 ล้าง Cache NPX
-```bash
-# ล้าง cache ทั้งหมด
-npm cache clean --force
-
-# ล้าง cache เฉพาะ npx (Windows)
-Remove-Item -Path "$env:LOCALAPPDATA\npm-cache\_npx" -Recurse -Force
-
-# ล้าง cache เฉพาะ npx (Linux/Mac)
-rm -rf ~/.npm/_npx
-```
-
-##  เริ่มต้นใช้งาน
-
-###  NEW: Smart File Analysis ในการใช้งาน
-```bash
-# ตัวอย่างไฟล์ซับซ้อน - Smart Analysis จะทำงานอัตโนมัติ
-npx @chahuadev/emoji-cleaner@latest complex-file.js --verbose
-
-# Output:
-#  Complex file detected - using Smart File Analysis...
-#  Running smart analysis...
-#  Smart Analysis Results: Structural Health: 100/100, Context: class-based
-#  Processing time: 0.16s
-#  Found: 4 emojis detected and removed
-```
-
-### การใช้งานพื้นฐาน
-```bash
-# ดูตัวอย่างการเปลี่ยนแปลง (แนะนำให้ทำก่อน)
-npx @chahuadev/emoji-cleaner@latest --dry-run
-
-# ล้างไดเรกทอรี่ปัจจุบันพร้อมสำรอง + Smart Analysis
-npx @chahuadev/emoji-cleaner@latest --backup --verbose
-
-# ล้างโปรเจ็กต์เฉพาะ
-npx @chahuadev/emoji-cleaner@latest /path/to/project --backup
-
-# ล้างไฟล์เดียวพร้อม Smart Analysis
-npx @chahuadev/emoji-cleaner@latest myfile.js --dry-run --verbose
-```
-
-### การใช้งานแบบ Direct (หลังติดตั้งแล้ว)
-```bash
-# หลังติดตั้ง global หรือในโปรเจ็กต์
-emoji-cleaner --dry-run
-emoji-cleaner ./src --backup
-emoji-cleaner myfile.js --verbose
-
-# หรือเรียกใช้โดยตรงด้วย node (ในโฟลเดอร์เครื่องมือ)
-node emoji-cleaner.js --help
-node emoji-cleaner.js --dry-run
-```
-
-### ตัวเลือกขั้นสูง
-```bash
-# แสดงรายละเอียดพร้อมสำรอง
-npx @chahuadev/emoji-cleaner@latest --verbose --backup
-
-# เฉพาะส่วนขยายไฟล์ที่ระบุ
-npx @chahuadev/emoji-cleaner@latest --ext .js,.ts,.jsx
-
-# เป้าหมายกำหนดเองพร้อม dry-run
-npx @chahuadev/emoji-cleaner@latest ./src --dry-run --verbose
-```
-
-## 🔧 ตัวเลือกคำสั่ง
-
-| ตัวเลือก | แบบสั้น | คำอธิบาย |
-|---------|---------|----------|
-| `--dry-run` | `-d` | ดูตัวอย่างการเปลี่ยนแปลงโดยไม่แก้ไขไฟล์ |
-| `--verbose` | `-v` | แสดงข้อมูลการประมวลผลโดยละเอียด |
-| `--backup` | `-b` | สร้างสำรองก่อนทำการเปลี่ยนแปลง |
-| `--help` | `-h` | แสดงข้อความช่วยเหลือ |
-| `--version` | | แสดงข้อมูลเวอร์ชัน |
-| `--ext <list>` | | ระบุส่วนขยายไฟล์ (คั่นด้วยจุลภาค) |
-
-##  ฟีเจอร์
-
-###  **ตรวจจับอิโมจิอย่างชาญฉลาด**
-- **รองรับ Unicode 15.1+**: รูปแบบอิโมจิล่าสุด
-- **ครอบคลุมครบถ้วน**: อิโมจิทุกหมวดหมู่
-- **เข้าใจบริบท**: รักษา Unicode ที่ไม่ใช่อิโมจิ
-- **HTML Entities**: ลบ HTML entities ของอิโมจิ
-
-###  **ความปลอดภัยระดับองค์กร**
-- **ป้องกัน Path Traversal**: ป้องกันการโจมตี directory traversal
-- **บล็อคไดเรกทอรี่ระบบ**: บล็อคการเข้าถึง system paths สำคัญ
-- **ตรวจสอบ Input**: ตรวจสอบและทำความสะอาด user inputs ทั้งหมด
-- **จำกัดขนาดไฟล์**: ป้องกันการประมวลผลไฟล์ขนาดใหญ่เกินไป
-- **ตรวจสอบสิทธิ์**: ตรวจสอบสิทธิ์การเข้าถึงไฟล์
-
-###  **ประสิทธิภาพสูง**
-- **ประมวลผลเร็ว**: 1000+ ไฟล์ในไม่กี่วินาที
-- **ประหยัดหน่วยความจำ**: ปรับให้เหมาะสำหรับ codebase ขนาดใหญ่
-- **กรองอย่างชาญฉลาด**: ข้ามไฟล์ที่ไม่เกี่ยวข้องอัตโนมัติ
-- **ประมวลผลแบบขนาน**: Multi-threaded เมื่อเป็นไปได้
-
-###  **รองรับ 50+ ภาษา**
-
-**ภาษาโปรแกรมมิ่ง:**
-- JavaScript (.js), TypeScript (.ts), JSX (.jsx), TSX (.tsx)
-- Python (.py), Java (.java), C++ (.cpp), C# (.cs)
-- PHP (.php), Ruby (.rb), Go (.go), Rust (.rs)
-- Swift (.swift), Kotlin (.kt), Dart (.dart), Scala (.scala)
-- และอีก 35+ ภาษา...
-
-**เว็บและมาร์กอัป:**
-- HTML (.html), CSS (.css), SCSS (.scss), SASS (.sass)
-- XML (.xml), SVG (.svg), Vue (.vue), Angular (.component.html)
-
-**การกำหนดค่าและข้อมูล:**
-- JSON (.json), YAML (.yml/.yaml), TOML (.toml)
-- INI (.ini), ENV (.env), Config (.conf)
-
-**สคริปต์และอื่นๆ:**
-- Shell (.sh/.bash/.zsh), PowerShell (.ps1), Batch (.bat/.cmd)
-- SQL (.sql), Markdown (.md), Text (.txt)
-
-##  ตัวอย่างการใช้งาน
-
-### ตัวอย่างด้านความปลอดภัย
-```bash
-# ✅ ปลอดภัย: ล้างโปรเจ็กต์ของคุณพร้อมสำรอง
-npx @chahuadev/emoji-cleaner@latest ./my-project --backup --dry-run
-
-#  ถูกบล็อค: การเข้าถึงไดเรกทอรี่ระบบถูกปฏิเสธ
-npx @chahuadev/emoji-cleaner@latest C:\Windows\System32
-# ผลลัพธ์:  Security Error: Access to system directories is not allowed
-
-#  ถูกบล็อค: การพยายาม path traversal ถูกปฏิเสธ
-npx @chahuadev/emoji-cleaner@latest "../../../etc/passwd"
-# ผลลัพธ์:  Security Error: Path traversal detected
-```
-
-### ตัวอย่างการใช้งานจริง
-```bash
-# ล้างโปรเจ็กต์ JavaScript
-npx @chahuadev/emoji-cleaner@latest ./src --ext .js,.jsx,.ts,.tsx --backup
-
-# ล้างโปรเจ็กต์ Python
-npx @chahuadev/emoji-cleaner@latest . --ext .py --verbose
-
-# ล้างไฟล์ที่รองรับทั้งหมดในไดเรกทอรี่ปัจจุบัน
-npx @chahuadev/emoji-cleaner@latest --dry-run
-
-# ล้างไฟล์เดียวพร้อมสำรอง
-npx @chahuadev/emoji-cleaner@latest app.js --backup
-```
-
-### การใช้งานเป็น Node.js Library
-```javascript
-const emojiCleaner = require('@chahuadev/emoji-cleaner');
-
-// วิเคราะห์ไฟล์เดียว
-const result = emojiCleaner.analyzeFile('myfile.js', true); // dry-run
-console.log(`พบอิโมจิ ${result.emojiCount} ตัว`);
-
-// ประมวลผลไดเรกทอรี่
-const stats = emojiCleaner.processDirectory('./src', false, true, ['.js', '.ts']);
-console.log(`ประมวลผล ${stats.totalFiles} ไฟล์`);
-```
-
-##  ประสิทธิภาพ
-
-- **เร็ว**: ประมวลผล 1000+ ไฟล์ใน < 0.1 วินาที
-- **ประหยัด**: ลดขนาดไฟล์ 1-5%
-- **ปลอดภัย**: ไม่ทำลายโครงสร้างโค้ด และรักษา formatting
-- **รองรับ Unicode 15.1+**: ลบอิโมจิใหม่ล่าสุดทั้งหมด
-- **Multi-language**: รู้จักและประมวลผล 50+ ภาษาโปรแกรมมิ่ง
-- **Security First**: ป้องกันช่องโหว่ความปลอดภัยระดับ enterprise
-
-##  การสนับสนุน
-
 ---
 
 <div align="center">
@@ -762,6 +420,354 @@ MIT License - See [LICENSE](LICENSE) for details
 - Documentation: Technical Writing Team
 
 ---
+
+
+
+**เครื่องมือลบอิโมจิสำหรับ 50+ ภาษาโปรแกรมมิ่ง พร้อม Smart File Analysis - ปลอดภัย รวดเร็ว ครบครัน**  
+**Universal emoji removal tool for 50+ programming languages with Smart File Analysis - Secure, Fast, Comprehensive**
+
+[![npm version](https://badge.fury.io/js/%40chahuadev%2Femoji-cleaner.svg)](https://badge.fury.io/js/%40chahuadev%2Femoji-cleaner)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Unicode Support](https://img.shields.io/badge/Unicode-15.1%2B-blue.svg)](https://unicode.org/emoji/)
+[![Security](https://img.shields.io/badge/Security-FORTRESS-red.svg)](https://github.com/chahuadev/chahuadev-emoji-cleaner-tool)
+[![Anti-Hack](https://img.shields.io/badge/Anti--Hack-PROTECTED-darkred.svg)](https://github.com/chahuadev/chahuadev-emoji-cleaner-tool)
+[![Smart Analysis](https://img.shields.io/badge/Smart-Analysis-brightgreen.svg)](https://github.com/chahuadev/chahuadev-emoji-cleaner-tool)
+
+** Languages:** [🇹🇭 ไทย](#-thai) | [🇺🇸 English](#-english)
+
+---
+
+## 🇹🇭 Thai
+
+##  คำเตือนสำคัญ - CRITICAL SECURITY WARNING
+
+###  ความปลอดภัยระดับสูงสุด - FORTRESS SECURITY
+- **ใช้เวอร์ชันล่าสุดเสมอ**: เวอร์ชันเก่า (< 2.4.0) มีช่องโหว่ด้านความปลอดภัย
+- **หลีกเลี่ยงเวอร์ชันเก่า**: เวอร์ชัน 2.1.x-2.2.4 ไม่มี anti-hack protection
+- **ใช้ `@latest` flag**: `npx @chahuadev/emoji-cleaner@latest` เพื่อความปลอดภัยสูงสุด
+- ** VERSION 2.2.5+ REQUIRED**: เวอร์ชันเก่าไม่มีระบบป้องกันการแฮก
+
+###  ระบบป้องกันการแฮก - ANTI-HACK PROTECTION
+Tool มีระบบป้องกันการโจมตีทุกรูปแบบ:
+
+####  Command Injection Protection
+```bash
+#  BLOCKED - การฉีด Command ถูกบล็อกโดยระบบ
+eval()
+exec()
+spawn() 
+require('child_process')
+fs.unlinkSync('/')
+rm -rf /
+del /f /s /q C:\*
+```
+
+####  Path Traversal Protection  
+```bash
+#  BLOCKED - การโจมตี Path Traversal ถูกปฏิเสธ
+../../../etc/passwd
+..\\..\\..\\Windows\\System32
+/etc/../../../bin/
+C:\\Windows\\..\\..\\..\
+```
+
+####  System Critical File Protection
+```bash
+#  BLOCKED - ไฟล์ระบบสำคัญถูกป้องกัน
+/etc/passwd
+/etc/shadow  
+C:\Windows\System32\
+C:\Program Files\
+/usr/bin/
+/bin/sh
+/root/
+/boot/
+```
+
+###  การป้องกันระบบ
+Tool จะปฏิเสธการเข้าถึง:
+-  Windows System directories (`C:\Windows\`, `C:\Program Files\`, `C:\System Volume Information\`)
+-  Linux System directories (`/etc/`, `/usr/`, `/bin/`, `/root/`, `/boot/`, `/proc/`, `/sys/`)
+-  MacOS System directories (`/System/`, `/usr/bin/`, `/bin/`, `/sbin/`)
+-  ไฟล์ที่มี null bytes หรือ dangerous characters
+-  ไฟล์ขนาดใหญ่เกิน 10MB
+-  Path traversal attempts (`../`, `..\\`, etc.)
+-  Command injection patterns
+-  Script execution attempts
+-  Binary executable files
+
+###  การใช้งานปลอดภัย - SECURE USAGE ONLY
+- **ใช้ `--dry-run` ก่อนเสมอ** เพื่อดูผลลัพธ์
+- **ใช้ `--backup` สำหรับไฟล์สำคัญ**
+- **ทดสอบโค้ดหลังลบอิโมจิ** เพื่อให้แน่ใจว่าทำงานปกติ
+- **ตรวจสอบ Git status** ก่อน commit
+- **ใช้เฉพาะในโปรเจ็กต์ของคุณ** อย่าใช้กับไฟล์ระบบ
+- **ตรวจสอบ output** ก่อนยืนยันการดำเนินการ
+
+###  สัญญาณเตือนการโจมตี - ATTACK DETECTION
+Tool จะแสดงข้อความเตือนเมื่อตรวจพบ:
+```bash
+ SECURITY ALERT: Path traversal detected
+ SECURITY ALERT: System directory access denied  
+ SECURITY ALERT: Command injection attempt blocked
+ SECURITY ALERT: Dangerous file operation prevented
+ SECURITY ALERT: Binary execution attempt blocked
+```
+
+##  ทำไมต้องใช้?
+
+ **ลบอิโมจิออกจากโค้ดอย่างปลอดภัยและมีประสิทธิภาพ พร้อม Smart File Analysis**
+-  ** Smart File Analysis**: วิเคราะห์ไฟล์ซับซ้อนอัตโนมัติ
+-  ** Complex File Detection**: ตรวจจับไฟล์ใหญ่และซับซ้อน  
+-  ** Structural Health Scoring**: คะแนนสุขภาพโครงสร้างโค้ด
+-  ** Performance Optimization**: chunk processing สำหรับไฟล์ใหญ่
+-  ** Context-Aware Processing**: รู้จักประเภทและความซับซ้อนของไฟล์
+-  **ตรวจจับอย่างชาญฉลาด**: รูปแบบอิโมจิ Unicode 15.1+
+-  **เร็วปานสายฟ้า**: ประมวลผล 1000+ ไฟล์ในไม่กี่วินาที
+-  **ปลอดภัยสูงสุด**: ระบบสำรองและโหมด dry-run
+-  **รองรับครอบจักรวาล**: 50+ ภาษาโปรแกรมมิ่ง
+
+##   NEW in v2.5.0: Smart File Analysis System
+
+###   Intelligent Complex File Detection
+- **อัตโนมัติ**: ตรวจจับไฟล์ซับซ้อน (5+ classes, 20+ functions, inheritance)
+- **ขนาดใหญ่**: รองรับไฟล์เกิน 200KB โดยไม่มีปัญหา
+- **โครงสร้าง**: วิเคราะห์ classes, functions, async operations
+- **ความปลอดภัย**: tokenization อัจฉริยะป้องกัน syntax errors
+
+###   Structural Health Analysis
+```bash
+ Running smart analysis...
+ Smart Analysis Results: Structural Health: 100/100, Context: class-based
+ Processing time: 0.16s (ultra-fast!)
+ Found: 4 emojis detected and removed
+```
+
+###   Context-Aware Detection
+- **class-based**: ไฟล์ที่มี classes หลายตัว
+- **function-heavy**: ไฟล์ที่เน้น functions
+- **framework**: React, Vue, Angular detection
+- **utility**: Helper และ utility files
+
+###   Performance Features
+- **Chunk Processing**: แบ่งไฟล์ใหญ่เป็นส่วน ๆ
+- **Smart Timeouts**: timeout ยืดหยุ่นตามความซับซ้อน  
+- **Memory Optimization**: ใช้ memory อย่างมีประสิทธิภาพ
+- **Tolerance Mode**: ยอมรับความซับซ้อนระดับสูง
+-  **อัจฉริยะ**: ทำความสะอาดแบบเข้าใจบริบท
+-  **ประสิทธิภาพสูง**: รองรับโปรเจ็กต์ขนาดใหญ่
+-  **ข้ามโฟลเดอร์ระบบ** (node_modules, .git, dist, build) อัตโนมัติ
+-  **ใช้เป็น Library** สำหรับ Node.js
+
+##  การติดตั้งและถอนการติดตั้ง
+
+### วิธีที่ 1: ใช้งานทันที (ไม่ต้องติดตั้ง) - แนะนำ
+```bash
+# ใช้เวอร์ชันล่าสุดเสมอ (ปลอดภัยที่สุด)
+npx @chahuadev/emoji-cleaner@latest
+
+# หรือระบุเวอร์ชันเฉพาะ
+npx @chahuadev/emoji-cleaner@2.5.0
+```
+
+### วิธีที่ 2: ติดตั้งในโปรเจ็กต์
+```bash
+# ติดตั้ง
+npm install @chahuadev/emoji-cleaner@latest --save-dev
+
+# ถอนการติดตั้ง
+npm uninstall @chahuadev/emoji-cleaner
+```
+
+### วิธีที่ 3: ติดตั้งแบบ Global
+```bash
+# ติดตั้ง
+npm install -g @chahuadev/emoji-cleaner@latest
+
+# ถอนการติดตั้ง
+npm uninstall -g @chahuadev/emoji-cleaner
+
+# ตรวจสอบการติดตั้ง Global
+npm list -g @chahuadev/emoji-cleaner
+```
+
+### 🧹 ล้าง Cache NPX
+```bash
+# ล้าง cache ทั้งหมด
+npm cache clean --force
+
+# ล้าง cache เฉพาะ npx (Windows)
+Remove-Item -Path "$env:LOCALAPPDATA\npm-cache\_npx" -Recurse -Force
+
+# ล้าง cache เฉพาะ npx (Linux/Mac)
+rm -rf ~/.npm/_npx
+```
+
+##  เริ่มต้นใช้งาน
+
+###  NEW: Smart File Analysis ในการใช้งาน
+```bash
+# ตัวอย่างไฟล์ซับซ้อน - Smart Analysis จะทำงานอัตโนมัติ
+npx @chahuadev/emoji-cleaner@latest complex-file.js --verbose
+
+# Output:
+#  Complex file detected - using Smart File Analysis...
+#  Running smart analysis...
+#  Smart Analysis Results: Structural Health: 100/100, Context: class-based
+#  Processing time: 0.16s
+#  Found: 4 emojis detected and removed
+```
+
+### การใช้งานพื้นฐาน
+```bash
+# ดูตัวอย่างการเปลี่ยนแปลง (แนะนำให้ทำก่อน)
+npx @chahuadev/emoji-cleaner@latest --dry-run
+
+# ล้างไดเรกทอรี่ปัจจุบันพร้อมสำรอง + Smart Analysis
+npx @chahuadev/emoji-cleaner@latest --backup --verbose
+
+# ล้างโปรเจ็กต์เฉพาะ
+npx @chahuadev/emoji-cleaner@latest /path/to/project --backup
+
+# ล้างไฟล์เดียวพร้อม Smart Analysis
+npx @chahuadev/emoji-cleaner@latest myfile.js --dry-run --verbose
+```
+
+### การใช้งานแบบ Direct (หลังติดตั้งแล้ว)
+```bash
+# หลังติดตั้ง global หรือในโปรเจ็กต์
+emoji-cleaner --dry-run
+emoji-cleaner ./src --backup
+emoji-cleaner myfile.js --verbose
+
+# หรือเรียกใช้โดยตรงด้วย node (ในโฟลเดอร์เครื่องมือ)
+node emoji-cleaner.js --help
+node emoji-cleaner.js --dry-run
+```
+
+### ตัวเลือกขั้นสูง
+```bash
+# แสดงรายละเอียดพร้อมสำรอง
+npx @chahuadev/emoji-cleaner@latest --verbose --backup
+
+# เฉพาะส่วนขยายไฟล์ที่ระบุ
+npx @chahuadev/emoji-cleaner@latest --ext .js,.ts,.jsx
+
+# เป้าหมายกำหนดเองพร้อม dry-run
+npx @chahuadev/emoji-cleaner@latest ./src --dry-run --verbose
+```
+
+## 🔧 ตัวเลือกคำสั่ง
+
+| ตัวเลือก | แบบสั้น | คำอธิบาย |
+|---------|---------|----------|
+| `--dry-run` | `-d` | ดูตัวอย่างการเปลี่ยนแปลงโดยไม่แก้ไขไฟล์ |
+| `--verbose` | `-v` | แสดงข้อมูลการประมวลผลโดยละเอียด |
+| `--backup` | `-b` | สร้างสำรองก่อนทำการเปลี่ยนแปลง |
+| `--help` | `-h` | แสดงข้อความช่วยเหลือ |
+| `--version` | | แสดงข้อมูลเวอร์ชัน |
+| `--ext <list>` | | ระบุส่วนขยายไฟล์ (คั่นด้วยจุลภาค) |
+
+##  ฟีเจอร์
+
+###  **ตรวจจับอิโมจิอย่างชาญฉลาด**
+- **รองรับ Unicode 15.1+**: รูปแบบอิโมจิล่าสุด
+- **ครอบคลุมครบถ้วน**: อิโมจิทุกหมวดหมู่
+- **เข้าใจบริบท**: รักษา Unicode ที่ไม่ใช่อิโมจิ
+- **HTML Entities**: ลบ HTML entities ของอิโมจิ
+
+###  **ความปลอดภัยระดับองค์กร**
+- **ป้องกัน Path Traversal**: ป้องกันการโจมตี directory traversal
+- **บล็อคไดเรกทอรี่ระบบ**: บล็อคการเข้าถึง system paths สำคัญ
+- **ตรวจสอบ Input**: ตรวจสอบและทำความสะอาด user inputs ทั้งหมด
+- **จำกัดขนาดไฟล์**: ป้องกันการประมวลผลไฟล์ขนาดใหญ่เกินไป
+- **ตรวจสอบสิทธิ์**: ตรวจสอบสิทธิ์การเข้าถึงไฟล์
+
+
+
+###  **ประสิทธิภาพสูง**
+- **ประมวลผลเร็ว**: 1000+ ไฟล์ในไม่กี่วินาที
+- **ประหยัดหน่วยความจำ**: ปรับให้เหมาะสำหรับ codebase ขนาดใหญ่
+- **กรองอย่างชาญฉลาด**: ข้ามไฟล์ที่ไม่เกี่ยวข้องอัตโนมัติ
+- **ประมวลผลแบบขนาน**: Multi-threaded เมื่อเป็นไปได้
+
+###  **รองรับ 50+ ภาษา**
+
+**ภาษาโปรแกรมมิ่ง:**
+- JavaScript (.js), TypeScript (.ts), JSX (.jsx), TSX (.tsx)
+- Python (.py), Java (.java), C++ (.cpp), C# (.cs)
+- PHP (.php), Ruby (.rb), Go (.go), Rust (.rs)
+- Swift (.swift), Kotlin (.kt), Dart (.dart), Scala (.scala)
+- และอีก 35+ ภาษา...
+
+**เว็บและมาร์กอัป:**
+- HTML (.html), CSS (.css), SCSS (.scss), SASS (.sass)
+- XML (.xml), SVG (.svg), Vue (.vue), Angular (.component.html)
+
+**การกำหนดค่าและข้อมูล:**
+- JSON (.json), YAML (.yml/.yaml), TOML (.toml)
+- INI (.ini), ENV (.env), Config (.conf)
+
+**สคริปต์และอื่นๆ:**
+- Shell (.sh/.bash/.zsh), PowerShell (.ps1), Batch (.bat/.cmd)
+- SQL (.sql), Markdown (.md), Text (.txt)
+
+##  ตัวอย่างการใช้งาน
+
+### ตัวอย่างด้านความปลอดภัย
+```bash
+# ✅ ปลอดภัย: ล้างโปรเจ็กต์ของคุณพร้อมสำรอง
+npx @chahuadev/emoji-cleaner@latest ./my-project --backup --dry-run
+
+#  ถูกบล็อค: การเข้าถึงไดเรกทอรี่ระบบถูกปฏิเสธ
+npx @chahuadev/emoji-cleaner@latest C:\Windows\System32
+# ผลลัพธ์:  Security Error: Access to system directories is not allowed
+
+#  ถูกบล็อค: การพยายาม path traversal ถูกปฏิเสธ
+npx @chahuadev/emoji-cleaner@latest "../../../etc/passwd"
+# ผลลัพธ์:  Security Error: Path traversal detected
+```
+
+### ตัวอย่างการใช้งานจริง
+```bash
+# ล้างโปรเจ็กต์ JavaScript
+npx @chahuadev/emoji-cleaner@latest ./src --ext .js,.jsx,.ts,.tsx --backup
+
+# ล้างโปรเจ็กต์ Python
+npx @chahuadev/emoji-cleaner@latest . --ext .py --verbose
+
+# ล้างไฟล์ที่รองรับทั้งหมดในไดเรกทอรี่ปัจจุบัน
+npx @chahuadev/emoji-cleaner@latest --dry-run
+
+# ล้างไฟล์เดียวพร้อมสำรอง
+npx @chahuadev/emoji-cleaner@latest app.js --backup
+```
+
+### การใช้งานเป็น Node.js Library
+```javascript
+const emojiCleaner = require('@chahuadev/emoji-cleaner');
+
+// วิเคราะห์ไฟล์เดียว
+const result = emojiCleaner.analyzeFile('myfile.js', true); // dry-run
+console.log(`พบอิโมจิ ${result.emojiCount} ตัว`);
+
+// ประมวลผลไดเรกทอรี่
+const stats = emojiCleaner.processDirectory('./src', false, true, ['.js', '.ts']);
+console.log(`ประมวลผล ${stats.totalFiles} ไฟล์`);
+```
+
+##  ประสิทธิภาพ
+
+- **เร็ว**: ประมวลผล 1000+ ไฟล์ใน < 0.1 วินาที
+- **ประหยัด**: ลดขนาดไฟล์ 1-5%
+- **ปลอดภัย**: ไม่ทำลายโครงสร้างโค้ด และรักษา formatting
+- **รองรับ Unicode 15.1+**: ลบอิโมจิใหม่ล่าสุดทั้งหมด
+- **Multi-language**: รู้จักและประมวลผล 50+ ภาษาโปรแกรมมิ่ง
+- **Security First**: ป้องกันช่องโหว่ความปลอดภัยระดับ enterprise
+
+##  การสนับสนุน
+
+
 
 <div align="center">
 
