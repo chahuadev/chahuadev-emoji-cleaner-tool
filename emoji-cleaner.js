@@ -1,26 +1,22 @@
 #!/usr/bin/env node
-// UNIVERSAL EMOJI CLEANER - เครื่องมือลบอิโมจิสากล
+// UNIVERSAL EMOJI CLEANER
 // ===============================================
 // @fileoverview Universal Emoji Cleaner Tool with Enhanced Security
-// @author บริษัท ชาหัว ดีเวลลอปเมนต์ จำกัด
 // @author Chahua Development Co., Ltd.
-// @version 2.5.0
+// @version 2.5.1
 // ----------------------------------
-//  นโยบายความปลอดภัยระดับป้อมปราการ:
+// Security Policy - Fortress Level Protection:
 // ----------------------------------
-// เครื่องมือนี้ใช้งานได้กับโปรเจ็กต์ทุกประเภทโดยไม่จำเป็นต้องอยู่ในโฟลเดอร์เดียวกัน
-// มีระบบตรวจสอบความปลอดภัยและไวยากรณ์ขั้นสูงเพื่อป้องกันการทำลายโค้ด
-// ----------------------------------
-//  This tool works with any project type without needing to be in the same folder
-//  It includes advanced security and syntax validation to prevent code corruption
+// This tool works with any project type without needing to be in the same folder
+// It includes advanced security and syntax validation to prevent code corruption
 // ----------------------------------
 const fs = require('fs');
 const path = require('path');
 
 // ╔══════════════════════════════════════════════════════════════════════════════════╗
-// ║                         โซน 0: Custom Error Classes                              ║
+// ║                         Zone 0: Custom Error Classes                            ║
 // ║                     Enhanced Error Handling System                               ║
-// ║              [การใช้งาน] สำคัญ: การจัดการข้อผิดพลาดแบบมืออาชีพ                         ║
+// ║                      Professional Error Management                               ║
 // ╚══════════════════════════════════════════════════════════════════════════════════╝
 class SecurityError extends Error {
     constructor(message, filePath = null, errorCode = 'SEC_001') {
@@ -68,9 +64,9 @@ class PathValidationError extends SecurityError {
 }
 
 // ╔══════════════════════════════════════════════════════════════════════════════════╗
-// ║                         โซน 1: การกำหนดค่าและความปลอดภัย                        ║
-// ║                    Security Configuration และ Protection Functions            ║
-// ║              [การใช้งาน] ร่วมกัน: การตั้งค่าระบบความปลอดภัยทั้งระบบ            ║
+// ║                         Zone 1: Security Configuration                          ║
+// ║                    Security Configuration and Protection Functions           ║
+// ║                    System-wide Security Settings                             ║
 // ╚══════════════════════════════════════════════════════════════════════════════════╝
 
 //  Security Configuration
@@ -296,13 +292,12 @@ function sanitizePath(inputPath) {
 }
 
 // ╔══════════════════════════════════════════════════════════════════════════════════╗
-// ║                         โซน 2: การตรวจสอบไวยากรณ์                              ║
-// ║                    ระบบตรวจสอบไวยากรณ์และรูปแบบภาษาต่างๆ                     ║
-// ║              [การใช้งาน] ร่วมกัน: ตรวจสอบไวยากรณ์ก่อนและหลังการประมวลผล       ║
+// ║                         Zone 2: Syntax Validation                               ║
+// ║                    Syntax Checking System for Multiple Languages             ║
+// ║                    Pre and Post Processing Syntax Validation                 ║
 // ╚══════════════════════════════════════════════════════════════════════════════════╝
 
 // ══════════════════════════════════════════════════════════════════════════════
-//                     ฟังก์ชันตรวจสอบไวยากรณ์ขั้นสูง
 //                    Advanced Syntax Validation Function
 // ══════════════════════════════════════════════════════════════════════════════
 function validateSyntax(content, fileExtension, forceMode = false) {
@@ -552,7 +547,7 @@ function analyzeFileContext(content, fileExtension) {
 }
 
 // ╔══════════════════════════════════════════════════════════════════════════════════╗
-// ║                         โซน 3: การประมวลผลอิโมจิ                                ║
+// ║                         Zone 3: Emoji Processing                                ║
 // ║                   Emoji Detection และ Comment Cleanup Systems                ║
 // ║              [การใช้งาน] หลัก: การตรวจหาและลบอิโมจิทุกรูปแบบ                  ║
 // ╚══════════════════════════════════════════════════════════════════════════════════╝
@@ -632,7 +627,7 @@ const EMOJI_PATTERNS = [
 ];
 
 // ╔══════════════════════════════════════════════════════════════════════════════════╗
-// ║                         โซน 4: การจัดการไฟล์และสำรอง                           ║
+// ║                         Zone 4: File Management and Backup                     ║
 // ║                     File Operations และ Backup & Restore                     ║
 // ║              [การใช้งาน] สำคัญ: การสำรองและกู้คืนไฟล์อย่างปลอดภัย              ║
 // ╚══════════════════════════════════════════════════════════════════════════════════╝
@@ -1084,7 +1079,7 @@ function isEmojiCleanerFile(filePath) {
 }
 
 // ╔══════════════════════════════════════════════════════════════════════════════════╗
-// ║                         โซน 5: การประมวลผลหลัก                                 ║
+// ║                         Zone 5: Main Processing                                 ║
 // ║                      Main Processing Functions                                 ║
 // ║              [การใช้งาน] หลัก: ประมวลผลไฟล์และโฟลเดอร์พร้อมระบบปลอดภัย         ║
 // ╚══════════════════════════════════════════════════════════════════════════════════╝
@@ -1431,7 +1426,7 @@ PROJECT-SPECIFIC USAGE:
 }
 
 // ╔══════════════════════════════════════════════════════════════════════════════════╗
-// ║                         โซน 6: อินเทอร์เฟซผู้ใช้                                ║
+// ║                         Zone 6: User Interface                                  ║
 // ║                     CLI Interface และ User Interaction Systems               ║
 // ║              [การใช้งาน] สำคัญ: การจัดการ command line และอินเทอร์เฟซผู้ใช้   ║
 // ╚══════════════════════════════════════════════════════════════════════════════════╝

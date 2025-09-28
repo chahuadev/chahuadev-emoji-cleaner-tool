@@ -1,7 +1,7 @@
 {
   "name": "@chahuadev/emoji-cleaner",
-  "version": "2.5.0",
-  "description": "Universal Emoji Cleaner v2.5.0 - Enhanced Unicode 15.1+ emoji removal tool with Smart File Analysis, supporting 50+ programming languages with intelligent comment cleanup, complex file handling, backup functionality, security features, and professional CI/CD integration",
+  "version": "2.5.1",
+  "description": "Universal Emoji Cleaner v2.5.1 - Enhanced Unicode 15.1+ emoji removal tool with Smart File Analysis, supporting 50+ programming languages with intelligent comment cleanup, complex file handling, backup functionality, security features, and professional CI/CD integration",
   "main": "emoji-cleaner.js",
   "bin": {
     "emoji-cleaner": "emoji-cleaner.js",

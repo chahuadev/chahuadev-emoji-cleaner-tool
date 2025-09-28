@@ -1,33 +1,47 @@
-# CHANGELOG | บันทึกการเปลี่ยนแปลง
+# CHANGELOG
 
-**Universal Emoji Cleaner - เครื่องมือลบอิโมจิสากล**  
+**Universal Emoji Cleaner**  
 **Security-Enhanced Multi-Language Emoji Removal Tool**
 
 ---
 
-## Languages | ภาษา
-
-All notable changes to this project will be documented in this file.  
-การเปลี่ยนแปลงที่สำคัญทั้งหมดของโปรเจ็กต์นี้จะถูกบันทึกไว้ในไฟล์นี้
+All notable changes to this project will be documented in this file.
 
 ---
 
-## [2.5.0] - 2025-09-24 - ** SMART FILE ANALYSIS SYSTEM**
+## [2.5.1] - 2025-09-28 - **DOCUMENTATION UPDATE**
 
-###  Major New Features | ฟีเจอร์ใหม่สำคัญ
-- ** Smart File Analysis System** | ระบบวิเคราะห์ไฟล์อัจฉริยะ
-  - Intelligent complex file detection | ตรวจจับไฟล์ซับซ้อนอัตโนมัติ
-  - Structural health scoring (0-100) | คะแนนสุขภาพโครงสร้างโค้ด
-  - Context-aware file processing | ประมวลผลไฟล์ตามบริบท
-  - Advanced tokenization for code analysis | tokenization ขั้นสูงสำหรับวิเคราะห์โค้ด
+### Documentation Improvements
+- **Complete English Documentation**: All text converted to English language
+- **No Emoji Policy**: Removed all emojis from documentation for professional presentation
+- **Enhanced Readability**: Improved documentation structure and clarity
+- **Professional Format**: Clean, business-appropriate documentation style
+- **Version Consistency**: Updated all version references to v2.5.1
 
-- ** Complex File Support** | รองรับไฟล์ซับซ้อน
-  - Files with 5+ classes automatically detected | ตรวจจับไฟล์ที่มี 5+ classes อัตโนมัติ
-  - Files with 20+ functions intelligently processed | ประมวลผลไฟล์ที่มี 20+ functions อย่างชาญฉลาด
-  - Large files (200KB+) with chunk processing | ไฟล์ใหญ่ (200KB+) ด้วย chunk processing
-  - Inheritance and async operation detection | ตรวจจับ inheritance และ async operations
+### Technical Updates
+- **Version Bump**: Updated package version to 2.5.1
+- **Consistent Branding**: Standardized company information and contact details
+- **Security Information**: Enhanced security documentation in English
+- **Usage Examples**: Improved code examples with clear explanations
 
-- ** Performance Enhancements** | การเพิ่มประสิทธิภาพ
+---
+
+## [2.5.0] - 2025-09-24 - **SMART FILE ANALYSIS SYSTEM**
+
+### Major New Features
+- **Smart File Analysis System**: Intelligent file analysis system
+  - Intelligent complex file detection
+  - Structural health scoring (0-100)
+  - Context-aware file processing
+  - Advanced tokenization for code analysis
+
+- **Complex File Support**: Support for complex files
+  - Files with 5+ classes automatically detected
+  - Files with 20+ functions intelligently processed
+  - Large files (200KB+) with chunk processing
+  - Inheritance and async operation detection
+
+- **Performance Enhancements**: Improved performance
   - Ultra-fast processing (0.16s for 291KB files) | ประมวลผลเร็วมาก (0.16s สำหรับไฟล์ 291KB)
   - Memory-optimized chunk processing | chunk processing ที่เพิ่มประสิทธิภาพ memory
   - Intelligent timeout management | การจัดการ timeout อย่างชาญฉลาด
