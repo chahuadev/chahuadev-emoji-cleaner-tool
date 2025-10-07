@@ -233,7 +233,7 @@ npm publish
 - [ ] Installation and setup process validation
 
 #### Compatibility Testing
-- [ ] Node.js version compatibility (14, 16, 18, 20)
+- [ ] Node.js version compatibility (22+)
 - [ ] Operating system compatibility (Windows, macOS, Linux)
 - [ ] Package manager compatibility (npm, yarn, pnpm)
 - [ ] CI/CD system compatibility

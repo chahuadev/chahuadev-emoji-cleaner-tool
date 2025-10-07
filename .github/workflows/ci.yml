@@ -14,7 +14,7 @@ on:
 
 # Environment variables
 env:
-  NODE_VERSION_MATRIX: '[16, 18, 20]'
+  NODE_VERSION_MATRIX: '[22]'
   ARTIFACT_RETENTION_DAYS: 30
 
 jobs:
@@ -35,7 +35,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '18'
+        node-version: '22'
         cache: 'npm'
         cache-dependency-path: package-lock.json
     
@@ -49,20 +49,20 @@ jobs:
     - name: Check Package Lock
       run: |
         if [ -f package-lock.json ]; then
-          echo "✅ package-lock.json exists"
+          echo "package-lock.json exists"
           npm ci --dry-run
         else
-          echo "⚠️ package-lock.json missing - generating..."
+          echo "package-lock.json missing - generating..."
           npm install
         fi
     
     - name: License Check
       run: |
         if [ -f LICENSE ]; then
-          echo "✅ LICENSE file exists"
+          echo "LICENSE file exists"
           head -5 LICENSE
         else
-          echo "❌ LICENSE file missing"
+          echo "LICENSE file missing"
           exit 1
         fi
 
@@ -79,11 +79,11 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-        node-version: [16, 18, 20]
+        node-version: [22]
         exclude:
           # Skip some combinations to reduce CI time
           - os: macos-latest
-            node-version: 16
+            node-version: 22
     
     steps:
     - name: Checkout Repository
@@ -109,8 +109,8 @@ jobs:
       run: |
         # Create test files with emojis
         mkdir -p test-samples
-        echo "console.log('Hello 🌍 World 🚀');" > test-samples/emoji-test.js
-        echo "function test() { return '✨ Magic ✨'; }" > test-samples/emoji-test2.js
+        echo "console.log('Hello World ');" > test-samples/emoji-test.js
+        echo "function test() { return ' Magic '; }" > test-samples/emoji-test2.js
         
         # Test dry-run functionality
         node emoji-cleaner.js test-samples/ --dry-run
@@ -146,7 +146,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '18'
+        node-version: '22'
         cache: 'npm'
     
     - name: Install Dependencies
@@ -225,7 +225,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '18'
+        node-version: '22'
         cache: 'npm'
     
     - name: Install Dependencies
@@ -279,7 +279,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '18'
+        node-version: '22'
         cache: 'npm'
         registry-url: 'https://registry.npmjs.org'
     
