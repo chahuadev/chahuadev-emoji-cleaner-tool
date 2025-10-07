@@ -9,17 +9,17 @@ All notable changes to this project will be documented in this file.
 
 ---
 
-## [2.5.1] - 2025-09-28 - **DOCUMENTATION UPDATE**
+## [2.5.3] - 2025-10-07 - **DOCUMENTATION UPDATE**
 
 ### Documentation Improvements
 - **Complete English Documentation**: All text converted to English language
 - **No Emoji Policy**: Removed all emojis from documentation for professional presentation
 - **Enhanced Readability**: Improved documentation structure and clarity
 - **Professional Format**: Clean, business-appropriate documentation style
-- **Version Consistency**: Updated all version references to v2.5.1
+- **Version Consistency**: Updated all version references to v2.5.3
 
 ### Technical Updates
-- **Version Bump**: Updated package version to 2.5.1
+- **Version Bump**: Updated package version to 2.5.3
 - **Consistent Branding**: Standardized company information and contact details
 - **Security Information**: Enhanced security documentation in English
 - **Usage Examples**: Improved code examples with clear explanations
@@ -68,7 +68,7 @@ All notable changes to this project will be documented in this file.
 ###  Documentation Updates | การอัพเดตเอกสาร
 - **Comprehensive README.md** | README.md แบบครอบคลุม
   - Added Smart File Analysis documentation | เพิ่มเอกสาร Smart File Analysis
-  - Updated installation instructions for v2.5.0 | อัพเดตคำแนะนำการติดตั้งสำหรับ v2.5.0
+  - Updated installation instructions for v2.5.3 | อัพเดตคำแนะนำการติดตั้งสำหรับ v2.5.3
   - Added performance examples and use cases | เพิ่มตัวอย่างประสิทธิภาพและกรณีการใช้งาน
   - Enhanced bilingual documentation (Thai/English) | เอกสารสองภาษาที่เพิ่มขึ้น
 

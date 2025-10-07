@@ -1,9 +1,10 @@
-# Universal Emoji Cleaner v2.5.1
+# Universal Emoji Cleaner 
 
 ---
 
 <div align="center">
 
+[![Version](https://img.shields.io/badge/version-2.5.3-blue?style=for-the-badge)](https://github.com/chahuadev/chahuadev-emoji-cleaner-tool)
 [![Issues](https://img.shields.io/badge/Report_Issues-GitHub_Issues-red?style=for-the-badge&logo=github)](https://github.com/chahuadev/chahuadev-emoji-cleaner-tool/issues)
 [![Discussions](https://img.shields.io/badge/Feature_Requests-GitHub_Discussions-blue?style=for-the-badge&logo=github)](https://github.com/chahuadev/chahuadev-emoji-cleaner-tool/discussions)
 [![Contact](https://img.shields.io/badge/Contact-chahuadev@gmail.com-green?style=for-the-badge&logo=gmail)](mailto:chahuadev@gmail.com)
@@ -15,49 +16,60 @@
 ## CRITICAL SECURITY WARNING - FORTRESS PROTECTION
 
 ### Maximum Security - FORTRESS SECURITY
-- **Always use latest version**: Older versions (< 2.5.1) have security vulnerabilities  
-- **Avoid legacy versions**: Versions 2.1.x-2.4.x lack Smart File Analysis
+- **Always use latest version**: Older versions (< 2.5.3) have security vulnerabilities  
+- **Avoid legacy versions**: Versions 2.1.x-2.5.2 lack latest Smart File Analysis
 - **Use `@latest` flag**: `npx @chahuadev/emoji-cleaner@latest` for maximum safety
-- **VERSION 2.5.1+ RECOMMENDED**: Latest version includes Smart File Analysis system
+- **VERSION 2.5.3+ RECOMMENDED**: Latest version includes enhanced Smart File Analysis system
 
 ### Anti-Hack Protection System - FORTRESS SHIELD
 Tool has comprehensive protection against all attack vectors:
 
 ####  Command Injection Protection
 ```bash
-#  BLOCKED - Command injection attempts blocked by system
-eval()
-exec()
-spawn() 
-require('child_process')
-fs.unlinkSync('/')
-rm -rf /
-del /f /s /q C:\*
+npm install -g @chahuadev/emoji-cleaner
 ```
 
-####  Path Traversal Protection  
+### Usage
+
+#### Basic Usage
 ```bash
-#  BLOCKED - Path traversal attacks rejected
-../../../etc/passwd
-..\\..\\..\\Windows\\System32
-/etc/../../../bin/
-C:\\Windows\\..\\..\\..\
+# Clean current directory with backup (Recommended)
+npx @chahuadev/emoji-cleaner@latest . --backup
+
+# Preview changes first (Safe!)
+npx @chahuadev/emoji-cleaner@latest . --dry-run --verbose
+
+# Clean specific file types
+npx @chahuadev/emoji-cleaner@latest src/ --extensions js,ts,jsx,tsx
 ```
 
-####  System Critical File Protection
+#### Advanced Options
 ```bash
-#  BLOCKED - System critical files protected
-/etc/passwd
-/etc/shadow  
-C:\Windows\System32\
-C:\Program Files\
-/usr/bin/
-/bin/sh
-/root/
-/boot/
+# JSON output for CI/CD
+npx @chahuadev/emoji-cleaner@latest . --output json > results.json
+
+# Exclude specific patterns
+npx @chahuadev/emoji-cleaner@latest . --exclude "*.min.js,dist/**"
+
+# Verbose logging
+npx @chahuadev/emoji-cleaner@latest . --backup --verbose
 ```
 
-###  System Protection
+## Security Features
+
+### Multi-Layer Protection
+- **Command Injection Protection** - Blocks dangerous functions and shell commands
+- **Path Traversal Protection** - Validates file paths and prevents directory traversal
+- **System File Protection** - Protects critical system files from modification
+- **Input Sanitization** - Comprehensive input validation and sanitization
+
+### Security Best Practices
+- Always use version 2.5.3+ for latest security patches
+- Use `--dry-run` flag to preview changes before applying
+- Enable `--backup` flag to create safety backups
+- Review output logs for any security warnings
+
+### System Protection
 Tool will reject access to:
 - Windows System directories (`C:\Windows\`, `C:\Program Files\`, `C:\System Volume Information\`)
 - Linux System directories (`/etc/`, `/usr/`, `/bin/`, `/root/`, `/boot/`, `/proc/`, `/sys/`)
@@ -117,7 +129,7 @@ Tool will deny access to:
 - **Skip system folders** (node_modules, .git, dist, build) automatically
 - **Use as Library** for Node.js integration
 
-## NEW in v2.5.1: Smart File Analysis Features
+## NEW in v2.5.3: Smart File Analysis Features
 
 ### Intelligent Analysis
 - **Complex File Detection**: Automatically detects files with 5+ classes, 20+ functions
@@ -149,7 +161,7 @@ Found: 4 emojis detected and removed
 npx @chahuadev/emoji-cleaner@latest
 
 # Or specify exact version
-npx @chahuadev/emoji-cleaner@2.5.1
+npx @chahuadev/emoji-cleaner@2.5.3
 ```
 
 ### Method 2: Project Installation
@@ -340,10 +352,10 @@ console.log(`Processed ${stats.totalFiles} files`);
 
 ## Changelog
 
-### v2.5.1 (2025-09-28) - **DOCUMENTATION UPDATE**
+### v2.5.3 (2025-10-07) - **DOCUMENTATION UPDATE**
 - **Complete English Documentation**: All text converted to English language
 - **No Emoji Policy**: Removed all emojis from documentation for professional presentation
-- **Version Update**: Updated to v2.5.1 with consistent version references
+- **Version Update**: Updated to v2.5.3 with consistent version references
 - **Enhanced Readability**: Improved documentation structure and clarity
 - **Professional Format**: Clean, business-appropriate documentation style
 

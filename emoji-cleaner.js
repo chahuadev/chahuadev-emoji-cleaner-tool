@@ -3,7 +3,7 @@
 // ===============================================
 // @fileoverview Universal Emoji Cleaner Tool with Enhanced Security
 // @author Chahua Development Co., Ltd.
-// @version 2.5.1
+// @version 2.5.3
 // ----------------------------------
 // Security Policy - Fortress Level Protection:
 // ----------------------------------
@@ -1373,7 +1373,7 @@ function processDirectory(dirPath, isDryRun = false, verbose = false, extensions
 // ══════════════════════════════════════════════════════════════════════════════
 function showHelp() {
     console.log(`
- Universal Emoji Cleaner v2.1 - Usage Guide
+ Universal Emoji Cleaner v2.5.3 - Usage Guide
 
 SYNTAX:
   emoji-cleaner [target] [options]
@@ -1480,7 +1480,7 @@ async function main() {
         }
     }
 
-    console.log(' Universal Emoji Cleaner v2.1');
+    console.log(' Universal Emoji Cleaner v2.5.3');
     console.log('================================');
     if (isDryRun) {
         console.log(' DRY RUN MODE - No files will be modified');
@@ -1558,7 +1558,7 @@ async function main() {
 // ══════════════════════════════════════════════════════════════════════════════
 function showHelp() {
     console.log(`
- Universal Emoji Cleaner v2.5.0 - Usage Guide
+ Universal Emoji Cleaner v2.5.3 - Usage Guide
 
 SYNTAX:
   emoji-cleaner [target] [options]
@@ -1628,7 +1628,7 @@ function showVersion() {
         console.log(`[+] Author: ${packageInfo.author.name || packageInfo.author}`);
         console.log(`[+] Repository: ${packageInfo.repository.url || packageInfo.repository}`);
     } catch (error) {
-        console.log('[+] Universal Emoji Cleaner v2.4.0');
+        console.log('[+] Universal Emoji Cleaner v2.5.3');
         console.log('[+] Author: Chahua Development Co., Ltd.');
     }
 }
@@ -1759,7 +1759,7 @@ async function enhancedMain() {
         }
 
         // Display header
-        console.log('Universal Emoji Cleaner v2.5.0');
+        console.log('Universal Emoji Cleaner v2.5.3');
         console.log('================================');
         if (options.dryRun) {
             console.log(' DRY RUN MODE - No files will be modified');
