@@ -80,7 +80,7 @@ All notable changes to this project will be documented in this file.
 - **Professional CI/CD Integration** | การรวมระบบ CI/CD แบบมืออาชีพ
   - Added comprehensive GitHub Actions workflow | เพิ่ม workflow GitHub Actions แบบครอบคลุม
   - Multi-OS testing (Ubuntu, Windows, macOS) | ทดสอบบนหลาย OS
-  - Multi-Node.js version support (16, 18, 20) | รองรับ Node.js หลายเวอร์ชัน
+  - Multi-Node.js version support (22+) | รองรับ Node.js เวอร์ชัน 22 ขึ้นไป
   - Automated security audits | ตรวจสอบความปลอดภัยอัตโนมัติ
   - Performance benchmarking | การวัดประสิทธิภาพ
 

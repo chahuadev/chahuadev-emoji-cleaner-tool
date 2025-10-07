@@ -36,8 +36,6 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: '22'
-        cache: 'npm'
-        cache-dependency-path: package-lock.json
     
     - name: Install Dependencies
       run: npm ci --prefer-offline --no-audit
@@ -93,7 +91,6 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
     
     - name: Install Dependencies
       run: npm ci --prefer-offline
@@ -147,7 +144,6 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: '22'
-        cache: 'npm'
     
     - name: Install Dependencies
       run: npm ci
@@ -226,7 +222,6 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: '22'
-        cache: 'npm'
     
     - name: Install Dependencies
       run: npm ci
@@ -280,7 +275,6 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: '22'
-        cache: 'npm'
         registry-url: 'https://registry.npmjs.org'
     
     - name: Install Dependencies
