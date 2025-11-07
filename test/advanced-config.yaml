@@ -1,0 +1,501 @@
+# 🚀 Advanced YAML Test File for Chahuadev Emoji Cleaner Tool
+# 📝 Comprehensive YAML patterns with extensive emoji usage for testing
+# 🎪 Features: Complex nested structures, multi-document, emoji keys and values
+# 🧪 Perfect for testing emoji removal from YAML files
+
+---
+metadata:
+  🎯: "Project Information"
+  name: "🧪 Emoji Testing Suite"
+  version: "2.0.0"
+  description: |
+    🚀 Advanced test suite for emoji cleaning capabilities with 🎯 comprehensive coverage
+    This multi-line description contains various emojis: ✨🌟🎉📊🔥💎
+    And supports complex formatting with emoji bullets:
+    • 🧪 Testing capabilities
+    • 🧹 Cleaning functions  
+    • 📊 Analytics features
+    • 🎯 Validation tools
+  author: "👨‍💻 Chahuadev Development Team"
+  created: "2025-01-20"
+  emoji_count: "200+"
+  complexity: "🔥 High"
+  tags:
+    - "🧪 testing"
+    - "🧹 cleaning"
+    - "📊 validation"
+    - "🎯 comprehensive"
+
+# 🎨 Configuration Settings
+configuration:
+  🔧: "Core Settings"
+  core:
+    enable_emoji_processing: true
+    emoji_detection_mode: "🔍 comprehensive"
+    processing_strategy: "🧠 intelligent"
+    output_format: "📋 detailed"
+    log_level: "🐛 debug"
+    performance_mode: "⚡ optimized"
+    
+    # 🎯 Advanced options with emoji descriptions
+    advanced_options:
+      - name: "🚀 turbo_mode"
+        description: "Enable high-speed processing with ⚡ optimization"
+        enabled: true
+        emoji_indicator: "🏎️"
+        
+      - name: "🛡️ safe_mode" 
+        description: "Use conservative approach with 🔒 extra validation"
+        enabled: false
+        emoji_indicator: "🛡️"
+        
+      - name: "🎪 experimental_features"
+        description: "Try cutting-edge features with 🧪 experimental support"
+        enabled: true
+        emoji_indicator: "🔬"
+
+  🎯: "Emoji Categories"
+  emoji_categories:
+    faces:
+      description: "😀 Facial expressions and emotions"
+      subcategories:
+        happy:
+          emojis: ["😀", "😁", "😂", "🤣", "😃", "😄", "😅", "😆", "😊", "😇"]
+          count: 10
+          usage: "🎉 celebration, ✨ positive feedback"
+          context_examples:
+            - "Great job! 😊"
+            - "That's hilarious! 😂"
+            - "Feeling happy today! 😁"
+            
+        sad:
+          emojis: ["😢", "😭", "😞", "😔", "😟", "😕", "🙁", "☹️", "😣", "😖"]
+          count: 10
+          usage: "💧 disappointment, 😰 concern"
+          context_examples:
+            - "I'm so sorry 😢"
+            - "That's disappointing 😞"
+            - "Feeling down today 😔"
+            
+        love:
+          emojis: ["😍", "🥰", "😘", "😗", "😙", "😚", "💕", "💖", "💗", "💘"]
+          count: 10
+          usage: "💖 affection, 🌹 romance"
+          context_examples:
+            - "Love you so much! 💕"
+            - "You're amazing! 😍"
+            - "Sweet dreams 😘"
+
+    🌿: "Nature and Animals"
+    nature:
+      description: "🌱 Natural world including animals and plants"
+      subcategories:
+        animals:
+          domestic: ["🐶", "🐱", "🐭", "🐹", "🐰"]
+          wild: ["🦊", "🐻", "🐼", "🐨", "🐯"]
+          usage_context: "🏠 pets, 🌲 wildlife"
+          fun_facts:
+            - "🐶 Dogs are loyal companions"
+            - "🐱 Cats sleep 12-16 hours daily"
+            - "🐼 Pandas eat 26-84 lbs of bamboo daily"
+            
+        plants:
+          flowers: ["🌷", "🌸", "🌹", "🌺", "🌻"]
+          trees: ["🌱", "🌲", "🌳", "🌴", "🌵"]
+          usage_context: "🌺 beauty, 🌱 growth"
+          seasonal_guide:
+            spring: "🌸 Cherry blossoms bloom"
+            summer: "🌻 Sunflowers shine bright"
+            autumn: "🍂 Leaves change colors"
+            winter: "🌲 Evergreens stay strong"
+
+# 📊 Test Scenarios with Complex YAML Features
+test_scenarios:
+  - &basic_test
+    id: "test_001"
+    name: "🔍 Basic Emoji Detection"
+    description: "🎯 Test basic emoji detection capabilities"
+    emoji_samples: ["😀", "🚀", "🎯", "📊"]
+    expected_result: "✅ All emojis detected"
+    complexity: "🟢 Low"
+    execution_time: "⚡ Fast"
+    
+  - <<: *basic_test
+    id: "test_002"
+    name: "🌈 Complex Unicode Patterns"
+    description: "🧪 Test complex unicode emoji patterns"
+    emoji_samples: ["👨‍💻", "👩‍🚀", "🏳️‍🌈", "👨‍👩‍👧‍👦"]
+    expected_result: "✅ Complex patterns handled"
+    complexity: "🟡 Medium"
+    execution_time: "⏱️ Moderate"
+    
+  - id: "test_003"
+    name: "🎪 Mixed Content Processing"
+    description: |
+      🔄 Test mixed emoji and text content processing
+      
+      Sample content includes:
+      - Regular text with 🧪 emojis
+      - Multi-line strings with 🎯 various patterns
+      - Special characters: !@#$%^&*()
+      - Numbers: 123456789
+      - Emoji sequences: 🚀✨🎉📊🔥💎⭐🌟
+    content_sample: "Hello 👋 World 🌍! This is a 🧪 test with 🎯 emojis everywhere! 🚀✨🎉"
+    expected_result: "✅ Clean text extraction"
+    complexity: "🔴 High"
+    execution_time: "🐢 Slow"
+    
+    # 🎯 Advanced test configuration
+    advanced_config:
+      preserve_whitespace: true
+      handle_unicode_variants: true
+      detect_emoji_modifiers: true
+      process_skin_tones: true
+      emoji_modifiers:
+        - "🏻 Light skin tone"
+        - "🏼 Medium-light skin tone"
+        - "🏽 Medium skin tone"
+        - "🏾 Medium-dark skin tone"
+        - "🏿 Dark skin tone"
+
+# 🎮 Interactive Features with YAML Anchors and References
+interactive_features: &ui_base
+  🎯: "User Interface Components"
+  ui_components:
+    - type: "button"
+      label: "🚀 Start Processing"
+      emoji_state: "⏳ → 🏃‍♂️ → ✅"
+      actions:
+        - "🔄 Initialize"
+        - "⚡ Process"
+        - "📊 Complete"
+      styling:
+        primary_color: "🔵 Blue"
+        hover_effect: "✨ Sparkle"
+        disabled_state: "🚫 Greyed out"
+        
+    - type: "progress_bar"
+      emoji_indicators: ["⏳", "🔄", "📊", "✅"]
+      milestones:
+        0%: "⏳ Starting"
+        25%: "🔄 Processing"
+        50%: "📊 Analyzing"
+        75%: "🎯 Finalizing"
+        100%: "✅ Complete"
+      animation:
+        type: "🌊 Wave"
+        speed: "⚡ Fast"
+        direction: "➡️ Left to Right"
+
+# 📊 Multi-document YAML separator
+---
+document_two:
+  title: "📊 Statistical Analysis Document"
+  
+  # 📈 Usage statistics with complex nested structures
+  statistics:
+    📈: "Usage Metrics"
+    usage_metrics:
+      most_common_emojis:
+        - rank: 1
+          emoji: "😀"
+          usage: "1,234 uses"
+          context: "🎉 Celebrations"
+          
+        - rank: 2
+          emoji: "🚀"
+          usage: "987 uses"
+          context: "🎯 Projects"
+          
+        - rank: 3
+          emoji: "🎯"
+          usage: "876 uses"
+          context: "📊 Goals"
+          
+      category_distribution:
+        faces:
+          percentage: 40
+          emoji_indicator: "😊"
+          description: "Emotional expressions"
+          
+        objects:
+          percentage: 25
+          emoji_indicator: "📱"
+          description: "Technological items"
+          
+        nature:
+          percentage: 20
+          emoji_indicator: "🌸"
+          description: "Natural elements"
+          
+        symbols:
+          percentage: 15
+          emoji_indicator: "🎯"
+          description: "Abstract symbols"
+
+  # 🎪 Complex data structures with emojis
+  processing_performance:
+    metrics:
+      average_time:
+        value: 2.34
+        unit: "seconds"
+        emoji: "⏱️"
+        status: "🟢 Good"
+        
+      success_rate:
+        value: 97.8
+        unit: "percentage"
+        emoji: "✅"
+        status: "🟢 Excellent"
+        
+      error_rate:
+        value: 2.2
+        unit: "percentage"
+        emoji: "❌"
+        status: "🟡 Acceptable"
+        
+      throughput:
+        value: 1000
+        unit: "emojis/second"
+        emoji: "🚀"
+        status: "🟢 High"
+
+# 📱 System Configuration with Environment-specific Settings
+---
+system_config:
+  🎛️: "Processing Settings"
+  environments:
+    development:
+      emoji_theme: "🧪 Testing"
+      log_emojis:
+        debug: "🐛"
+        info: "ℹ️"
+        warning: "⚠️"
+        error: "❌"
+        success: "✅"
+      features:
+        - name: "🔍 Debug Mode"
+          enabled: true
+        - name: "🎪 Experimental"
+          enabled: true
+        - name: "⚡ Performance Monitoring"
+          enabled: false
+          
+    production:
+      emoji_theme: "🚀 Professional"
+      log_emojis:
+        info: "ℹ️"
+        warning: "⚠️"
+        error: "🚨"
+        success: "✅"
+      features:
+        - name: "🔍 Debug Mode"
+          enabled: false
+        - name: "🎪 Experimental"
+          enabled: false
+        - name: "⚡ Performance Monitoring"
+          enabled: true
+        - name: "📊 Analytics"
+          enabled: true
+
+  🛡️: "Security Settings"
+  security:
+    enable_validation: true
+    strict_mode: false
+    allowed_patterns:
+      - "😀-😿 # Face emojis"
+      - "🚀-🛿 # Object emojis"
+      - "⚠️-⚡ # Symbol emojis"
+    blocked_categories: []
+    
+    audit_log:
+      enabled: true
+      format: "📋 JSON"
+      rotation: "📅 Daily"
+      retention: "📆 30 days"
+      emoji_markers:
+        start_session: "🔵"
+        end_session: "🔴"
+        user_action: "👤"
+        system_event: "⚙️"
+
+# 🌍 Internationalization with Complex Language Support
+i18n:
+  🗣️: "Language Support"
+  supported_languages:
+    en:
+      name: "🇺🇸 English"
+      direction: "ltr"
+      emoji_context: "Primary language with 🎯 full support"
+      status: "✅ Complete"
+      sample_phrases:
+        greeting: "Hello! 👋"
+        farewell: "Goodbye! 👋"
+        thanks: "Thank you! 🙏"
+        
+    th:
+      name: "🇹🇭 Thai"
+      direction: "ltr"
+      emoji_context: "ภาษาไทยพร้อม 🎪 emoji support"
+      status: "✅ Complete"
+      sample_phrases:
+        greeting: "สวัสดี! 🙏"
+        farewell: "ลาก่อน! 👋"
+        thanks: "ขอบคุณ! 🙏"
+        
+    ja:
+      name: "🇯🇵 Japanese"
+      direction: "ltr"
+      emoji_context: "日本語 with 🎌 native emoji"
+      status: "🔄 In Progress"
+      sample_phrases:
+        greeting: "こんにちは！ 👋"
+        farewell: "さようなら！ 👋"
+        thanks: "ありがとう！ 🙏"
+
+  🎭: "Cultural Variations"
+  cultural_adaptations:
+    western:
+      common_emojis: ["😀", "👍", "❤️", "🎉"]
+      context: "🇺🇸 Western expressions"
+      holidays:
+        christmas: "🎄 Christmas"
+        halloween: "🎃 Halloween"
+        valentine: "💕 Valentine's Day"
+        
+    asian:
+      common_emojis: ["😊", "🙏", "🎎", "🍱"]
+      context: "🇯🇵 Asian cultural elements"
+      holidays:
+        lunar_new_year: "🧧 Lunar New Year"
+        cherry_blossom: "🌸 Sakura Season"
+        moon_festival: "🌕 Mid-Autumn Festival"
+
+# 🚀 Performance & Optimization
+---
+performance:
+  ⚡: "Speed Enhancements"
+  optimizations:
+    - technique: "🧠 Smart Caching"
+      description: |
+        Cache frequently used 🎯 emoji patterns for faster lookup
+        
+        Benefits:
+        • 📈 40% faster processing
+        • 💾 Reduced memory usage  
+        • ⚡ Instant pattern matching
+      impact: "📈 40% faster processing"
+      implementation:
+        cache_size: 1000
+        eviction_policy: "🔄 LRU"
+        persistence: "💾 Redis"
+        
+    - technique: "🔄 Batch Processing"
+      description: "Process multiple files 📊 simultaneously using worker pools"
+      impact: "⚡ 60% throughput improvement"
+      configuration:
+        worker_count: 4
+        batch_size: 100
+        queue_size: 1000
+        timeout: "⏱️ 30s"
+        
+    - technique: "🎯 Pattern Optimization"
+      description: "Optimize regex patterns for 🚀 speed using compiled expressions"
+      impact: "📊 25% CPU reduction"
+      patterns:
+        - name: "face_emojis"
+          regex: "[\U0001F600-\U0001F64F]"
+          compiled: true
+          emoji_example: "😀"
+          
+        - name: "object_emojis"
+          regex: "[\U0001F680-\U0001F6FF]"
+          compiled: true
+          emoji_example: "🚀"
+
+  📊: "Benchmarks"
+  benchmark_results:
+    small_files:
+      size_range: "< 1KB"
+      processing_time: "⚡ 0.1s"
+      emoji_detection_rate: "✅ 99.9%"
+      memory_usage: "📊 Minimal"
+      emoji_throughput: "🚀 10,000/sec"
+      
+    medium_files:
+      size_range: "1KB - 100KB"
+      processing_time: "🔄 1.5s"
+      emoji_detection_rate: "✅ 99.7%"
+      memory_usage: "📊 Low"
+      emoji_throughput: "⚡ 5,000/sec"
+      
+    large_files:
+      size_range: "> 100KB"
+      processing_time: "⏱️ 5.2s"
+      emoji_detection_rate: "✅ 99.5%"
+      memory_usage: "📊 Moderate"
+      emoji_throughput: "🔄 2,000/sec"
+
+# 🔮 Future Development Roadmap
+roadmap:
+  🎯: "Planned Features"
+  upcoming_releases:
+    v2.1.0:
+      release_date: "📅 Q2 2025"
+      priority: "🔥 High"
+      features:
+        ai_powered:
+          name: "🧠 AI-powered emoji context analysis"
+          description: |
+            Use machine learning to understand emoji context and meaning
+            
+            Capabilities:
+            • 🎯 Context-aware emoji suggestions
+            • 📊 Sentiment analysis with emojis
+            • 🧠 Smart emoji replacement
+          status: "🔄 In Development"
+          
+        multilingual:
+          name: "🌍 Enhanced multilingual support"
+          description: "Support for 50+ languages with cultural emoji variations"
+          status: "📋 Planned"
+          
+        mobile:
+          name: "📱 Mobile app integration"
+          description: "Native mobile SDK for iOS and Android"
+          status: "🎯 Research Phase"
+
+    v2.2.0:
+      release_date: "📅 Q3 2025"
+      priority: "⭐ Medium"
+      features:
+        automation:
+          name: "🤖 Automated emoji suggestions"
+          description: "AI-driven emoji recommendations based on text analysis"
+          
+        analytics:
+          name: "📊 Advanced analytics dashboard"
+          description: "Real-time emoji usage analytics with beautiful charts"
+          
+        integrations:
+          name: "🔗 API integrations"
+          description: "Connect with popular platforms and services"
+
+# 🎪 Final section with file metadata
+---
+file_metadata:
+  end_marker: "🎪 End of YAML Test File"
+  total_emojis: "200+ 🎯"
+  complexity_level: "🔥 Advanced"
+  yaml_features_used:
+    - "📝 Multi-document structure"
+    - "🔗 Anchors and references"
+    - "📊 Complex nested data"
+    - "🎯 Emoji keys and values"
+    - "📋 Multi-line strings"
+    - "🔄 Array and object combinations"
+  test_coverage: "✅ Comprehensive"
+  validation_status: "🧪 Ready for emoji testing"
+  last_updated: "📅 2025-01-20"
+  author: "👨‍💻 Chahuadev Team"
+  purpose: "🧹 Advanced YAML emoji cleaner testing with 📊 complex structures"

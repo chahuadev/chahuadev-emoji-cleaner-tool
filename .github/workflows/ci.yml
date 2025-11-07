@@ -1,0 +1,291 @@
+# GitHub Actions CI/CD Pipeline for Chahuadev Emoji Cleaner
+# โครงสร้างการทดสอบอัตโนมัติสำหรับเครื่องมือลบอิโมจิ
+
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop, release/* ]
+  pull_request:
+    branches: [ main, develop ]
+  schedule:
+    # Run daily at 3 AM UTC to catch dependency issues
+    - cron: '0 3 * * *'
+
+# Environment variables
+env:
+  NODE_VERSION_MATRIX: '[22]'
+  ARTIFACT_RETENTION_DAYS: 30
+
+jobs:
+  # ══════════════════════════════════════════════════════════════════════
+  # Job 1: Code Quality & Security Checks
+  # ตรวจสอบคุณภาพโค้ดและความปลอดภัย
+  # ══════════════════════════════════════════════════════════════════════
+  code-quality:
+    name: Code Quality & Security
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # Full history for better analysis
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22'
+    
+    - name: Verify Package Structure
+      run: |
+        echo "Checking package.json..."
+        node -e "console.log('Package:', require('./package.json').name, require('./package.json').version)"
+
+    - name: Test CLI Tool
+      run: |
+        echo "Testing CLI functionality..."
+        node emoji-cleaner.js --version
+        node emoji-cleaner.js --help
+    
+    - name: License Check
+      run: |
+        if [ -f LICENSE ]; then
+          echo "LICENSE file exists"
+          head -5 LICENSE
+        else
+          echo "LICENSE file missing"
+          exit 1
+        fi
+
+  # ══════════════════════════════════════════════════════════════════════
+  # Job 2: Multi-Node Version Testing
+  # ทดสอบบน Node.js หลายเวอร์ชัน
+  # ══════════════════════════════════════════════════════════════════════
+  test:
+    name: Test Suite (Node ${{ matrix.node-version }})
+    runs-on: ${{ matrix.os }}
+    needs: code-quality
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        node-version: [22]
+        exclude:
+          # Skip some combinations to reduce CI time
+          - os: macos-latest
+            node-version: 22
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+    
+    - name: Setup Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+    
+    
+    - name: Test CLI Functionality
+      run: |
+        # Test CLI installation and basic functionality
+        node emoji-cleaner.js --help
+        node emoji-cleaner.js --version
+      shell: bash
+    
+    - name: Test Emoji Detection
+      run: |
+        echo "Testing entire test directory with all file types..."
+        node emoji-cleaner.js test/ --dry-run --verbose
+        
+        echo "Test completed - Check results above for emoji detection in all test files"
+      shell: bash
+    
+    # Test completed successfully
+
+  # ══════════════════════════════════════════════════════════════════════
+  # Job 3: Integration Tests
+  # การทดสอบการรวมระบบ
+  # ══════════════════════════════════════════════════════════════════════
+  integration-test:
+    name: Integration Tests
+    runs-on: ubuntu-latest
+    needs: [code-quality, test]
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22'
+    
+    
+    - name: Test CLI Integration
+      run: |
+        # Test CLI directly without npm
+        echo "Testing CLI integration..."
+        node emoji-cleaner.js --help
+        node emoji-cleaner.js --version
+        echo "CLI integration test completed"
+    
+    - name: Test with Real Test Files
+      run: |
+        echo "Testing comprehensive emoji detection with real test files..."
+        
+        # Test entire test directory
+        node emoji-cleaner.js test/ --dry-run --verbose
+        
+        # Test specific file types from test directory
+        echo "Testing JavaScript files..."
+        node emoji-cleaner.js test/advanced-javascript.js --dry-run
+        
+        echo "Testing TypeScript files..."
+        node emoji-cleaner.js test/advanced-typescript.ts --dry-run
+        
+        echo "Testing HTML files..."
+        node emoji-cleaner.js test/advanced-html.html --dry-run
+        
+        echo "Testing configuration files..."
+        node emoji-cleaner.js test/advanced-config.json --dry-run
+    
+    - name: Test Complete
+      run: |
+        echo "All emoji detection tests completed successfully!"
+
+  # ══════════════════════════════════════════════════════════════════════
+  # Job 4: Performance Benchmarks
+  # การทดสอบประสิทธิภาพ
+  # ══════════════════════════════════════════════════════════════════════
+  performance:
+    name: Performance Benchmarks
+    runs-on: ubuntu-latest
+    needs: [test]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22'
+    
+    
+    - name: Run Performance Tests
+      run: |
+        # Create large test files for performance testing
+        mkdir -p perf-test
+        for i in {1..100}; do
+          cat > perf-test/large-file-$i.js << EOF
+        // File $i with emojis 🔥🚀✨
+        function performanceTest$i() {
+            console.log("Testing performance 📊");
+            return "Result 🎯: Success ✅";
+        }
+        
+        /* Multi-line comment with emojis
+         * This is a test 🧪
+         * Performance matters ⚡
+         */
+        async function asyncTest$i() {
+            console.log("Async test 🔄");
+            await new Promise(resolve => setTimeout(resolve, 1));
+            return "Done ✅";
+        }
+        EOF
+        done
+        
+        # Measure execution time
+        echo "Starting performance test..."
+        time node emoji-cleaner.js perf-test/ --dry-run
+        
+        # Cleanup
+        rm -rf perf-test/
+
+  # ══════════════════════════════════════════════════════════════════════
+  # Job 5: Release Preparation
+  # การเตรียมการปล่อยเวอร์ชัน
+  # ══════════════════════════════════════════════════════════════════════
+  release-check:
+    name: Release Readiness Check
+    runs-on: ubuntu-latest
+    needs: [code-quality, test, integration-test]
+    if: startsWith(github.ref, 'refs/tags/v') || github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22'
+        registry-url: 'https://registry.npmjs.org'
+    
+    
+    - name: Validate Package
+      run: |
+        echo "Validating package structure..."
+        node -e "console.log('Package valid:', require('./package.json').name)"
+        echo "Package validation completed"
+    
+    - name: Check Version Consistency
+      run: |
+        PACKAGE_VERSION=$(node -p "require('./package.json').version")
+        echo "Package version: $PACKAGE_VERSION"
+        
+        if [ -f README.md ]; then
+          if grep -q "$PACKAGE_VERSION" README.md; then
+            echo "✅ Version found in README.md"
+          else
+            echo "⚠️ Version not found in README.md"
+          fi
+        fi
+    
+    - name: Generate Release Notes
+      if: startsWith(github.ref, 'refs/tags/v')
+      run: |
+        echo "## Release Notes for ${{ github.ref_name }}" > release-notes.md
+        echo "" >> release-notes.md
+        echo "### Changes in this release:" >> release-notes.md
+        git log --oneline --since="1 week ago" >> release-notes.md
+    
+    # Release artifacts ready (no upload needed for CLI tools)
+
+# ══════════════════════════════════════════════════════════════════════
+# Workflow Status Notifications
+# การแจ้งเตือนสถานะ workflow
+# ══════════════════════════════════════════════════════════════════════
+  notify:
+    name: Workflow Notification
+    runs-on: ubuntu-latest
+    needs: [code-quality, test, integration-test]
+    if: always()
+    
+    steps:
+    - name: Workflow Status Summary
+      run: |
+        echo "## 📊 CI/CD Pipeline Summary"
+        echo "- Code Quality: ${{ needs.code-quality.result }}"
+        echo "- Tests: ${{ needs.test.result }}"
+        echo "- Integration: ${{ needs.integration-test.result }}"
+        
+        if [[ "${{ needs.code-quality.result }}" == "success" && "${{ needs.test.result }}" == "success" && "${{ needs.integration-test.result }}" == "success" ]]; then
+          echo "✅ All checks passed! Ready for deployment."
+          echo "BUILD_STATUS=success" >> $GITHUB_ENV
+        else
+          echo "❌ Some checks failed. Please review the logs."
+          echo "BUILD_STATUS=failure" >> $GITHUB_ENV
+        fi
+    
+    - name: Set Status Badge
+      run: |
+        if [ "$BUILD_STATUS" == "success" ]; then
+          echo "🎉 Build successful - all systems green!"
+        else
+          echo "🚨 Build failed - attention required!"
+        fi

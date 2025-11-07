@@ -1,0 +1,455 @@
+{
+  "file_type": "🎯 Advanced JSON Test File for Chahuadev Emoji Cleaner Tool",
+  "description": "📝 Comprehensive JSON patterns with extensive emoji usage for testing",
+  "features": "🎪 Features: Complex nested structures, arrays, emoji keys and values", 
+  "purpose": "🧪 Perfect for testing emoji removal from JSON files",
+  
+  "metadata": {
+    "📊": "Project Information",
+    "name": "🧪 Emoji Testing Suite",
+    "version": "2.0.0",
+    "description": "🚀 Advanced test suite for emoji cleaning capabilities with 🎯 comprehensive coverage",
+    "author": "👨‍💻 Chahuadev Development Team",
+    "created": "2025-01-20",
+    "emoji_count": "200+",
+    "complexity": "🔥 High",
+    "tags": ["🧪 testing", "🧹 cleaning", "📊 validation", "🎯 comprehensive"]
+  },
+  
+  "🎨": "Configuration Settings",
+  "configuration": {
+    "🔧": "Core Settings",
+    "core": {
+      "enable_emoji_processing": true,
+      "emoji_detection_mode": "🔍 comprehensive",
+      "processing_strategy": "🧠 intelligent",
+      "output_format": "📋 detailed",
+      "log_level": "🐛 debug",
+      "performance_mode": "⚡ optimized"
+    },
+    
+    "🎯": "Emoji Categories",
+    "emoji_categories": {
+      "faces": {
+        "description": "😀 Facial expressions and emotions",
+        "subcategories": {
+          "happy": {
+            "emojis": ["😀", "😁", "😂", "🤣", "😃", "😄", "😅", "😆", "😊", "😇"],
+            "count": 10,
+            "usage": "🎉 celebration, ✨ positive feedback"
+          },
+          "sad": {
+            "emojis": ["😢", "😭", "😞", "😔", "😟", "😕", "🙁", "☹️", "😣", "😖"],
+            "count": 10,
+            "usage": "💧 disappointment, 😰 concern"
+          },
+          "love": {
+            "emojis": ["😍", "🥰", "😘", "😗", "😙", "😚", "💕", "💖", "💗", "💘"],
+            "count": 10,
+            "usage": "💖 affection, 🌹 romance"
+          },
+          "angry": {
+            "emojis": ["😠", "😡", "🤬", "👿", "💢", "😤", "😾", "🙄", "😒", "🗯️"],
+            "count": 10,
+            "usage": "🔥 frustration, ⚡ intensity"
+          }
+        }
+      },
+      
+      "🌿": "Nature and Animals",
+      "nature": {
+        "description": "🌱 Natural world including animals and plants",
+        "subcategories": {
+          "animals": {
+            "domestic": ["🐶", "🐱", "🐭", "🐹", "🐰"],
+            "wild": ["🦊", "🐻", "🐼", "🐨", "🐯"],
+            "usage_context": "🏠 pets, 🌲 wildlife"
+          },
+          "plants": {
+            "flowers": ["🌷", "🌸", "🌹", "🌺", "🌻"],
+            "trees": ["🌱", "🌲", "🌳", "🌴", "🌵"],
+            "usage_context": "🌺 beauty, 🌱 growth"
+          },
+          "weather": {
+            "sunny": ["☀️", "🌤️", "🌞"],
+            "cloudy": ["⛅", "☁️", "🌥️"],
+            "stormy": ["⛈️", "🌩️", "🌨️"],
+            "cold": ["❄️", "⛄", "🧊"],
+            "usage_context": "🌤️ mood, 📅 daily status"
+          }
+        }
+      },
+      
+      "🔧": "Objects and Technology",
+      "objects": {
+        "description": "💻 Technological and everyday objects",
+        "subcategories": {
+          "technology": {
+            "computers": ["💻", "🖥️", "📱", "⌨️", "🖨️"],
+            "communication": ["📺", "📷", "📹", "🎥", "📞"],
+            "usage_scenarios": ["💼 work", "🎮 entertainment", "📚 education"]
+          },
+          "tools": {
+            "construction": ["🔧", "🔨", "⚒️", "🛠️", "⛏️"],
+            "mechanical": ["🔩", "⚙️", "🧰", "🗜️"],
+            "usage_scenarios": ["🏗️ building", "🔧 repair", "⚙️ maintenance"]
+          },
+          "transport": {
+            "cars": ["🚗", "🚕", "🚙", "🏎️"],
+            "public": ["🚌", "🚎", "🚓", "🚑", "🚒"],
+            "special": ["🚐", "🚛", "🏍️"],
+            "usage_scenarios": ["🛣️ travel", "🚨 emergency", "📦 delivery"]
+          }
+        }
+      },
+      
+      "🎯": "Symbols and Indicators",
+      "symbols": {
+        "description": "🔣 Symbolic representations and indicators",
+        "subcategories": {
+          "arrows": {
+            "directional": ["⬆️", "⬇️", "⬅️", "➡️"],
+            "diagonal": ["↗️", "↘️", "↙️", "↖️"],
+            "bidirectional": ["↕️", "↔️", "🔄", "🔁"],
+            "usage_context": "🧭 navigation, 📊 flow"
+          },
+          "shapes": {
+            "circles": ["🔴", "🟠", "🟡", "🟢", "🔵", "🟣"],
+            "squares": ["⬛", "⬜", "🟤", "🟨", "🟪"],
+            "diamonds": ["🔶", "🔷", "🔸", "🔹"],
+            "usage_context": "🎨 design, 📊 status"
+          },
+          "numbers": {
+            "digits": ["0️⃣", "1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣", "9️⃣"],
+            "usage_context": "📊 ranking, 🎯 counting"
+          }
+        }
+      }
+    }
+  },
+  
+  "test_scenarios_section": "🧪 Test Scenarios",
+  "test_scenarios": [
+    {
+      "id": "test_001",
+      "name": "🔍 Basic Emoji Detection",
+      "description": "🎯 Test basic emoji detection capabilities",
+      "emoji_samples": ["😀", "🚀", "🎯", "📊"],
+      "expected_result": "✅ All emojis detected",
+      "complexity": "🟢 Low",
+      "execution_time": "⚡ Fast"
+    },
+    {
+      "id": "test_002", 
+      "name": "🌈 Complex Unicode Patterns",
+      "description": "🧪 Test complex unicode emoji patterns",
+      "emoji_samples": ["👨‍💻", "👩‍🚀", "🏳️‍🌈", "👨‍👩‍👧‍👦"],
+      "expected_result": "✅ Complex patterns handled",
+      "complexity": "🟡 Medium",
+      "execution_time": "⏱️ Moderate"
+    },
+    {
+      "id": "test_003",
+      "name": "🎪 Mixed Content Processing", 
+      "description": "🔄 Test mixed emoji and text content",
+      "content_sample": "Hello 👋 World 🌍! This is a 🧪 test with 🎯 emojis everywhere! 🚀✨🎉",
+      "expected_result": "✅ Clean text extraction",
+      "complexity": "🔴 High",
+      "execution_time": "🐢 Slow"
+    }
+  ],
+  
+  "📊": "Statistical Data",
+  "statistics": {
+    "📈": "Usage Metrics",
+    "usage_metrics": {
+      "most_common_emojis": {
+        "rank_1": "😀 (1,234 uses)",
+        "rank_2": "🚀 (987 uses)", 
+        "rank_3": "🎯 (876 uses)",
+        "rank_4": "✅ (654 uses)",
+        "rank_5": "📊 (543 uses)"
+      },
+      "category_distribution": {
+        "faces": "40% 😊",
+        "objects": "25% 📱",
+        "nature": "20% 🌸",
+        "symbols": "15% 🎯"
+      },
+      "processing_performance": {
+        "average_time": "⏱️ 2.34s",
+        "success_rate": "✅ 97.8%",
+        "error_rate": "❌ 2.2%",
+        "throughput": "🚀 1,000 emojis/second"
+      }
+    }
+  },
+  
+  "🎮": "Interactive Features",
+  "interactive_features": {
+    "🎯": "User Interface Components",
+    "ui_components": [
+      {
+        "type": "button",
+        "label": "🚀 Start Processing",
+        "emoji_state": "⏳ → 🏃‍♂️ → ✅",
+        "actions": ["🔄 Initialize", "⚡ Process", "📊 Complete"]
+      },
+      {
+        "type": "progress_bar",
+        "emoji_indicators": ["⏳", "🔄", "📊", "✅"],
+        "milestones": {
+          "0%": "⏳ Starting",
+          "25%": "🔄 Processing", 
+          "50%": "📊 Analyzing",
+          "75%": "🎯 Finalizing",
+          "100%": "✅ Complete"
+        }
+      },
+      {
+        "type": "status_panel",
+        "states": {
+          "idle": "😴 Ready to start",
+          "processing": "🏃‍♂️ Working hard",
+          "success": "🎉 All done!",
+          "error": "😰 Something went wrong",
+          "warning": "⚠️ Check this out"
+        }
+      }
+    ]
+  },
+  
+  "🔧": "System Configuration",
+  "system_config": {
+    "🎛️": "Processing Settings",
+    "processing": {
+      "batch_size": 100,
+      "timeout_seconds": 30,
+      "retry_count": 3,
+      "parallel_workers": 4,
+      "memory_limit_mb": 512,
+      "status_indicators": {
+        "queue_full": "🚦 Traffic control needed",
+        "processing": "🔄 Work in progress", 
+        "idle": "😴 Waiting for work",
+        "overload": "🚨 System stressed"
+      }
+    },
+    
+    "🛡️": "Security Settings",
+    "security": {
+      "enable_validation": true,
+      "strict_mode": false,
+      "allowed_patterns": ["😀-😿", "🚀-🛿", "⚠️-⚡"],
+      "blocked_categories": [],
+      "audit_log": {
+        "enabled": true,
+        "format": "📋 JSON",
+        "rotation": "📅 Daily",
+        "retention": "📆 30 days"
+      }
+    },
+    
+    "📁": "File Handling",
+    "file_handling": {
+      "supported_formats": [
+        {
+          "extension": ".txt",
+          "emoji_support": "✅ Full",
+          "processing_mode": "🔤 Text"
+        },
+        {
+          "extension": ".json", 
+          "emoji_support": "✅ Full",
+          "processing_mode": "📋 Structured"
+        },
+        {
+          "extension": ".html",
+          "emoji_support": "✅ Full", 
+          "processing_mode": "🌐 Markup"
+        },
+        {
+          "extension": ".css",
+          "emoji_support": "⚠️ Limited",
+          "processing_mode": "🎨 Styles"
+        }
+      ],
+      "output_options": {
+        "preserve_structure": true,
+        "add_markers": false,
+        "generate_report": true,
+        "report_format": "📊 Detailed with 📈 charts"
+      }
+    }
+  },
+  
+  "🌍": "Internationalization",
+  "i18n": {
+    "🗣️": "Language Support",
+    "supported_languages": {
+      "en": {
+        "name": "🇺🇸 English",
+        "emoji_context": "Primary language with 🎯 full support",
+        "status": "✅ Complete"
+      },
+      "th": {
+        "name": "🇹🇭 Thai", 
+        "emoji_context": "ภาษาไทยพร้อม 🎪 emoji support",
+        "status": "✅ Complete"
+      },
+      "ja": {
+        "name": "🇯🇵 Japanese",
+        "emoji_context": "日本語 with 🎌 native emoji",
+        "status": "🔄 In Progress"
+      },
+      "zh": {
+        "name": "🇨🇳 Chinese",
+        "emoji_context": "中文 with 🐉 traditional symbols", 
+        "status": "⏳ Planned"
+      }
+    },
+    
+    "🎭": "Cultural Variations",
+    "cultural_adaptations": {
+      "western": {
+        "common_emojis": ["😀", "👍", "❤️", "🎉"],
+        "context": "🇺🇸 Western expressions"
+      },
+      "asian": {
+        "common_emojis": ["😊", "🙏", "🎎", "🍱"],
+        "context": "🇯🇵 Asian cultural elements"
+      },
+      "universal": {
+        "common_emojis": ["🌍", "🚀", "⭐", "💡"],
+        "context": "🌐 Global symbols"
+      }
+    }
+  },
+  
+  "🧠": "Advanced Analytics",
+  "analytics": {
+    "📊": "Data Insights",
+    "patterns": {
+      "temporal_usage": {
+        "morning": {
+          "peak_emojis": ["☀️", "☕", "🌅"],
+          "usage_rate": "📈 High"
+        },
+        "afternoon": {
+          "peak_emojis": ["🍽️", "💼", "📊"],
+          "usage_rate": "📊 Moderate"
+        },
+        "evening": {
+          "peak_emojis": ["🌙", "🍕", "📺"],
+          "usage_rate": "📉 Declining"
+        },
+        "night": {
+          "peak_emojis": ["😴", "🌙", "⭐"],
+          "usage_rate": "📉 Low"
+        }
+      },
+      
+      "🎯": "Context Analysis",
+      "context_mapping": {
+        "professional": {
+          "appropriate": ["📊", "💼", "📈", "🎯", "⚡"],
+          "avoid": ["🎉", "😂", "🍕", "🎪"],
+          "context_score": "⭐⭐⭐⭐⭐"
+        },
+        "casual": {
+          "appropriate": ["😊", "🎉", "🤗", "✨", "🌟"],
+          "context_score": "⭐⭐⭐⭐"
+        },
+        "formal": {
+          "appropriate": ["ℹ️", "✅", "⚠️", "📋"],
+          "avoid": ["😂", "🎪", "🎉", "😜"],
+          "context_score": "⭐⭐⭐⭐⭐"
+        }
+      }
+    }
+  },
+  
+  "🚀": "Performance Optimization",
+  "performance": {
+    "⚡": "Speed Enhancements",
+    "optimizations": [
+      {
+        "technique": "🧠 Smart Caching",
+        "description": "Cache frequently used 🎯 emoji patterns",
+        "impact": "📈 40% faster processing"
+      },
+      {
+        "technique": "🔄 Batch Processing", 
+        "description": "Process multiple files 📊 simultaneously",
+        "impact": "⚡ 60% throughput improvement"
+      },
+      {
+        "technique": "🎯 Pattern Optimization",
+        "description": "Optimize regex patterns for 🚀 speed",
+        "impact": "📊 25% CPU reduction"
+      }
+    ],
+    
+    "📊": "Benchmarks",
+    "benchmark_results": {
+      "small_files": {
+        "size_range": "< 1KB",
+        "processing_time": "⚡ 0.1s",
+        "emoji_detection_rate": "✅ 99.9%",
+        "memory_usage": "📊 Minimal"
+      },
+      "medium_files": {
+        "size_range": "1KB - 100KB", 
+        "processing_time": "🔄 1.5s",
+        "emoji_detection_rate": "✅ 99.7%",
+        "memory_usage": "📊 Low"
+      },
+      "large_files": {
+        "size_range": "> 100KB",
+        "processing_time": "⏱️ 5.2s", 
+        "emoji_detection_rate": "✅ 99.5%",
+        "memory_usage": "📊 Moderate"
+      }
+    }
+  },
+  
+  "🔮": "Future Enhancements",
+  "roadmap": {
+    "🎯": "Planned Features",
+    "upcoming_features": [
+      {
+        "version": "2.1.0",
+        "features": [
+          "🧠 AI-powered emoji context analysis",
+          "🌍 Enhanced multilingual support", 
+          "📱 Mobile app integration",
+          "🎨 Custom emoji pattern creation"
+        ],
+        "release_date": "📅 Q2 2025",
+        "priority": "🔥 High"
+      },
+      {
+        "version": "2.2.0",
+        "features": [
+          "🤖 Automated emoji suggestions",
+          "📊 Advanced analytics dashboard",
+          "🔗 API integrations",
+          "🎪 Plugin system"
+        ],
+        "release_date": "📅 Q3 2025", 
+        "priority": "⭐ Medium"
+      }
+    ]
+  },
+  
+  "end_marker": "🎪 End Marker",
+  "file_info": {
+    "total_emojis": "200+ 🎯",
+    "complexity_level": "🔥 Advanced",
+    "test_coverage": "✅ Comprehensive",
+    "validation_status": "🧪 Ready for testing",
+    "last_updated": "📅 2025-01-20",
+    "author": "👨‍💻 Chahuadev Team",
+    "purpose": "🧹 Emoji cleaner testing with 📊 complex JSON structures"
+  }
+}

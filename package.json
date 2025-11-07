@@ -1,0 +1,63 @@
+{
+  "name": "@chahuadev/emoji-cleaner",
+  "version": "2.5.3",
+  "description": "Universal Emoji Cleaner v2.5.3 - Enhanced Unicode 15.1+ emoji removal tool with Smart File Analysis, supporting 50+ programming languages with intelligent comment cleanup, complex file handling, backup functionality, security features, and professional CI/CD integration",
+  "main": "emoji-cleaner.js",
+  "bin": {
+    "emoji-cleaner": "emoji-cleaner.js",
+    "clean-emojis": "emoji-cleaner.js"
+  },
+  "scripts": {
+    "clean": "node emoji-cleaner.js",
+    "test": "echo 'Running emoji cleaner tests...' && node emoji-cleaner.js --help && echo 'CLI tests passed'",
+    "install-global": "npm install -g .",
+    "uninstall-global": "npm uninstall -g @chahuadev/emoji-cleaner",
+    "prepublishOnly": "npm test"
+  },
+  "keywords": [
+    "emoji",
+    "cleaner",
+    "javascript",
+    "typescript",
+    "html",
+    "automation",
+    "unicode",
+    "cli",
+    "tool",
+    "npm",
+    "package",
+    "file-processing",
+    "chahuadev",
+    "unicode15",
+    "security",
+    "backup",
+    "multilingual",
+    "ci-cd",
+    "professional"
+  ],
+  "author": {
+    "name": "Chahuadev",
+    "email": "chahuadev@gmail.com",
+    "url": "https://chahuadev.com"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "files": [
+    "emoji-cleaner.js",
+    "README.md",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "CODE_OF_CONDUCT.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chahuadev/chahuadev-emoji-cleaner-tool"
+  },
+  "bugs": {
+    "url": "https://github.com/chahuadev/chahuadev-emoji-cleaner-tool/issues"
+  },
+  "homepage": "https://github.com/chahuadev/chahuadev-emoji-cleaner-tool#readme"
+}
