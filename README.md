@@ -1,4 +1,4 @@
-# Universal Emoji Cleaner 
+# Universal Emoji Cleaner  
 
 ---
 
@@ -453,5 +453,6 @@ MIT License - See [LICENSE](LICENSE) for details
 
 **Chahua Development Co., Ltd.** 
 **The Most Secure Emoji Removal Tool**
-#   c h a h u a d e v - e m o j i - c l e a n e r - t o o l  
+#   c h a h u a d e v - e m o j i - c l e a n e r - t o o l 
+ 
  
